@@ -516,6 +516,7 @@
             background: var(--primary);
             color: white;
             text-align: center;
+
         }
 
         .contact-content {
@@ -525,10 +526,10 @@
 
         .contact-methods {
             display: flex;
-            justify-content: center;
             gap: 2rem;
             margin-top: 2rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
        
         
@@ -538,6 +539,7 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
+            min-width: 100px;
             
         }
 
