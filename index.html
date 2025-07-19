@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Sally - Trung Tâm Tiếng Anh Chất Lượng</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">English Sally</a>
+            <ul class="nav-menu">
+                <li><a href="#courses">Khóa Học</a></li>
+                <li><a href="#teacher">Giảng Viên</a></li>
+                <li><a href="#testimonials">Học Viên</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+            <a href="#" class="zalo-btn">
+                <i class="fab fa-zalo"></i>
+                Zalo
+            </a>
+            <button class="mobile-menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu Modal -->
+    <div class="mobile-menu-modal" id="mobileMenuModal">
+        <div class="mobile-menu-header">
+            <span class="logo">English Sally</span>
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="#courses" class="mobile-menu-link">Khóa Học</a>
+            <a href="#teacher" class="mobile-menu-link">Giảng Viên</a>
+            <a href="#testimonials" class="mobile-menu-link">Học Viên</a>
+            <a href="#contact" class="mobile-menu-link">Liên Hệ</a>
+        </div>
+        <a href="#" class="mobile-zalo-btn">
+            <i class="fab fa-zalo"></i>
+            Liên hệ Zalo
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Học Tiếng Anh Hiệu Quả Cùng Sally</h1>
+            <p>Phương pháp giảng dạy cá nhân hóa - Tập trung vào thực hành giao tiếp - Kết quả nhanh chóng</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Đăng Ký Học Thử</a>
+                <a href="#courses" class="btn btn-outline">Xem Khóa Học</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section courses">
+        <div class="container">
+            <h2 class="section-title">Khóa Học Nổi Bật</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Tiếng Anh Văn Phòng</h3>
+                    <p>Chuyên biệt cho nhân viên văn phòng cần giao tiếp và viết email chuyên nghiệp</p>
+                    <ul class="course-features">
+                        <li>Giao tiếp trong môi trường làm việc</li>
+                        <li>Viết email chuyên nghiệp</li>
+                        <li>Thuyết trình và họp nhóm</li>
+                        <li>Từ vựng chuyên ngành</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Tìm Hiểu Thêm</a>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Tiếng Anh Trẻ Em</h3>
+                    <p>Phát triển toàn diện 4 kỹ năng: Nghe - Nói - Đọc - Viết cho trẻ em</p>
+                    <ul class="course-features">
+                        <li>Phương pháp học qua trò chơi</li>
+                        <li>Phát âm chuẩn từ nhỏ</li>
+                        <li>Xây dựng vốn từ vựng cơ bản</li>
+                        <li>Tự tin giao tiếp bằng tiếng Anh</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Tìm Hiểu Thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Section -->
+    <section id="teacher" class="section teacher">
+        <div class="container">
+            <h2 class="section-title">Giảng Viên</h2>
+            <div class="teacher-content">
+                <div class="teacher-image">
+                    <div class="teacher-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+                <div class="teacher-info">
+                    <h3>Cô Lê Thu Anh (Sally)</h3>
+                    <p>Với nhiều năm kinh nghiệm giảng dạy tiếng Anh, cô Sally cam kết mang đến phương pháp học hiệu quả và thú vị nhất cho học viên.</p>
+                    <p>Chuyên môn mạnh về giao tiếp thực tế và ứng dụng tiếng Anh trong công việc hàng ngày.</p>
+                    
+                    <div class="credentials">
+                        <h4>Thành tích nổi bật:</h4>
+                        <p>✓ 200+ học viên đã học tại English Sally</p>
+                        <p>✓ Phương pháp giảng dạy cá nhân hóa</p>
+                        <p>✓ Tập trung vào kỹ năng thực hành</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Học Viên Nói Gì</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Sau 3 tháng học với cô Sally, mình đã tự tin viết email tiếng Anh và giao tiếp với khách hàng nước ngoài. Rất cảm ơn cô!</p>
+                    <p class="testimonial-author">- Anh Minh, Nhân viên IT</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Con mình học rất vui và tiến bộ nhanh. Cô Sally dạy rất tận tình và kiên nhẫn với trẻ em.</p>
+                    <p class="testimonial-author">- Chị Lan, Phụ huynh</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Phương pháp dạy của cô rất thực tế, không chỉ học thuộc lòng mà còn biết cách ứng dụng vào công việc.</p>
+                    <p class="testimonial-author">- Chị Hoa, Kế toán</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title" style="color: white;">Liên Hệ Ngay</h2>
+                <p>Đăng ký học thử miễn phí hoặc tư vấn khóa học phù hợp</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>Điện thoại</span>
+                        <strong>0xxx-xxx-xxx</strong>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-zalo"></i>
+                        <span>Zalo</span>
+                        <strong>0xxx-xxx-xxx</strong>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                        <strong>contact@englishsally.com</strong>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary">Đăng Ký Học Thử Miễn Phí</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 English Sally. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Zalo -->
+    <a href="#" class="floating-zalo" title="Liên hệ Zalo">
+        <i class="fab fa-zalo"></i>
+    </a>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuModal = document.getElementById('mobileMenuModal');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuOverlay.style.display = 'block';
+            mobileMenuModal.style.display = 'block';
+            
+            // Trigger animations
+            setTimeout(() => {
+                mobileMenuOverlay.classList.add('active');
+                mobileMenuModal.classList.add('active');
+            }, 10);
+        });
+
+        // Close mobile menu function
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuModal.classList.remove('active');
+            
+            setTimeout(() => {
+                mobileMenuOverlay.style.display = 'none';
+                mobileMenuModal.style.display = 'none';
+            }, 300);
+        }
+
+        // Close mobile menu events
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking menu links
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#ffffff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
