@@ -450,12 +450,21 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
+            
         }
 
         .contact-item i {
             font-size: 2rem;
             color: var(--secondary);
         }
+        .contact-item i:hover {
+            font-size: 2rem;
+            color: var(--light);
+            transition: color 0.3s, 
+                transform 0.3s;
+            transform: scale(1.2);
+        }
+
 
         /* Footer */
         .footer {
