@@ -388,41 +388,47 @@
         /* Testimonials */
         .testimonials {
             background: white;
+            padding: 3rem 0;
         }
 
         .testimonials-grid {
-             width: 100%;
-            max-width: 100vw;
+            width: 100%;
+            max-width: 200%;
             overflow: hidden;
             position: relative;
             margin: 0 auto;
             /* Xóa grid, chỉ dùng flex cho marquee */
             display: block;
         }
+        .testimonials-marquee-wrapper {
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
         .testimonials-marquee {
             display: flex;
             flex-direction: row;
             gap: 2rem;
-            overflow: hidden;
-            width: 100%;
-            padding: 1rem 0;
-            animation:  marquee 40s linear infinite;
+            width: max-content;
+            animation: marquee-left 40s linear infinite;
+            /* Không cho user kéo ngang */
+            will-change: transform;
         }
 
-        .testimonial-card {
+        .testimonials-marquee .testimonial-card {
             min-width: 300px;
-            max-width: 300px;
+            margin: 0 1rem;
             background: #fff;
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             padding: 1.5rem;
-            margin: 0;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: transform 0.3s;
             position: relative;
+            transition: transform 0.3s;
         }
 
         .testimonial-card:before {
@@ -450,14 +456,15 @@
             text-align: right;
         }
         @media (max-width: 600px) {
-          .testimonial-card {
-            min-width: 80vw;
-            max-width: 80vw;
+            .testimonials-marquee .testimonial-card {
+                min-width: 80vw;
+                max-width: 80vw;
+                padding: 1rem;
             }
         }
-        @keyframes marquee {
+        @keyframes marquee-left {
             0% {
-                transform: translateX(0);
+                transform: translateX(100%);
             }
             100% {
                 transform: translateX(-100%);
