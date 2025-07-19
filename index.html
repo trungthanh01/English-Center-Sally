@@ -132,8 +132,8 @@
     <section id="testimonials" class="section testimonials">
         <div class="container">
             <h2 class="section-title">Học Viên Nói Gì</h2>
-            <div class="testimonials-marquee-wrapper" style="overflow:hidden; position:relative;">
-                <div class="testimonials-marquee" style="display:flex; width:max-content; animation: marquee-right 40s linear infinite;">
+            <div class="testimonials-marquee-wrapper" >
+                <div class="testimonials-marquee">
                     <div class="testimonial-card">
                         <p class="testimonial-text">Sau 3 tháng học với cô Sally, mình đã tự tin viết email tiếng Anh và giao tiếp với khách hàng nước ngoài. Rất cảm ơn cô!</p>
                         <p class="testimonial-author">- Anh Minh, Nhân viên IT</p>
@@ -178,29 +178,7 @@
             </div>
         </div>
     </section>
-    <style>
-    @keyframes marquee-right {
-        0% {
-            transform: translateX(-100%);
-        }
-        100% {
-            transform: translateX(100%);
-        }
-    }
-    .testimonials-marquee .testimonial-card {
-        min-width: 300px;
-        margin: 0 1rem;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        padding: 1rem;
-        flex-shrink: 0;
-    }
-    .testimonials-marquee-wrapper {
-        width: 100%;
-        max-width: 100vw;
-    }
-    </style>
+   
 
     <!-- Contact -->
     <section id="contact" class="section contact">
