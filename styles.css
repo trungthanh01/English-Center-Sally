@@ -18,6 +18,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text);
+            font-family: 'Times New Roman', Times, serif;
         }
 
         /* Header */
@@ -93,6 +94,13 @@
             position: relative;
             z-index: 1001;
         }
+        .mobile-menu i:hover {
+            font-size: 1.5rem;
+            color: var(--light);
+            transition: color 0.3s, 
+                transform 0.3s;
+            transform: scale(1.2);
+        }
 
         /* Mobile modal overlay */
         .mobile-menu-overlay {
@@ -147,6 +155,13 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
+        }
+        .mobile-menu-close i:hover {
+            font-size: 1.5rem;
+            color: var(--light);
+            transition: color 0.3s, 
+                transform 0.3s;
+            transform: scale(1.2);
         }
 
         .mobile-menu-items {
@@ -334,6 +349,7 @@
         }
 
         /* Teacher Section */
+/* ======================================================= */
         .teacher {
             background: var(--light);
         }
@@ -386,78 +402,114 @@
         }
 
         /* Testimonials */
-        .testimonials {
-            background: white;
-            padding: 3rem 0;
-        }
+        /* ======================================================= */
+/* ============= CSS CHO TESTIMONIALS MARQUEE ============= */
+/* ======================================================= */
 
-       
-        .testimonials-marquee-wrapper {
-            width: 100%;
-            max-width: 50vw;
-            overflow: hidden;
-            position: relative;
-        }
-        .testimonials-marquee {
-            will-change: transform;
-            display:flex; 
-            width:max-content; 
-            animation: marquee-right 40s linear infinite;
-        }
+.testimonials {
+    background: #f9f9f9;
+    padding-bottom: 0; /* Xóa padding dưới để marquee sát hơn nếu cần */
+}
 
-        .testimonials-marquee .testimonial-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            transition: transform 0.3s;
-        }
+/* Vùng chứa chính, ẩn đi những phần tử bị tràn ra ngoài */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 3rem 0;
+    /* Hiệu ứng mờ dần ở 2 cạnh để thẻ xuất hiện/biến mất mượt hơn */
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
 
-        .testimonial-card:before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--accent);
-            position: absolute;
-            top: -30px;
-            left: 2px;
-        }
+/* Dải chứa nội dung sẽ chuyển động */
+.marquee-content {
+    display: flex; /* Sắp xếp các card nằm ngang */
+    gap: 2rem; /* Khoảng cách giữa các card */
+    /* Định nghĩa animation */
+    animation: marqueeAnimation 60s linear infinite;
+}
 
-        .testimonial-text {
-            color: var(--gray);
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .testimonial-author {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-            /* color: #1565c0; */
-            font-weight: bold;
-            text-align: right;
-        }
-        @keyframes marquee-right {
-        0% {
-            transform: translateX(-20%);
-        }
-        100% {
-            transform: translateX(20%);
-        }
+/* Định nghĩa chuyển động từ phải qua trái */
+@keyframes marqueeAnimation {
+    from {
+        transform: translateX(0%);
     }
-    .testimonials-marquee .testimonial-card {
-        min-width: 300px;
-        margin: 0 1rem;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-        padding: 1rem;
-        flex-shrink: 0;
+    to {
+        transform: translateX(-300%); /* Di chuyển đúng 1 nửa chiều dài (bộ card gốc) */
     }
-    .testimonials-marquee-wrapper {
-        width: 100%;
-        max-width: 100vw;
+}
+
+/* Tạm dừng animation khi người dùng di chuột vào */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Giữ nguyên style cho từng thẻ feedback */
+.testimonial-card {
+    flex-shrink: 0; /* Ngăn các card bị co lại */
+    width: 350px; /* Đặt chiều rộng cố định cho mỗi card */
+    background: var(--white);
+    border-radius: 16px; /* Bo góc */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Đổ bóng nhẹ */
+    padding: 2.5rem 2rem; /* Thêm padding để nội dung không sát viền */
+    position: relative; /* Để có thể sử dụng ::before cho dấu ngoặc kép */
+    border-top: 5px solid var(--accent);
+    display: flex; /* Sử dụng flexbox để căn chỉnh nội dung bên trong */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-card::before {
+    content: '“';
+    font-family: 'Georgia', serif;
+    font-size: 5rem;
+    color: var(--accent);
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+    line-height: 1;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.testimonial-text {
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    z-index: 2;
+    position: relative;
+}
+
+.testimonial-author {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: right;
+    font-style: normal;
+    z-index: 2;
+    position: relative;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+    .testimonial-card {
+        width: 80vw; /* Trên mobile, card rộng gần bằng màn hình */
     }
+    .marquee-content {
+        animation-duration: 30s; /* Tăng tốc độ di chuyển trên mobile */
+    }
+}
 
         /* Contact */
         .contact {
