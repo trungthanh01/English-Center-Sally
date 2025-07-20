@@ -5,13 +5,13 @@
         }
 
         :root {
-            --primary: #7B4019;
-            --secondary: #FF7D29;
-            --accent: #FFBF78;
-            --light: #FFEEA9;
+            --primary: #4A47A3;      /* Xanh tím đậm - Chuyên nghiệp, tin cậy */
+            --secondary: #EC407A;    /* Hồng Magenta - Nổi bật, năng động */
+            --accent: #F48FB1;       /* Hồng nhạt - Nhẹ nhàng, nhấn nhá */
+            --light: #F5F5F7;        /* Xám rất nhạt - Nền sạch sẽ, dễ chịu */
             --white: #ffffff;
-            --text: #333333;
-            --gray: #666666;
+            --text: #343a40;         /* Đen nhạt - Dịu mắt hơn màu đen tuyền */
+            --gray: #6c757d;
         }
 
         body {
@@ -517,6 +517,13 @@
             color: white;
             text-align: center;
 
+        }
+        .center-address {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .center-address strong {
+            font-size: larger;
         }
 
         .contact-content {
