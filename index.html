@@ -124,34 +124,63 @@
                         <img src="/teacher_img.jpg" alt="Giảng viên Lê Thu Anh" itemprop="image" loading="lazy">
                     </div>
                 </div>
-                <div class="teacher-info">
-                    <h3 itemprop="name">Cô Lê Thu Anh (Sally)</h3>
-                    <p itemprop="description">Với nhiều năm kinh nghiệm giảng dạy tiếng Anh, cô Sally cam kết mang đến phương pháp học hiệu quả và thú vị nhất cho học viên.</p>
-                    <p>Chuyên môn mạnh về giao tiếp thực tế và ứng dụng tiếng Anh trong công việc hàng ngày.</p>
-                    <div class="credentials">
+                
+                <div class="teacher-details">
+                    
+                    <h3 class="teacher-name" itemprop="name">Cô Lê Thu Anh (Sally)</h3>
+                    <div class="teacher-social">
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@englishsally" target="_blank" aria-label="TikTok Sally">
+                                <i class="fab fa-tiktok"></i> 
+                            </a>
+                            <a href="https://www.facebook.com/englishsally.vn" target="_blank" aria-label="Facebook Sally">
+                                <i class="fab fa-facebook"></i> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="teacher-bio">
+                        <p itemprop="description">
+                            Với nhiều năm kinh nghiệm giảng dạy tiếng Anh, cô Sally cam kết mang đến phương pháp học hiệu quả và thú vị nhất cho học viên.
+                        </p>
+                        <p>
+                            Chuyên môn mạnh về giao tiếp thực tế và ứng dụng tiếng Anh trong công việc hàng ngày.
+                        </p>
+                    </div>
+                    <div class="teacher-achievements">
                         <h4>Thành tích nổi bật:</h4>
                         <ul>
-                            <li>✓ 200+ học viên đã học tại English Sally</li>
-                            <li>✓ Phương pháp giảng dạy cá nhân hóa</li>
-                            <li>✓ Tập trung vào kỹ năng thực hành</li>
+                            <li>200+ học viên đã học tại English Sally</li>
+                            <li>Phương pháp giảng dạy cá nhân hóa</li>
+                            <li>Tập trung vào kỹ năng thực hành</li>
                         </ul>
                     </div>
-                    <!-- UI/UX: Thêm nút xem chi tiết giảng viên -->
-                    <button class="btn btn-outline" onclick="document.getElementById('teacherModal').style.display='block'" aria-label="Xem chi tiết giảng viên">Xem chi tiết</button>
+                    
+                    <div class="teacher-certificates">
+                        <h4>Bằng cấp &amp; Chứng chỉ</h4>
+                        <ul>
+                            <li>Cử nhân Ngôn ngữ Anh - Đại học Sư phạm TP.HCM</li>
+                            <li>Chứng chỉ TESOL quốc tế</li>
+                            <li>Chứng chỉ IELTS 8.0</li>
+                        </ul>
+                    </div>
+                    <div class="teacher-experience">
+                        <h4>Kinh nghiệm làm việc</h4>
+                        <ul>
+                            <li>5+ năm giảng dạy tiếng Anh tại các trung tâm lớn</li>
+                            <li>Giảng viên tiếng Anh giao tiếp cho doanh nghiệp</li>
+                            <li>Đào tạo tiếng Anh trẻ em và người đi làm</li>
+                            <li>Hỗ trợ học viên ngoài giờ học, tư vấn lộ trình cá nhân hóa</li>
+                        </ul>
+                    </div>
+                    <div class="teacher-skills">
+                        <h4>Kỹ năng chuyên môn</h4>
+                        <ul>
+                            <li>Phát triển kỹ năng giao tiếp thực tế</li>
+                            <li>Xây dựng sự tự tin khi sử dụng tiếng Anh</li>
+                            <li>Ứng dụng phương pháp học hiện đại, sáng tạo</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- UI/UX: Modal chi tiết giảng viên -->
-        <div id="teacherModal" class="modal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="teacherModalTitle">
-            <div class="modal-content">
-                <span class="close" onclick="document.getElementById('teacherModal').style.display='none'" aria-label="Đóng chi tiết">&times;</span>
-                <h2 id="teacherModalTitle">Giới thiệu chi tiết về cô Sally</h2>
-                <p>Cô Sally có chứng chỉ TESOL quốc tế, từng giảng dạy tại các trung tâm lớn và luôn nhận được phản hồi tích cực từ học viên. Đặc biệt, cô chú trọng vào việc xây dựng sự tự tin và khả năng ứng dụng tiếng Anh thực tế cho từng học viên.</p>
-                <ul>
-                    <li>Giảng dạy tiếng Anh cho mọi lứa tuổi</li>
-                    <li>Đào tạo kỹ năng giao tiếp chuyên sâu</li>
-                    <li>Hỗ trợ học viên ngoài giờ học</li>
-                </ul>
             </div>
         </div>
     </section>
