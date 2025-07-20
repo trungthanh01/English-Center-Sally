@@ -415,11 +415,16 @@
             border-radius: 10px;
             margin-top: 1rem;
         }
+        .credentials ul {
+            list-style: none;
+            padding-left: 0;
+        }
 
         .credentials h4 {
             color: var(--primary);
             margin-bottom: 0.5rem;
         }
+        
 
         /* Testimonials */
         /* ======================================================= */
@@ -581,6 +586,13 @@
                 transform 0.3s;
             transform: scale(1.2);
         }
+
+        address a {
+           color: var(--secondary);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
 
 
         /* Footer */
