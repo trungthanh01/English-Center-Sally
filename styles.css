@@ -74,6 +74,7 @@
             align-items: center;
             gap: 0.5rem;
             transition: background 0.3s;
+            animation: pulse 2s infinite;
         }
 
         .zalo-btn:hover {
@@ -213,6 +214,10 @@
             background: linear-gradient(135deg, var(--light) 0%, var(--accent) 100%);
             padding: 120px 5% 80px;
             text-align: center;
+        }
+        .span_hero {
+            font-weight: bold;
+            color: var(--secondary);
         }
 
         .hero-content {
@@ -360,9 +365,24 @@
             gap: 3rem;
             align-items: center;
         }
-
         .teacher-image {
-            text-align: center;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .teacher-image img {
+            width: 200%;
+            height: 200%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .teacher-avatar {
@@ -634,3 +654,5 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
+
+        
