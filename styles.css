@@ -301,7 +301,8 @@
         }
 
         .btn-primary:hover {
-            background: var(--primary);
+            background: var(--light);
+            color: var(--primary);
             transform: translateY(-2px);
         }
 
@@ -336,6 +337,8 @@
         /* Courses */
         .courses {
             background: var(--white);
+            margin-bottom: 0;
+            padding-bottom: 30px; /* Thêm padding dưới để tránh nội dung sát viền */
         }
 
         .courses-grid {
@@ -395,10 +398,14 @@
 /* ======================================================= */
         .teacher {
             background: var(--light);
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 30px;
+            padding-bottom: 50px;
         }
 
         .teacher-content {
-            display: grid;
+            display: block;
             grid-template-columns: 1fr 2fr;
             gap: 3rem;
             align-items: start;
@@ -437,11 +444,14 @@
         }
         .teacher-details {
             text-align: center;
+           
         }
         
         @media (min-width: 992px) {
             .teacher-details {
-                text-align: left;
+                text-align: center;
+                margin-left: 300px;
+                margin-right: 300px;
             }
         }
 
@@ -536,6 +546,7 @@
 
 .testimonials {
     background: #f9f9f9;
+    padding-top: 80px;
     padding-bottom: 0; /* Xóa padding dưới để marquee sát hơn nếu cần */
 }
 
