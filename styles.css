@@ -400,13 +400,34 @@
   padding: 80px 5%;
   text-align: center;
 }
+
 .chart-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 4rem;
   margin-top: 3rem;
 }
+
+.chart-group {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.chart-group .chart-day {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+
+.chart-bar-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .chart-track {
   display: flex;
   flex-direction: column-reverse;
@@ -415,24 +436,30 @@
   height: 300px;
   position: relative;
 }
+
 .chart-label {
   font-weight: bold;
   margin-top: 0.5rem;
   color: var(--primary);
 }
+
 .chart-bar {
   width: 100%;
-  background: var(--secondary);
+  /* background: var(--secondary); */
   height: 0;
   border-radius: 8px;
-  transition: height 2s ease;
+  transition: height 1s ease-in-out;
+  transform-origin: bottom;
+} 
+.chart-bar.A {
+    background: var(--accent);
 }
-.chart-day {
-  margin-bottom: 1rem;
-  font-weight: 500;
-  color: var(--gray);
-}  
-
+.chart-bar.B {
+    background: var(--secondary);
+}
+.chart-bar.C {
+    background: var(--primary);
+}
 
   /* Activities */
    /* ======================================================= */

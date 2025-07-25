@@ -87,40 +87,44 @@
         contents.forEach(content => observer.observe(content));
         });
 
-        // Timeline Coures Pathway Animation
-       document.addEventListener('DOMContentLoaded', function () {
-        const chartSection = document.querySelector('.courses-pathway');
-        const tracks = document.querySelectorAll('.chart-track');
-        let started = false;
+        // Timeline Courses Pathway Animation (Grouped)
+    // Khi user scroll tới biểu đồ, animation sẽ chạy 1 lần cho mỗi cấp độ
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-            if (entry.isIntersecting && !started) {
-                started = true;
-                tracks.forEach((track) => {
-                const bar = track.querySelector('.chart-bar');
-                const dayDisplay = track.querySelector('.chart-day');
-                const days = parseInt(bar.dataset.days);
-                const factor = parseFloat(track.dataset.factor);
-                const maxHeight = 180 * factor;
-                let currentDay = 0;
+    document.addEventListener('DOMContentLoaded', function () {
+    const chartSection = document.querySelector('.courses-pathway');
+    const chartGroups = document.querySelectorAll('.chart-group');
+    let started = false;
 
-                const interval = setInterval(() => {
-                    if (currentDay >= days) {
-                    clearInterval(interval);
-                    } else {
-                    currentDay++;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+            started = true;
+            chartGroups.forEach(group => {
+            const days = parseInt(group.dataset.days);
+            const factor = parseFloat(group.dataset.factor);
+            const maxHeight = 180 * factor;
+            const dayDisplay = group.querySelector('.chart-day');
+            const bars = group.querySelectorAll('.chart-bar');
+
+            let currentDay = 0;
+            const interval = setInterval(() => {
+                if (currentDay >= days) {
+                clearInterval(interval);
+                } else {
+                currentDay++;
+                bars.forEach(bar => {
                     bar.style.height = (currentDay / days) * maxHeight + 'px';
-                    dayDisplay.textContent = `Ngày ${currentDay}`;
-                    }
-                }, 50);
                 });
-                observer.unobserve(chartSection);
-            }
+                dayDisplay.textContent = `Ngày ${currentDay}`;
+                }
+            }, 50);
             });
-        }, { threshold: 0.3 });
-
-        if (chartSection) {
-            observer.observe(chartSection);
+            observer.unobserve(chartSection);
         }
         });
+    }, { threshold: 0.3 });
+
+    if (chartSection) {
+        observer.observe(chartSection);
+    }
+    });
