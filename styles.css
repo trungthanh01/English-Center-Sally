@@ -395,43 +395,43 @@
         }
     /*  Courses-timeline-chart  */
     /* ======================================================= */
-       .courses-pathway {
-        background: var(--light);
-        padding: 80px 5%;
-        text-align: center;
-        }
-        .chart-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-top: 3rem;
-        }
-        .chart-track {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        width: 30px;
-        height: 300px;
-        position: relative;
-        }
-        .chart-label {
-        font-weight: bold;
-        margin-top: 0.5rem;
-        color: var(--primary);
-        }
-        .chart-bar {
-        width: 100%;
-        background: var(--secondary);
-        height: 0;
-        border-radius: 8px;
-        transition: height 2s ease;
-        }
-        .chart-day {
-        margin-bottom: 1rem;
-        font-weight: 500;
-        color: var(--gray);
-        }
+.courses-pathway {
+  background: var(--light);
+  padding: 80px 5%;
+  text-align: center;
+}
+.chart-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.chart-track {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  width: 30px;
+  height: 300px;
+  position: relative;
+}
+.chart-label {
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: var(--primary);
+}
+.chart-bar {
+  width: 100%;
+  background: var(--secondary);
+  height: 0;
+  border-radius: 8px;
+  transition: height 2s ease;
+}
+.chart-day {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--gray);
+}  
 
 
   /* Activities */
