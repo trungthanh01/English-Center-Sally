@@ -117,12 +117,12 @@
                 });
                 dayDisplay.textContent = `Ngày ${currentDay}`;
                 }
-            }, 50);
+            }, 20);
             });
             observer.unobserve(chartSection);
         }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.2 });
 
     if (chartSection) {
         observer.observe(chartSection);
