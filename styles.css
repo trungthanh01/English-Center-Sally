@@ -393,119 +393,160 @@
             margin-right: 0.5rem;
             font-weight: bold;
         }
+    /*  Courses-timeline-chart  */
+    /* ======================================================= */
+       .courses-pathway {
+        background: var(--light);
+        padding: 80px 5%;
+        text-align: center;
+        }
+        .chart-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        margin-top: 3rem;
+        }
+        .chart-track {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 30px;
+        height: 300px;
+        position: relative;
+        }
+        .chart-label {
+        font-weight: bold;
+        margin-top: 0.5rem;
+        color: var(--primary);
+        }
+        .chart-bar {
+        width: 100%;
+        background: var(--secondary);
+        height: 0;
+        border-radius: 8px;
+        transition: height 2s ease;
+        }
+        .chart-day {
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--gray);
+        }
 
-                /* Activities */
- /* ======================================================= */
 
-.activities-section {
-  background: var(--white);
-  padding: 80px 5%;
-  position: relative;
-}
-.activities-section .section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 4rem;
-}
-.timeline {
-  position: relative;
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  background: var(--secondary);
-  z-index: 1;
-}
-.timeline-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  position: relative;
-  z-index: 2;
-}
-/* ================= */
-/* Animation  */
-.timeline-content {
-  max-width: 90vw;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
-}
-.timeline-content.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* ================= */
-.timeline-content.image img {
-  width: 100%;
-  max-width: 360px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-.timeline-content.image img:hover {
-  transform: scale(1.03);
-}
-.timeline-content.text h4 {
-  font-size: 1.4rem;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-.timeline-content.text p {
-  color: var(--gray);
-  font-size: 1rem;
-}
-@media (max-width: 767px) {
-  .timeline::before {
-    display: none;
-  }
+  /* Activities */
+   /* ======================================================= */
 
-  .timeline-item {
-    margin: 0 auto;
-  }
-  .timeline-content {
-    max-width: 100%;
-    text-align: left;
-  }
-  .timeline-content.image img {
-    aspect-ratio: 16 / 9;
-    max-width: 480px;
-  }
-}
-@media (min-width: 768px) {
-  .timeline-item,
-  .timeline-item.reverse {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .timeline-item.reverse {
-    flex-direction: row-reverse;
-  }
-  .timeline-content {
-    max-width: 48%;
-    text-align: left;
-  }
-  .timeline-content.image img {
-    aspect-ratio: 16 / 9;
-    max-width: 480px;
-  }
-}
+        .activities-section {
+        background: var(--white);
+        padding: 80px 5%;
+        position: relative;
+        }
+        .activities-section .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 4rem;
+        }
+        .timeline {
+        position: relative;
+        max-width: 1100px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        }
+        .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        background: var(--secondary);
+        z-index: 1;
+        }
+        .timeline-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 2;
+        }
+        /* ================= */
+        /* Animation  */
+        .timeline-content {
+        max-width: 90vw;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease-out;
+        }
+        .timeline-content.visible {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        /* ================= */
+
+        .timeline-content.image img {
+        width: 100%;
+        max-width: 360px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        }
+        .timeline-content.image img:hover {
+        transform: scale(1.03);
+        }
+        .timeline-content.text h4 {
+        font-size: 1.4rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        }
+        .timeline-content.text p {
+        color: var(--gray);
+        font-size: 1rem;
+        }
+        @media (max-width: 767px) {
+        .timeline::before {
+            display: none;
+        }
+
+        .timeline-item {
+            margin: 0 auto;
+        }
+        .timeline-content {
+            max-width: 100%;
+            text-align: left;
+        }
+        .timeline-content.image img {
+            aspect-ratio: 16 / 9;
+            max-width: 480px;
+        }
+        }
+        @media (min-width: 768px) {
+        .timeline-item,
+        .timeline-item.reverse {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .timeline-item.reverse {
+            flex-direction: row-reverse;
+        }
+        .timeline-content {
+            max-width: 48%;
+            text-align: left;
+        }
+        .timeline-content.image img {
+            aspect-ratio: 16 / 9;
+            max-width: 480px;
+        }
+        }
 
         /* Teacher Section */
 /* ======================================================= */
