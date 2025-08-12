@@ -1,36 +1,39 @@
  // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuModal = document.getElementById('mobileMenuModal');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
         const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
         // Open mobile menu
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenuOverlay.style.display = 'block';
-            mobileMenuModal.style.display = 'block';
-            
-            // Trigger animations
-            setTimeout(() => {
-                mobileMenuOverlay.classList.add('active');
-                mobileMenuModal.classList.add('active');
-            }, 10);
-        });
+        // Open mobile menu
+    mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuModal.style.display = 'block';
 
-        // Close mobile menu function
-        function closeMobileMenu() {
-            mobileMenuOverlay.classList.remove('active');
-            mobileMenuModal.classList.remove('active');
-            
-            setTimeout(() => {
-                mobileMenuOverlay.style.display = 'none';
-                mobileMenuModal.style.display = 'none';
-            }, 300);
-        }
+        // Bỏ setTimeout 10ms, dùng 2 lần rAF để chắc chắn browser đã apply display
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                mobileMenuModal.classList.add('active');
+            });
+        });
+    });
+
+// Close mobile menu function
+function closeMobileMenu() {
+    if (!mobileMenuModal.classList.contains('active')) return;
+
+    mobileMenuModal.classList.remove('active');
+
+    // Chờ transition kết thúc mới display:none để animation đóng mượt
+    const handle = (e) => {
+        if (e.propertyName !== 'transform') return;
+        mobileMenuModal.style.display = 'none';
+        mobileMenuModal.removeEventListener('transitionend', handle);
+    };
+    mobileMenuModal.addEventListener('transitionend', handle, { once: true });
+}
 
         // Close mobile menu events
         mobileMenuClose.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
         // Close menu when clicking menu links
         mobileMenuLinks.forEach(link => {
@@ -128,4 +131,3 @@
             observer.observe(chartSection);
         }
     });
-    console.log(chartGroups);
