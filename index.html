@@ -29,6 +29,7 @@
         <nav class="nav" aria-label="Main Navigation">
             <a href="/" class="logo" itemprop="name">Sally English</a>
             <ul class="nav-menu">
+                <li><a href="#story">Câu Chuyện</a></li>
                 <li><a href="#courses">Khóa Học</a></li>
                 <li><a href="#teacher">Giảng Viên</a></li>
                 <li><a href="#testimonials">Học Viên</a></li>
@@ -54,6 +55,7 @@
             </button>
         </div>
         <div class="mobile-menu-items">
+            <a href="#story" class="mobile-menu-link">Câu Chuyện</a>
             <a href="#courses" class="mobile-menu-link">Khóa Học</a>
             <a href="#teacher" class="mobile-menu-link">Giảng Viên</a>
             <a href="#testimonials" class="mobile-menu-link">Học Viên</a>
@@ -70,16 +72,155 @@
         <div class="hero-image">
             <img src="img/hero-img-1.jpg" alt="Hình ảnh trung tâm tiếng Anh Sally, cô giáo đang giảng bài cho các học viên trong lớp học tiếng anh." loading="lazy">
         </div>
+        
+        <!-- Hero Content với Animation -->
         <div class="hero-content">
-            <h1>Học Tiếng Anh Hiệu Quả Cùng Sally</h1>
-            <p>Phương pháp giảng dạy cá nhân hóa - Tập trung vào thực hành giao tiếp - Kết quả nhanh chóng</p>
+            <div class="hero-badge">
+                <span class="badge-text">🎯 Phương pháp học tiếng Anh hiệu quả #1 tại Đồng Nai</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line-1">Bạn đang gặp khó khăn</span>
+                <span class="title-line-2">với <span class="highlight-text">Tiếng Anh</span>?</span>
+                <span class="title-line-3">Để Sally giúp bạn!</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                <span class="subtitle-line">Từ việc <strong>sợ nói</strong>, <strong>thiếu tự tin</strong> đến</span>
+                <span class="subtitle-line"><strong>giao tiếp lưu loát</strong> chỉ trong <strong>3 tháng</strong></span>
+            </p>
+            
+            <!-- Stats Row -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Học viên thành công</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Năm kinh nghiệm</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Hài lòng</span>
+                </div>
+            </div>
+            
             <div class="cta-buttons">
-                <a href="https://zalo.me/0388020818" class="btn btn-primary" target="_blank" aria-label="Đăng ký học thử miễn phí">Đăng Ký Học Thử</a>
-                <a href="#courses" class="btn btn-outline" aria-label="Xem các khóa học">Xem Khóa Học</a>
+                <a href="https://zalo.me/0388020818" class="btn btn-primary pulse-animation" target="_blank" aria-label="Đăng ký học thử miễn phí">
+                    <span class="btn-text">🚀 Đăng Ký Học Thử MIỄN PHÍ</span>
+                    <span class="btn-subtext">Chỉ 20 suất/tháng</span>
+                </a>
+                <a href="#story" class="btn btn-outline" aria-label="Tìm hiểu câu chuyện">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                    Xem Câu Chuyện Của Sally
+                </a>
+            </div>
+            
+            <!-- Social Proof -->
+            <div class="social-proof">
+                <div class="proof-avatars">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e8?w=40&h=40&fit=crop&crop=face" alt="Học viên 1" class="proof-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="Học viên 2" class="proof-avatar">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&crop=face" alt="Học viên 3" class="proof-avatar">
+                    <span class="proof-plus">+197</span>
+                </div>
+                <p class="proof-text">Tham gia cùng <strong>200+ học viên</strong> đã thành công</p>
             </div>
         </div>
         
-        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Cuộn xuống để khám phá</span>
+        </div>
+    </section>
+
+    <!-- Problem-Solution Story Section -->
+    <section id="story" class="section story-section">
+        <div class="container">
+            <div class="story-content">
+                <!-- Problem Phase -->
+                <div class="story-phase problem-phase">
+                    <div class="phase-content">
+                        <h2 class="phase-title">Bạn có đang gặp phải những vấn đề này?</h2>
+                        <div class="problems-grid">
+                            <div class="problem-card">
+                                <div class="problem-icon">😰</div>
+                                <h3>Sợ nói tiếng Anh</h3>
+                                <p>Cảm thấy lo lắng, căng thẳng mỗi khi phải nói tiếng Anh trước người khác</p>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-icon">📚</div>
+                                <h3>Học thuộc lòng</h3>
+                                <p>Học rất nhiều từ vựng, ngữ pháp nhưng không biết cách áp dụng trong thực tế</p>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-icon">⏰</div>
+                                <h3>Thiếu thời gian</h3>
+                                <p>Bận rộn với công việc, gia đình nhưng vẫn muốn cải thiện tiếng Anh hiệu quả</p>
+                            </div>
+                            <div class="problem-card">
+                                <div class="problem-icon">💸</div>
+                                <h3>Lãng phí tiền bạc</h3>
+                                <p>Đã thử nhiều phương pháp học khác nhau nhưng không thấy kết quả rõ rệt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transition Arrow -->
+                <div class="story-transition">
+                    <div class="transition-arrow">
+                        <ion-icon name="arrow-down-outline"></ion-icon>
+                    </div>
+                    <p class="transition-text">Câu chuyện của Sally bắt đầu từ đây...</p>
+                </div>
+
+                <!-- Solution Phase -->
+                <div class="story-phase solution-phase">
+                    <div class="phase-content">
+                        <div class="sally-story">
+                            <div class="story-image">
+                                <img src="/teacher_img.jpg" alt="Cô Sally - Giảng viên tiếng Anh">
+                                <div class="story-badge">
+                                    <span>5 năm kinh nghiệm</span>
+                                </div>
+                            </div>
+                            <div class="story-text">
+                                <h2>Câu chuyện của Sally</h2>
+                                <p class="story-quote">"Tôi hiểu cảm giác đó... Cách đây 8 năm, tôi cũng từng sợ nói tiếng Anh"</p>
+                                <div class="story-journey">
+                                    <div class="journey-step">
+                                        <div class="step-number">01</div>
+                                        <div class="step-content">
+                                            <h4>Từ sự sợ hãi</h4>
+                                            <p>Tôi đã trải qua những ngày tháng thiếu tự tin, sợ sai khi nói tiếng Anh</p>
+                                        </div>
+                                    </div>
+                                    <div class="journey-step">
+                                        <div class="step-number">02</div>
+                                        <div class="step-content">
+                                            <h4>Tìm ra phương pháp</h4>
+                                            <p>Qua nghiên cứu và thực hành, tôi phát triển phương pháp học tập trung vào giao tiếp thực tế</p>
+                                        </div>
+                                    </div>
+                                    <div class="journey-step">
+                                        <div class="step-number">03</div>
+                                        <div class="step-content">
+                                            <h4>Chia sẻ thành công</h4>
+                                            <p>Giờ đây, tôi muốn giúp bạn vượt qua những khó khăn mà tôi đã từng trải qua</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Courses Section ---->
@@ -407,6 +548,84 @@
             </a>
         </div>
     </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-urgency">
+                    <span class="urgency-badge">⚡ Ưu đãi có thời hạn</span>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Ngày</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Giờ</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Phút</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Giây</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="cta-title">Đừng để cơ hội trôi qua!</h2>
+                <p class="cta-subtitle">
+                    Chỉ còn <strong>20 suất học thử miễn phí</strong> trong tháng này.<br>
+                    Đăng ký ngay để nhận ưu đãi đặc biệt từ Sally!
+                </p>
+                
+                <div class="cta-benefits">
+                    <div class="benefit-item">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                        <span>Học thử miễn phí 100%</span>
+                    </div>
+                    <div class="benefit-item">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                        <span>Đánh giá trình độ chi tiết</span>
+                    </div>
+                    <div class="benefit-item">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                        <span>Tư vấn lộ trình cá nhân hóa</span>
+                    </div>
+                </div>
+                
+                <div class="cta-action">
+                    <a href="https://zalo.me/0388020818" class="btn btn-primary btn-large" target="_blank">
+                        <span class="btn-text">🎯 ĐĂNG KÝ NGAY - MIỄN PHÍ</span>
+                        <span class="btn-subtext">Chỉ mất 30 giây!</span>
+                    </a>
+                    <p class="cta-guarantee">
+                        <ion-icon name="shield-checkmark"></ion-icon>
+                        Cam kết hoàn tiền 100% nếu không hài lòng
+                    </p>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="trust-item">
+                        <ion-icon name="star"></ion-icon>
+                        <span>4.9/5 sao từ học viên</span>
+                    </div>
+                    <div class="trust-item">
+                        <ion-icon name="people"></ion-icon>
+                        <span>200+ học viên thành công</span>
+                    </div>
+                    <div class="trust-item">
+                        <ion-icon name="medal"></ion-icon>
+                        <span>Giảng viên có chứng chỉ TESOL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
    <!-- Footer -->
     <footer class="footer">
     <div class="waves">
@@ -435,10 +654,15 @@
     <p>&copy; 2025 <strong>English Sally</strong> | Thiết kế bởi Sally Team</p>
     </footer>
 
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  
 
     <script src ="script.js"></script>
 </body>
