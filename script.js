@@ -223,17 +223,18 @@ function closeMobileMenu() {
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = '#ffffff';
-                header.style.backdropFilter = 'none';
-            }
-        });
+// Header scroll effect
+window.addEventListener('scroll', () => {
+	// Header background change optimization
+	const header = document.querySelector('.header');
+	if (window.scrollY > 100) {
+		header.style.background = 'rgba(74, 71, 163, 0.95)';
+		header.style.backdropFilter = 'blur(10px)';
+	} else {
+		header.style.background = 'var(--primary)';
+		header.style.backdropFilter = 'none';
+	}
+});
 
         //Activities Section Animation
         document.addEventListener('DOMContentLoaded', function () {

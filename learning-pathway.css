@@ -1,0 +1,150 @@
+/* learning-pathway */
+    /* Learning Pathway Section */
+    /* ======================================================= */
+    .learning-pathway {
+        background: var(--light);
+        padding: clamp(3rem, 8vw, 5rem) 5%;
+    }
+    
+    .pathway-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+    
+    .tab-btn {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+        padding: 0.75rem 2rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn:hover,
+    .tab-btn.active {
+        background: var(--primary);
+        color: white;
+    }
+    
+    .pathway-content {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+    }
+    
+    .pathway-content.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .pathway-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .pathway-intro h3 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        color: var(--primary);
+        margin-bottom: 1rem;
+    }
+    
+    .pathway-intro p {
+        font-size: 1.1rem;
+        color: var(--gray);
+    }
+    
+    .chart-wrapper {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.1);
+        margin-bottom: 3rem;
+        max-width: 50rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .pathway-phases {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .phase {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+    
+    .phase-number {
+        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        color: white;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+    
+    .phase-content h4 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+    
+    .phase-content ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .phase-content li {
+        color: var(--gray);
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    
+    .phase-content li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--secondary);
+        font-weight: bold;
+    }
+    
+    @media (max-width: 48rem) {
+        .pathway-tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-btn {
+            width: 100%;
+            max-width: 20rem;
+        }
+        
+        .pathway-phases {
+            grid-template-columns: 1fr;
+        }
+        
+        .phase {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+    

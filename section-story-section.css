@@ -1,0 +1,230 @@
+/* section story-section */
+        /* Story Section - Webflow Style */
+        .story-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 120px 5%;
+        }
+
+        .story-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Problem Phase */
+        .problem-phase {
+            margin-bottom: 8rem;
+        }
+
+        .phase-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--primary);
+            margin-bottom: 4rem;
+            font-weight: 800;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 4px solid var(--secondary);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            color: white;
+            box-shadow: 0 0.5rem 1.25rem rgba(236, 64, 122, 0.3);
+        }
+        
+        .problem-icon i {
+            font-size: 1.5rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .problem-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Story Transition */
+        .story-transition {
+            text-align: center;
+            margin: 6rem 0;
+            opacity: 0;
+        }
+
+        .transition-arrow {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: bounce-arrow 2s infinite;
+        }
+
+        .transition-arrow ion-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .transition-text {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Sally Story */
+        .sally-story {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .story-image {
+            position: relative;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .story-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 20px rgba(236, 64, 122, 0.3);
+        }
+
+        .story-text {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .story-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .story-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+
+        /* Journey Steps */
+        .story-journey {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .step-content p {
+            color: var(--gray);
+            line-height: 1.6;
+        }

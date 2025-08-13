@@ -1,0 +1,156 @@
+/* section teacher */
+        /* Teacher Section */
+/* ======================================================= */
+.teacher {
+    background: var(--light);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.teacher-content {
+    display: block;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+.teacher-image {
+    border: 2px solid var(--secondary);
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.8) rotate(10deg);
+}
+
+.teacher-image img {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.teacher-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--primary);
+    margin: 0 auto;
+}
+.teacher-details {
+    text-align: center;
+   
+}
+
+@media (min-width: 992px) {
+    .teacher-details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .teacher-achievements,
+    .teacher-certificates,
+    .teacher-experience,
+    .teacher-skills {
+        width: 100%;
+    }
+}
+
+.teacher-name {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.teacher-social {
+    margin-bottom: 1.5rem;
+}
+
+.teacher-social .social-links a {
+    color: var(--gray);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.teacher-social .social-links a:hover {
+    color: var(--secondary);
+    transform: scale(1.2);
+}
+
+.teacher-bio {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+}
+
+.teacher-bio p {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.teacher-achievements,
+.teacher-certificates,
+.teacher-experience,
+.teacher-skills {
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--secondary);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.teacher-achievements h4,
+.teacher-certificates h4,
+.teacher-experience h4,
+.teacher-skills h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.teacher-achievements ul,
+.teacher-certificates ul,
+.teacher-experience ul,
+.teacher-skills ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.teacher-achievements ul li,
+.teacher-certificates ul li,
+.teacher-experience ul li,
+.teacher-skills ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.teacher-achievements ul li::before,
+.teacher-certificates ul li::before,
+.teacher-experience ul li::before,
+.teacher-skills ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-weight: bold;
+}
+

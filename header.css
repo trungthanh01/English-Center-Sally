@@ -1,0 +1,109 @@
+/* Header */
+        /* Header */
+        .header {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+            background: var(--primary);
+            padding: 0 5%;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: clamp(1.25rem, 4vw, 1.8rem);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 3vw, 2rem);
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        .zalo-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5625rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+            animation: pulse 2s infinite;
+            font-size: 0.9rem;
+        }
+
+        .zalo-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu {
+            display: none;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.3125rem;
+            position: relative;
+            z-index: 1001;
+        }
+
+:root {
+	--header-h: 64px;
+}
+@media (max-width: 48rem) {
+	:root { --header-h: 56px; }
+}
+
+/* Giữ header cố định và tránh giật */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	height: var(--header-h);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transform: translateZ(0);
+}
+
+/* Đẩy nội dung xuống dưới header để không bị che */
+body {
+	padding-top: var(--header-h);
+}
+
+/* Đảm bảo nav căn giữa theo chiều cao header */
+.nav {
+	height: 100%;
+}

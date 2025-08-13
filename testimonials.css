@@ -1,0 +1,100 @@
+/* testimonials */
+        /* Testimonials */
+        /* ======================================================= */
+        .testimonials {
+            background: var(--white);
+            padding: clamp(3rem, 8vw, 5rem) 5%;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+        
+        .testimonial-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            box-shadow: 0 1.25rem 3.75rem rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-slide {
+            display: none;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .testimonial-content {
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+            padding: 3rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            min-height: 20rem;
+        }
+        
+        .testimonial-avatar {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        
+        .testimonial-avatar img {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 0.25rem solid var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-rating {
+            color: #fbbf24;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text-content {
+            flex: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            font-family: Georgia, serif;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author h4 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .testimonial-author span {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: normal;
+        }
+        
