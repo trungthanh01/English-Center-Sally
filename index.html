@@ -8,8 +8,14 @@
     <meta name="keywords" content="Tiếng Anh, English Sally, Trung tâm tiếng Anh, học tiếng Anh, giao tiếp, trẻ em, văn phòng, giảng viên, Sally">
     <meta name="author" content="English Sally">
     <link rel="canonical" href="https://englishsally.vn/">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Critical CSS inline would go here in production -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="styles.css">
+    
     <!-- Open Graph SEO -->
     <meta property="og:title" content="English Sally - Trung Tâm Tiếng Anh Chất Lượng">
     <meta property="og:description" content="Phương pháp cá nhân hóa, tập trung thực hành giao tiếp, kết quả nhanh chóng cho mọi lứa tuổi.">
@@ -18,10 +24,10 @@
     <meta property="og:type" content="website">
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Font -->
+    <!-- Font - optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Jersey+10&family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -69,12 +75,9 @@
 
     <!-- Hero Section -->
     <section class="hero" aria-label="Giới thiệu trung tâm">
-        <div class="hero-image">
-            <img src="img/hero-img-1.jpg" alt="Hình ảnh trung tâm tiếng Anh Sally, cô giáo đang giảng bài cho các học viên trong lớp học tiếng anh." loading="lazy">
-        </div>
-        
-        <!-- Hero Content với Animation -->
-        <div class="hero-content">
+        <div class="hero-container">
+            <!-- Hero Content với Animation -->
+            <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-text">🎯 Phương pháp học tiếng Anh hiệu quả #1 tại Đồng Nai</span>
             </div>
@@ -127,6 +130,12 @@
                 </div>
                 <p class="proof-text">Tham gia cùng <strong>200+ học viên</strong> đã thành công</p>
             </div>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="hero-image">
+                <img src="img/hero-img-1.jpg" alt="Hình ảnh trung tâm tiếng Anh Sally, cô giáo đang giảng bài cho các học viên trong lớp học tiếng anh." loading="eager" width="600" height="400">
+            </div>
         </div>
         
         <!-- Scroll indicator -->
@@ -148,34 +157,46 @@
                         <h2 class="phase-title">Bạn có đang gặp phải những vấn đề này?</h2>
                         <div class="problems-grid">
                             <div class="problem-card">
-                                <div class="problem-icon">😰</div>
+                                <div class="problem-icon">
+                                    <i class="fas fa-microphone-slash"></i>
+                                </div>
                                 <h3>Sợ nói tiếng Anh</h3>
                                 <p>Cảm thấy lo lắng, căng thẳng mỗi khi phải nói tiếng Anh trước người khác</p>
                             </div>
                             <div class="problem-card">
-                                <div class="problem-icon">📚</div>
+                                <div class="problem-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
                                 <h3>Học thuộc lòng</h3>
                                 <p>Học rất nhiều từ vựng, ngữ pháp nhưng không biết cách áp dụng trong thực tế</p>
                             </div>
                             <div class="problem-card">
-                                <div class="problem-icon">⏰</div>
+                                <div class="problem-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
                                 <h3>Thiếu thời gian</h3>
                                 <p>Bận rộn với công việc, gia đình nhưng vẫn muốn cải thiện tiếng Anh hiệu quả</p>
                             </div>
                             <div class="problem-card">
-                                <div class="problem-icon">💸</div>
+                                <div class="problem-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
                                 <h3>Lãng phí tiền bạc</h3>
                                 <p>Đã thử nhiều phương pháp học khác nhau nhưng không thấy kết quả rõ rệt</p>
                             </div>
                             <div class="problem-card">
-                                <div class="problem-icon">💸</div>
-                                <h3>Lãng phí tiền bạc</h3>
-                                <p>Đã thử nhiều phương pháp học khác nhau nhưng không thấy kết quả rõ rệt</p>
+                                <div class="problem-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Viết email không chuyên nghiệp</h3>
+                                <p>Khó khăn trong việc viết email công việc, thuyết trình hay giao tiếp với đối tác nước ngoài</p>
                             </div>
                             <div class="problem-card">
-                                <div class="problem-icon">💸</div>
-                                <h3>Lãng phí tiền bạc</h3>
-                                <p>Đã thử nhiều phương pháp học khác nhau nhưng không thấy kết quả rõ rệt</p>
+                                <div class="problem-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Thiếu động lực học tập</h3>
+                                <p>Không có lộ trình rõ ràng, học không hiệu quả và dễ bỏ cuộc giữa chừng</p>
                             </div>
                         </div>
                     </div>
@@ -193,12 +214,12 @@
                 <div class="story-phase solution-phase">
                     <div class="phase-content">
                         <div class="sally-story">
-                            <div class="story-image">
-                                <img src="/teacher_img.jpg" alt="Cô Sally - Giảng viên tiếng Anh">
-                                <div class="story-badge">
-                                    <span>15 năm kinh nghiệm</span>
-                                </div>
-                            </div>
+                                            <div class="story-image">
+                    <img src="/teacher_img.jpg" alt="Cô Sally - Giảng viên tiếng Anh" loading="lazy" width="400" height="300">
+                    <div class="story-badge">
+                        <span>15 năm kinh nghiệm</span>
+                    </div>
+                </div>
                             <div class="story-text">
                                 <h2>Câu chuyện của Sally</h2>
                                 <p class="story-quote">"Tôi hiểu cảm giác đó... Cách đây 15 năm, tôi cũng từng sợ nói tiếng Anh"</p>
@@ -240,10 +261,12 @@
         <div class="courses-grid">
 
         <div class="course-card" itemprop="hasCourseInstance">
-            <div class="course-icon">
-            <i class="fas fa-briefcase" aria-hidden="true"></i>
+            <div class="course-header">
+                <div class="course-icon">
+                    <i class="fas fa-briefcase" aria-hidden="true"></i>
+                </div>
+                <h3 itemprop="name">Tiếng Anh Văn Phòng</h3>
             </div>
-            <h3 itemprop="name">Tiếng Anh Văn Phòng</h3>
             <p itemprop="description">Chuyên biệt cho nhân viên văn phòng cần giao tiếp và viết email chuyên nghiệp</p>
             <ul class="course-features">
             <li>Giao tiếp trong môi trường làm việc</li>
@@ -255,10 +278,12 @@
         </div>
 
         <div class="course-card" itemprop="hasCourseInstance">
-            <div class="course-icon">
-            <i class="fas fa-child" aria-hidden="true"></i>
+            <div class="course-header">
+                <div class="course-icon">
+                    <i class="fas fa-child" aria-hidden="true"></i>
+                </div>
+                <h3 itemprop="name">Tiếng Anh Trẻ Em</h3>
             </div>
-            <h3 itemprop="name">Tiếng Anh Trẻ Em</h3>
             <p itemprop="description">Phát triển toàn diện 4 kỹ năng: Nghe - Nói - Đọc - Viết cho trẻ em</p>
             <ul class="course-features">
             <li>Phương pháp học qua trò chơi</li>
@@ -272,80 +297,114 @@
         </div>
     </div>
     </section>
-    <!-- Courses-timeline-chart -->
-   <section class="courses-pathway" aria-labelledby="pathwayTitle">
-        <h2 class="section-title" id="pathwayTitle">Lộ Trình Học Tập Cá Nhân Hóa</h2>
-        <div class="chart-container">
-
-            <!-- Level A -->
-            <div class="chart-group" data-days="30" data-factor="0.5">
-                <div class="chart-day">Ngày 1</div>
-                <div class="chart-bar-group">
-                    <div class="chart-track">
-                        <div class="chart-bar A"></div>
-                        <div class="chart-label">Nghe</div>
+    <!-- Learning Pathway Section -->
+    <section class="learning-pathway" aria-labelledby="pathwayTitle">
+        <div class="container">
+            <h2 class="section-title" id="pathwayTitle">Lộ Trình Học Tập 90 Buổi</h2>
+            
+            <!-- Course Tabs -->
+            <div class="pathway-tabs">
+                <button class="tab-btn active" data-target="children">Trẻ Em</button>
+                <button class="tab-btn" data-target="office">Dân Văn Phòng</button>
+            </div>
+            
+            <!-- Children Pathway -->
+            <div class="pathway-content active" id="children">
+                <div class="pathway-intro">
+                    <h3>Lộ trình học cho trẻ em (6-15 tuổi)</h3>
+                    <p>Phát triển toàn diện 4 kỹ năng Nghe - Nói - Đọc - Viết qua 90 buổi học</p>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="childrenChart" width="400" height="200"></canvas>
+                </div>
+                <div class="pathway-phases">
+                    <div class="phase">
+                        <div class="phase-number">1</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 1: Làm quen (Buổi 1-30)</h4>
+                            <ul>
+                                <li>Học bảng chữ cái và phát âm cơ bản</li>
+                                <li>Từ vựng quen thuộc (gia đình, màu sắc, số đếm)</li>
+                                <li>Nghe và nhắc lại từ đơn giản</li>
+                                <li>Viết chữ cái và từ cơ bản</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="chart-track">
-                        <div class="chart-bar A"></div>
-                        <div class="chart-label">Nói</div>
+                    <div class="phase">
+                        <div class="phase-number">2</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 2: Phát triển (Buổi 31-60)</h4>
+                            <ul>
+                                <li>Câu giao tiếp hàng ngày</li>
+                                <li>Đọc hiểu đoạn văn ngắn</li>
+                                <li>Kể chuyện đơn giản</li>
+                                <li>Viết câu hoàn chỉnh</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="chart-track">
-                        <div class="chart-bar A"></div>
-                        <div class="chart-label">Đọc</div>
-                    </div>
-                    <div class="chart-track">
-                        <div class="chart-bar A"></div>
-                        <div class="chart-label">Viết</div>
+                    <div class="phase">
+                        <div class="phase-number">3</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 3: Thành thạo (Buổi 61-90)</h4>
+                            <ul>
+                                <li>Giao tiếp tự tin trong các tình huống</li>
+                                <li>Đọc truyện ngắn</li>
+                                <li>Thuyết trình chủ đề yêu thích</li>
+                                <li>Viết đoạn văn mô tả</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Level B -->
-            <div class="chart-group B" data-days="60" data-factor="0.8">
-                <div class="chart-day">Ngày 1</div>
-                <div class="chart-bar-group">
-                    <div class="chart-track">
-                        <div class="chart-bar B"></div>
-                        <div class="chart-label">Nghe</div>
+            
+            <!-- Office Workers Pathway -->
+            <div class="pathway-content" id="office">
+                <div class="pathway-intro">
+                    <h3>Lộ trình học cho dân văn phòng</h3>
+                    <p>Tập trung vào kỹ năng giao tiếp công việc và viết email chuyên nghiệp</p>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="officeChart" width="400" height="200"></canvas>
+                </div>
+                <div class="pathway-phases">
+                    <div class="phase">
+                        <div class="phase-number">1</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 1: Cơ bản (Buổi 1-30)</h4>
+                            <ul>
+                                <li>Từ vựng văn phòng cơ bản</li>
+                                <li>Giao tiếp đồng nghiệp</li>
+                                <li>Email thông báo đơn giản</li>
+                                <li>Nghe hiểu cuộc họp cơ bản</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="chart-track">
-                        <div class="chart-bar B"></div>
-                        <div class="chart-label">Nói</div>
+                    <div class="phase">
+                        <div class="phase-number">2</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 2: Nâng cao (Buổi 31-60)</h4>
+                            <ul>
+                                <li>Thuyết trình công việc</li>
+                                <li>Email khách hàng chuyên nghiệp</li>
+                                <li>Tham gia cuộc họp hiệu quả</li>
+                                <li>Đọc hiểu báo cáo</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="chart-track">
-                        <div class="chart-bar B"></div>
-                        <div class="chart-label">Đọc</div>
-                    </div>
-                    <div class="chart-track">
-                        <div class="chart-bar B"></div>
-                        <div class="chart-label">Viết</div>
+                    <div class="phase">
+                        <div class="phase-number">3</div>
+                        <div class="phase-content">
+                            <h4>Giai đoạn 3: Chuyên nghiệp (Buổi 61-90)</h4>
+                            <ul>
+                                <li>Đàm phán và thương lượng</li>
+                                <li>Viết đề xuất dự án</li>
+                                <li>Điều hành cuộc họp</li>
+                                <li>Báo cáo kết quả công việc</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Level C -->
-            <div class="chart-group C" data-days="90" data-factor="1.3">
-                <div class="chart-day">Ngày 1</div>
-                <div class="chart-bar-group">
-                    <div class="chart-track">
-                        <div class="chart-bar C"></div>
-                        <div class="chart-label">Nghe</div>
-                    </div>
-                    <div class="chart-track">
-                        <div class="chart-bar C"></div>
-                        <div class="chart-label">Nói</div>
-                    </div>
-                    <div class="chart-track">
-                        <div class="chart-bar C"></div>
-                        <div class="chart-label">Đọc</div>
-                    </div>
-                    <div class="chart-track">
-                        <div class="chart-bar C"></div>
-                        <div class="chart-label">Viết</div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
     <!-- Courses Section 2/ describe courses -->
@@ -401,7 +460,7 @@
             <div class="teacher-content" itemscope itemtype="https://schema.org/Person">
                 <div class="teacher-image">
                     <div class="teacher-avatar">
-                        <img src="/teacher_img.jpg" alt="Giảng viên Lê Thu Anh" itemprop="image" >
+                        <img src="/teacher_img.jpg" alt="Giảng viên Lê Thu Anh" itemprop="image" loading="lazy" width="200" height="200">
                     </div>
                 </div>
                 
@@ -473,55 +532,83 @@
     <section id="testimonials" class="section testimonials">
         <div class="container">
             <h2 class="section-title">Học Viên Nói Gì Về Sally</h2>
-        </div>
-
-        <div class="marquee-container">
-            <div class="marquee-content">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Sau 3 tháng học với cô Sally, mình đã tự tin viết email và giao tiếp với khách hàng nước ngoài. Rất cảm ơn cô!"</p>
-                    <p class="testimonial-author">- Anh Minh, Nhân viên IT</p>
+            <div class="testimonial-slider">
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Anh Minh">
+                                <div class="testimonial-rating">
+                                    <span>★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-text-content">
+                                <p class="testimonial-text">"Sau 3 tháng học với cô Sally, mình đã tự tin viết email và giao tiếp với khách hàng nước ngoài. Phương pháp dạy rất thực tế, giúp mình áp dụng ngay vào công việc. Rất cảm ơn cô!"</p>
+                                <div class="testimonial-author">
+                                    <h4>Anh Minh</h4>
+                                    <span>Nhân viên IT tại FPT Software</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e8?w=80&h=80&fit=crop&crop=face" alt="Chị Lan">
+                                <div class="testimonial-rating">
+                                    <span>★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-text-content">
+                                <p class="testimonial-text">"Con mình học rất vui và tiến bộ nhanh chóng. Cô Sally dạy rất tận tình và kiên nhẫn với trẻ em. Giờ con đã có thể giao tiếp tiếng Anh tự tin với bạn bè quốc tế."</p>
+                                <div class="testimonial-author">
+                                    <h4>Chị Lan</h4>
+                                    <span>Phụ huynh học viên Minh An (10 tuổi)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&h=80&fit=crop&crop=face" alt="Chị Hoa">
+                                <div class="testimonial-rating">
+                                    <span>★★★★★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-text-content">
+                                <p class="testimonial-text">"Phương pháp dạy của cô rất thực tế, không chỉ học thuộc lòng mà còn biết cách ứng dụng vào công việc. Bây giờ mình đã có thể làm báo cáo và thuyết trình bằng tiếng Anh một cách tự tin."</p>
+                                <div class="testimonial-author">
+                                    <h4>Chị Hoa</h4>
+                                    <span>Kế toán trưởng tại Công ty TNHH ABC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Con mình học rất vui và tiến bộ nhanh. Cô Sally dạy rất tận tình và kiên nhẫn với trẻ em."</p>
-                    <p class="testimonial-author">- Chị Lan, Phụ huynh</p>
+                
+                <!-- Navigation Buttons -->
+                <div class="testimonial-nav">
+                    <button class="nav-btn prev-btn" aria-label="Testimonial trước đó">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn" aria-label="Testimonial tiếp theo">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Phương pháp dạy của cô rất thực tế, không chỉ học thuộc lòng mà còn biết cách ứng dụng vào công việc."</p>
-                    <p class="testimonial-author">- Chị Hoa, Kế toán</p>
+                
+                <!-- Dots Indicator -->
+                <div class="testimonial-dots">
+                    <button class="dot active" data-slide="0"></button>
+                    <button class="dot" data-slide="1"></button>
+                    <button class="dot" data-slide="2"></button>
                 </div>
-              
             </div>
         </div>
     </section>
-    <!-- Contact Section with Rectangle Boxes -->
-    <section class="contact-boxes" id="contact" aria-labelledby="contactTitle">
-        <h2 class="section-title" id="contactTitle">Để Ngoại Ngữ Thắp Sáng Tài Năng <br> <span>Liên Hệ Với Chúng Tôi</span> </h2>
-        <div class="contact-container">
-            <a href="https://zalo.me/0388020818" class="contact-box" target="_blank">
-            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-            <div class="contact-text">
-                <h4>Nhắn tin Zalo</h4>
-                <p>Liên hệ trực tiếp với cô Sally để được tư vấn khóa học phù hợp</p>
-            </div>
-            </a>
 
-            <a href="mailto:miss.thuanh@gmail.com" class="contact-box">
-            <ion-icon name="mail-outline"></ion-icon>
-            <div class="contact-text">
-                <h4>Gửi Email</h4>
-                <p>Gửi thắc mắc hoặc nhận tư vấn chi tiết về chương trình học</p>
-            </div>
-            </a>
-
-            <a href="https://maps.app.goo.gl/iYEKDVva7fTNcUVo6" class="contact-box" target="_blank">
-            <ion-icon name="location-outline"></ion-icon>
-            <div class="contact-text">
-                <h4>Ghé thăm trung tâm</h4>
-                <p>Gặp trực tiếp tại KP4, phường Chơn Thành, tỉnh Đồng Nai</p>
-            </div>
-            </a>
-        </div>
-    </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta" id="final-cta">
@@ -601,43 +688,121 @@
     </section>
 
    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
     <div class="waves">
         <div class="wave" id="wave1"></div>
         <div class="wave" id="wave2"></div>
         <div class="wave" id="wave3"></div>
         <div class="wave" id="wave4"></div>
     </div>
-    <ul class="social-icon">
-        <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/englishsally.vn" target="_blank">
-            <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-        <li class="social-icon__item"><a class="social-icon__link" href="mailto:miss.thuanh@gmail.com">
-            <ion-icon name="mail-outline"></ion-icon>
-        </a></li>
-        <li class="social-icon__item"><a class="social-icon__link" href="https://zalo.me/0388020818" target="_blank">
-            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-        </a></li>
-    </ul>
-    <ul class="menu">
-        <li class="menu__item"><a class="menu__link" href="#courses">Khóa Học</a></li>
-        <li class="menu__item"><a class="menu__link" href="#teacher">Giảng Viên</a></li>
-        <li class="menu__item"><a class="menu__link" href="#testimonials">Học Viên</a></li>
-        <li class="menu__item"><a class="menu__link" href="#contact">Liên Hệ</a></li>
-    </ul>
-    <p>&copy; 2025 <strong>English Sally</strong> | Thiết kế bởi Sally Team</p>
+    
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3 class="footer-title">English Sally</h3>
+            <p class="footer-description">Trung tâm tiếng Anh chất lượng với phương pháp cá nhân hóa, giúp bạn tự tin giao tiếp tiếng Anh.</p>
+            <div class="footer-stats">
+                <div class="stat-item">
+                    <strong>200+</strong>
+                    <span>Học viên thành công</span>
+                </div>
+                <div class="stat-item">
+                    <strong>15+</strong>
+                    <span>Năm kinh nghiệm</span>
+                </div>
+                <div class="stat-item">
+                    <strong>90%</strong>
+                    <span>Hài lòng</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Liên Hệ</h4>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <div>
+                        <strong>Địa chỉ:</strong><br>
+                        KP4, phường Chơn Thành, tỉnh Đồng Nai
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <div>
+                        <strong>Email:</strong><br>
+                        <a href="mailto:miss.thuanh@gmail.com">miss.thuanh@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    <div>
+                        <strong>Zalo:</strong><br>
+                        <a href="https://zalo.me/0388020818" target="_blank">0388020818</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Khóa Học</h4>
+            <ul class="footer-links">
+                <li><a href="#courses">Tiếng Anh Trẻ Em</a></li>
+                <li><a href="#courses">Tiếng Anh Văn Phòng</a></li>
+                <li><a href="#story">Phương Pháp Học</a></li>
+                <li><a href="#teacher">Giảng Viên</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Theo Dõi Chúng Tôi</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/englishsally.vn" target="_blank" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.tiktok.com/@sallyle12345?_t=ZS-8yEBGz94t3R&_r=1" target="_blank" class="social-link">
+                    <ion-icon name="logo-tiktok"></ion-icon>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://zalo.me/0388020818" target="_blank" class="social-link">
+                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    <span>Zalo</span>
+                </a>
+            </div>
+            
+            <div class="footer-cta">
+                <h5>Học thử miễn phí</h5>
+                <a href="https://zalo.me/0388020818" target="_blank" class="footer-btn">
+                    Đăng ký ngay
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 <strong>English Sally</strong> | Thiết kế bởi Sally Team</p>
+        <ul class="footer-menu">
+            <li><a href="#story">Câu Chuyện</a></li>
+            <li><a href="#courses">Khóa Học</a></li>
+            <li><a href="#teacher">Giảng Viên</a></li>
+            <li><a href="#testimonials">Học Viên</a></li>
+        </ul>
+    </div>
     </footer>
 
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+        <!-- Critical JavaScript - defer loading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" defer></script>
     
-    <!-- Icons -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Chart.js Library - lazy load -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
+    <!-- Icons - async loading -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" async></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
 
-    <script src ="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -66,19 +66,25 @@ window.addEventListener('load', () => {
         const target = counter.textContent;
         const numericValue = parseInt(target.replace(/\D/g, ''));
         
-        gsap.from(counter, {
-            textContent: 0,
+        // Bắt đầu từ 50% giá trị đích
+        const startValue = Math.floor(numericValue * 0.5);
+        
+        gsap.fromTo(counter, {
+            textContent: startValue
+        }, {
+            textContent: numericValue,
             duration: 2,
             ease: "power2.out",
             snap: { textContent: 1 },
             stagger: 0.2,
             onUpdate: function() {
+                const currentValue = Math.ceil(this.targets()[0].textContent);
                 if (target.includes('+')) {
-                    counter.textContent = Math.ceil(this.targets()[0].textContent) + '+';
+                    counter.textContent = currentValue + '+';
                 } else if (target.includes('%')) {
-                    counter.textContent = Math.ceil(this.targets()[0].textContent) + '%';
+                    counter.textContent = currentValue + '%';
                 } else {
-                    counter.textContent = Math.ceil(this.targets()[0].textContent);
+                    counter.textContent = currentValue;
                 }
             }
         });
@@ -261,44 +267,187 @@ ScrollTrigger.create({
     }
 });
 
-// Timeline Courses Pathway Animation (Enhanced with GSAP)
+// Learning Pathway Charts
+let childrenChart, officeChart;
+
+function initializeCharts() {
+    // Children Chart Data
+    const childrenData = {
+        labels: ['Buổi 10', 'Buổi 20', 'Buổi 30', 'Buổi 40', 'Buổi 50', 'Buổi 60', 'Buổi 70', 'Buổi 80', 'Buổi 90'],
+        datasets: [
+            {
+                label: 'Nghe',
+                data: [20, 35, 50, 60, 70, 75, 80, 85, 90],
+                borderColor: '#4A47A3',
+                backgroundColor: 'rgba(74, 71, 163, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Nói',
+                data: [15, 30, 45, 55, 65, 70, 75, 80, 85],
+                borderColor: '#EC407A',
+                backgroundColor: 'rgba(236, 64, 122, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Đọc',
+                data: [25, 40, 55, 65, 75, 80, 85, 88, 92],
+                borderColor: '#F48FB1',
+                backgroundColor: 'rgba(244, 143, 177, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Viết',
+                data: [10, 25, 40, 50, 60, 65, 70, 75, 80],
+                borderColor: '#6c757d',
+                backgroundColor: 'rgba(108, 117, 125, 0.1)',
+                tension: 0.4
+            }
+        ]
+    };
+
+    // Office Chart Data
+    const officeData = {
+        labels: ['Buổi 10', 'Buổi 20', 'Buổi 30', 'Buổi 40', 'Buổi 50', 'Buổi 60', 'Buổi 70', 'Buổi 80', 'Buổi 90'],
+        datasets: [
+            {
+                label: 'Giao tiếp',
+                data: [30, 45, 60, 70, 80, 85, 88, 90, 95],
+                borderColor: '#4A47A3',
+                backgroundColor: 'rgba(74, 71, 163, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Email',
+                data: [20, 35, 50, 65, 75, 85, 90, 92, 95],
+                borderColor: '#EC407A',
+                backgroundColor: 'rgba(236, 64, 122, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Thuyết trình',
+                data: [10, 25, 40, 55, 70, 80, 85, 88, 90],
+                borderColor: '#F48FB1',
+                backgroundColor: 'rgba(244, 143, 177, 0.1)',
+                tension: 0.4
+            },
+            {
+                label: 'Báo cáo',
+                data: [15, 30, 45, 60, 75, 82, 87, 90, 93],
+                borderColor: '#6c757d',
+                backgroundColor: 'rgba(108, 117, 125, 0.1)',
+                tension: 0.4
+            }
+        ]
+    };
+
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    usePointStyle: true,
+                    font: {
+                        family: 'TikTok Sans, sans-serif',
+                        size: 12
+                    }
+                }
+            },
+            title: {
+                display: true,
+                text: 'Tiến độ học tập qua 90 buổi (%)',
+                font: {
+                    family: 'TikTok Sans, sans-serif',
+                    size: 16,
+                    weight: 'bold'
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)'
+                },
+                ticks: {
+                    callback: function(value) {
+                        return value + '%';
+                    }
+                }
+            },
+            x: {
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)'
+                }
+            }
+        },
+        animation: {
+            duration: 2000,
+            easing: 'easeInOutQuart'
+        }
+    };
+
+    // Initialize charts
+    if (document.getElementById('childrenChart')) {
+        childrenChart = new Chart(document.getElementById('childrenChart'), {
+            type: 'line',
+            data: childrenData,
+            options: chartOptions
+        });
+    }
+
+    if (document.getElementById('officeChart')) {
+        officeChart = new Chart(document.getElementById('officeChart'), {
+            type: 'line',
+            data: officeData,
+            options: chartOptions
+        });
+    }
+}
+
+// Tab functionality for pathway section
+function initializePathwayTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const pathwayContents = document.querySelectorAll('.pathway-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target;
+            
+            // Remove active class from all tabs and contents
+            tabBtns.forEach(tab => tab.classList.remove('active'));
+            pathwayContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            btn.classList.add('active');
+            document.getElementById(target).classList.add('active');
+        });
+    });
+}
+
+// Learning pathway animation
 ScrollTrigger.create({
-    trigger: ".courses-pathway",
+    trigger: ".learning-pathway",
     start: "top 80%",
     onEnter: () => {
-        const chartGroups = document.querySelectorAll('.chart-group');
+        gsap.from('.pathway-tabs .tab-btn', {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
         
-        chartGroups.forEach((group, index) => {
-            const days = parseInt(group.dataset.days);
-            const factor = parseFloat(group.dataset.factor);
-            const maxHeight = 180 * factor;
-            const dayDisplay = group.querySelector('.chart-day');
-            const bars = group.querySelectorAll('.chart-bar');
-
-            // Initial animation for chart appearance
-            gsap.from(group, {
+        gsap.from('.pathway-phases .phase', {
                 opacity: 0,
                 y: 50,
                 duration: 0.8,
-                delay: index * 0.3,
-                ease: "power2.out"
-            });
-
-            // Animated counter for days
-            gsap.to({}, {
-                duration: 2,
-                delay: index * 0.3 + 0.5,
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const currentDay = Math.ceil(progress * days);
-                    dayDisplay.textContent = `Ngày ${currentDay}`;
-                    
-                    bars.forEach(bar => {
-                        bar.style.height = progress * maxHeight + 'px';
-                    });
-                },
-                ease: "power2.out"
-            });
+            stagger: 0.3,
+            ease: "power2.out",
+            delay: 0.5
         });
     }
 });
@@ -361,27 +510,44 @@ ScrollTrigger.create({
     trigger: ".testimonials",
     start: "top 80%",
     onEnter: () => {
-        gsap.to('.testimonial-card', {
-            opacity: 1,
-            y: 0,
+        gsap.from('.testimonial-slider', {
+            opacity: 0,
+            y: 50,
             duration: 0.8,
+            ease: "power2.out"
+        });
+        
+        gsap.from('.testimonial-nav .nav-btn', {
+            opacity: 0,
+            scale: 0,
+            duration: 0.6,
             stagger: 0.2,
+            delay: 0.3,
+            ease: "back.out(1.7)"
+        });
+        
+        gsap.from('.testimonial-dots .dot', {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.5,
             ease: "power2.out"
         });
     }
 });
 
-// Contact section animation
+// Footer animation
 ScrollTrigger.create({
-    trigger: ".contact-boxes",
-    start: "top 80%",
+    trigger: ".footer",
+    start: "top 90%",
     onEnter: () => {
-        gsap.to('.contact-box', {
-            opacity: 1,
-            y: 0,
+        gsap.from('.footer-section', {
+            opacity: 0,
+            y: 50,
             duration: 0.8,
             stagger: 0.2,
-            ease: "back.out(1.7)"
+            ease: "power2.out"
         });
     }
 });
@@ -473,8 +639,57 @@ function startCountdown() {
     }, 1000);
 }
 
+// Testimonial Slider
+function initializeTestimonialSlider() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    // Dots navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+    });
+
+    // Auto-play (optional)
+    setInterval(nextSlide, 8000);
+}
+
 // Start countdown when page loads
-document.addEventListener('DOMContentLoaded', startCountdown);
+document.addEventListener('DOMContentLoaded', () => {
+    startCountdown();
+    initializeCharts();
+    initializePathwayTabs();
+    initializeTestimonialSlider();
+});
 
 // Mobile Optimization
 function isMobile() {
@@ -484,10 +699,14 @@ function isMobile() {
 // Reduce animations on mobile for better performance
 if (isMobile()) {
     // Reduce animation durations
-    gsap.globalTimeline.timeScale(1.5);
+    gsap.globalTimeline.timeScale(2);
     
     // Disable parallax on mobile
     ScrollTrigger.refresh();
+    
+    // Optimize mobile performance
+    document.body.style.transform = 'translateZ(0)';
+    document.body.style.webkitTransform = 'translateZ(0)';
 }
 
 // Performance optimization - Reduce motion for users who prefer it
