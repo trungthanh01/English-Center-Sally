@@ -736,24 +736,24 @@ if ('IntersectionObserver' in window) {
 }
 
 // Smooth scrolling optimization for mobile
-let isScrolling = false;
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        window.requestAnimationFrame(() => {
-            // Header background change optimization
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(74, 71, 163, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'var(--primary)';
-                header.style.backdropFilter = 'none';
-            }
-            isScrolling = false;
-        });
-        isScrolling = true;
-    }
-});
+// let isScrolling = false;
+// window.addEventListener('scroll', () => {
+//     if (!isScrolling) {
+//         window.requestAnimationFrame(() => {
+//             // Header background change optimization
+//             const header = document.querySelector('.header');
+//             if (window.scrollY > 100) {
+//                 header.style.background = 'rgba(74, 71, 163, 0.95)';
+//                 header.style.backdropFilter = 'blur(10px)';
+//             } else {
+//                 header.style.background = 'var(--primary)';
+//                 header.style.backdropFilter = 'none';
+//             }
+//             isScrolling = false;
+//         });
+//         isScrolling = true;
+//     }
+// });
 
 // Touch-friendly hover effects for mobile
 if ('ontouchstart' in window) {
@@ -789,20 +789,20 @@ document.querySelectorAll('.course-card').forEach(card => {
     });
 });
 
-// Smooth scroll enhancement
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            gsap.to(window, {
-                duration: 1.5,
-                scrollTo: {
-                    y: target,
-                    offsetY: 100
-                },
-                ease: "power2.inOut"
-            });
-        }
-    });
-});
+// // Smooth scroll enhancement
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const target = document.querySelector(this.getAttribute('href'));
+//         if (target) {
+//             gsap.to(window, {
+//                 duration: 1.5,
+//                 scrollTo: {
+//                     y: target,
+//                     offsetY: 100
+//                 },
+//                 ease: "power2.inOut"
+//             });
+//         }
+//     });
+// });

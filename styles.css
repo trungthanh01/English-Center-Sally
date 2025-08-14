@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 /* Critical CSS - Above the fold optimizations */
 html {
     font-size: 16px;
@@ -91,8 +97,15 @@ body {
 
 /* Responsive Media Queries */
 @media (max-width: 48em) {
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
     .section {
         padding: clamp(2rem, 6vw, 3rem) 3%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
     
     .section-title {
@@ -107,6 +120,8 @@ body {
     
     .container {
         padding: 0 1rem;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 }
 
