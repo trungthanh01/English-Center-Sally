@@ -10,54 +10,54 @@ window.addEventListener('load', () => {
         .to('.hero-badge', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.8, 
+            duration: 0.2, 
             ease: "power2.out" 
         })
         .to('.title-line-1', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.3")
         .to('.title-line-2', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.4")
         .to('.title-line-3', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.4")
         .to('.hero-subtitle', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.3")
         .to('.hero-stats', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.2")
         .to('.cta-buttons', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.2")
         .to('.social-proof', { 
             opacity: 1, 
             y: 0, 
-            duration: 0.6, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.2")
         .to('.scroll-indicator', { 
             opacity: 1, 
-            duration: 0.5, 
+            duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.1");
 
