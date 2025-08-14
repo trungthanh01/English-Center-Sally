@@ -81,7 +81,7 @@
         /* Story Transition */
         .story-transition {
             text-align: center;
-            margin: 6rem 0;
+            margin: 3rem 0;
             opacity: 0;
         }
 
@@ -119,6 +119,7 @@
             color: var(--primary);
             font-weight: 600;
             font-style: italic;
+            margin: 0.5rem 0;
         }
 
         /* Sally Story */
@@ -222,9 +223,11 @@
             color: var(--primary);
             margin-bottom: 0.5rem;
             font-weight: 700;
+            text-align: left;
         }
 
         .step-content p {
             color: var(--gray);
             line-height: 1.6;
+            text-align: left;
         }

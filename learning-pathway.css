@@ -82,23 +82,7 @@
         padding: 2rem;
         border-radius: 1rem;
         box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-    }
-    
-    .phase-number {
-        background: linear-gradient(135deg, var(--secondary), var(--accent));
-        color: white;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        font-size: 1.25rem;
-        flex-shrink: 0;
+        display: block;
     }
     
     .phase-content h4 {
@@ -117,6 +101,7 @@
         margin-bottom: 0.5rem;
         position: relative;
         padding-left: 1.5rem;
+        text-align: left;
     }
     
     .phase-content li::before {
@@ -127,24 +112,5 @@
         font-weight: bold;
     }
     
-    @media (max-width: 48rem) {
-        .pathway-tabs {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .tab-btn {
-            width: 100%;
-            max-width: 20rem;
-        }
-        
-        .pathway-phases {
-            grid-template-columns: 1fr;
-        }
-        
-        .phase {
-            flex-direction: column;
-            text-align: center;
-        }
-    }
+
     

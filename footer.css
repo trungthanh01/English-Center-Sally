@@ -16,51 +16,11 @@
     padding: 0 5% 3rem;
   }
   
-  .footer-section h3.footer-title {
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
-  }
-  
   .footer-section h4.footer-subtitle {
     color: var(--accent);
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
-  }
-  
-  .footer-description {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-  
-  .footer-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  
-  .footer-stats .stat-item {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem 0.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  .footer-stats .stat-item strong {
-    display: block;
-    color: var(--secondary);
-    font-size: 1.25rem;
-    font-weight: 800;
-  }
-  
-  .footer-stats .stat-item span {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: normal;
-    text-shadow: none;
   }
   
   .contact-info {
@@ -135,34 +95,7 @@
     font-size: 1.25rem;
   }
   
-  .footer-cta {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    text-align: center;
-  }
-  
-  .footer-cta h5 {
-    color: var(--accent);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-  }
-  
-  .footer-btn {
-    background: var(--secondary);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: inline-block;
-  }
-  
-  .footer-btn:hover {
-    background: var(--accent);
-    transform: translateY(-2px);
-  }
+
   
   .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -197,25 +130,7 @@
     color: var(--accent);
   }
   
-  @media (max-width: 48rem) {
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    
-    .footer-stats {
-      grid-template-columns: 1fr;
-    }
-    
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .footer-menu {
-      justify-content: center;
-    }
-  }
+
   
   .wave {
     position: absolute;

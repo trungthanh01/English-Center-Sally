@@ -1,0 +1,27 @@
+/* Header Media Queries */
+@media (max-width: 48rem) {
+    :root { 
+        --header-h: 56px; 
+    }
+    
+    body {
+        padding-top: var(--header-h);
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+
+    .zalo-btn {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        margin-right: 0;
+    }
+    
+    .nav {
+        padding: 0 3%;
+    }
+}

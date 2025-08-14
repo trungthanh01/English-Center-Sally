@@ -14,7 +14,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: clamp(2rem, 5vw, 4rem);
-            align-items: center;
+            align-items: flex-start;
             max-width: 75rem;
             width: 100%;
             margin: 0 auto;
@@ -50,6 +50,7 @@
             margin-bottom: 2rem;
             opacity: 0;
             transform: translateY(30px);
+            text-align: center;
         }
 
         .badge-text {
@@ -62,6 +63,8 @@
             font-weight: 600;
             display: inline-block;
             color: var(--white);
+            text-align: center;
+            width: 100%;
         }
 
         /* Hero Title */

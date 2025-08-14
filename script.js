@@ -370,10 +370,12 @@ function initializeCharts() {
             y: {
                 beginAtZero: true,
                 max: 100,
+                min: 0,
                 grid: {
                     color: 'rgba(0, 0, 0, 0.1)'
                 },
                 ticks: {
+                    stepSize: 25,
                     callback: function(value) {
                         return value + '%';
                     }

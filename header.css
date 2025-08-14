@@ -81,9 +81,6 @@
 :root {
 	--header-h: 64px;
 }
-@media (max-width: 48rem) {
-	:root { --header-h: 56px; }
-}
 
 /* Giữ header cố định và tránh giật */
 .header {
