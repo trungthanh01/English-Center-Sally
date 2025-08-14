@@ -19,18 +19,7 @@ window.addEventListener('load', () => {
             duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.3")
-        .to('.title-line-2', { 
-            opacity: 1, 
-            y: 0, 
-            duration: 0.2, 
-            ease: "power2.out" 
-        }, "-=0.4")
-        .to('.title-line-3', { 
-            opacity: 1, 
-            y: 0, 
-            duration: 0.2, 
-            ease: "power2.out" 
-        }, "-=0.4")
+        
         .to('.hero-subtitle', { 
             opacity: 1, 
             y: 0, 

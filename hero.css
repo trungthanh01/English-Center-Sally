@@ -14,13 +14,14 @@
         }
         .hero-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 5vw, 4rem);
-            align-items: flex-start;
+            grid-template-columns: 1fr;
+            gap: clamp(2rem, 5vw, 3rem);
+            align-items: center;
             max-width: 75rem;
             width: 100%;
             margin: 0 auto;
             box-sizing: border-box;
+            text-align: center;
         }
         
         .hero-image {
@@ -365,3 +366,156 @@
                 gap: 0.5rem;
             }
         }
+
+
+
+
+/* Laptop/Desktop: Layout 2 cột chuẩn theo mẫu CareerFoundry */
+@media (min-width: 64rem) {
+  .hero {
+    padding: clamp(4rem, 8vh, 6rem) 5% clamp(4rem, 8vh, 6rem);
+    min-height: 90vh;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: center;
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    order: 1;
+    text-align: left;
+    padding-right: 2rem;
+  }
+
+  .hero-badge {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-text {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+  }
+
+  .stat-item {
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .stat-number {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--secondary);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.25rem;
+    font-weight: 400;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    min-width: auto;
+  }
+
+  .btn-outline {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .social-proof {
+    margin-top: 2rem;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .hero-image {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    max-width: 38rem;
+    max-height: 38rem;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: 0 2rem 4rem rgba(0,0,0,0.4);
+  }
+
+  /* Thêm rating badge overlay cho image như trong hình mẫu */
+  .hero-image::after {
+    content: '⭐⭐⭐⭐⭐ 4.9/5\ATRUNG TÂM UY TÍN';
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: 0 0.75rem 2rem rgba(0,0,0,0.15);
+    text-align: center;
+    line-height: 1.3;
+    white-space: pre-line;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
