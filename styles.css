@@ -22,7 +22,7 @@ img {
 }
 
 /* Hardware acceleration for better performance */
-.hero, .hero-content, .hero-image {
+.hero {
     will-change: transform;
     transform: translateZ(0);
 }
@@ -56,7 +56,6 @@ img {
 }
 
 .container {
-    max-width: 1200px;
             margin: 0 auto;
 }
 

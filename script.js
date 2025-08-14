@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin, ScrollToPlugin);
 
 // Loading Animation
 window.addEventListener('load', () => {
-    // Hero Animation Timeline
+    // Hero Animation Timeline - TẮT TẠM THỜI ĐỂ DEBUG LAYOUT
     const heroTl = gsap.timeline();
     
     heroTl
@@ -49,6 +49,13 @@ window.addEventListener('load', () => {
             duration: 0.2, 
             ease: "power2.out" 
         }, "-=0.1");
+
+    // Hiển thị tất cả elements ngay lập tức để debug
+    gsap.set('.hero-badge, .title-line-1, .hero-subtitle, .hero-stats, .cta-buttons, .social-proof, .scroll-indicator', {
+        opacity: 1,
+        y: 0,
+        transform: 'none'
+    });
 
     // Counter Animation for Stats
     gsap.utils.toArray('.stat-number').forEach(counter => {
@@ -137,7 +144,7 @@ ScrollTrigger.create({
     }
 });
 
-// Parallax effect for hero image
+// Parallax effect for hero image - TẮT TẠM THỜI ĐỂ DEBUG
 gsap.to('.hero-image img', {
     yPercent: -20,
     ease: "none",
