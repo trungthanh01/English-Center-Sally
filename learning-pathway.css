@@ -82,7 +82,23 @@
         padding: 2rem;
         border-radius: 1rem;
         box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
-        display: block;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .phase-number {
+        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.1rem;
+        flex-shrink: 0;
     }
     
     .phase-content h4 {
@@ -113,4 +129,23 @@
     }
     
 
+    /* Learning Pathway Media Queries */
+@media (max-width: 48rem) {
+    .pathway-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
     
+    .tab-btn {
+        width: 100%;
+        max-width: 20rem;
+    }
+    
+    .pathway-phases {
+        grid-template-columns: 1fr;
+    }
+    
+    .phase {
+        text-align: left;
+    }
+}

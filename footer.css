@@ -1,190 +1,208 @@
 /* footer */
 .footer {
-    position: relative;
-    width: 100%;
-    background: var(--primary);
-    padding: 4rem 0 0;
-    color: white;
+  position: relative;
+  width: 100%;
+  background: var(--primary);
+  padding: 4rem 0 0;
+  color: white;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 3rem;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 5% 3rem;
+}
+
+.footer-section h4.footer-subtitle {
+  color: var(--accent);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-item ion-icon {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: var(--accent);
+}
+
+.social-link ion-icon {
+  font-size: 1.25rem;
+}
+
+
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.footer-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.footer-menu a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+  color: var(--accent);
+}
+
+
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
   }
-  
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+/* Footer Media Queries */
+@media (max-width: 48rem) {
   .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    gap: 3rem;
-    max-width: 75rem;
-    margin: 0 auto;
-    padding: 0 5% 3rem;
-  }
-  
-  .footer-section h4.footer-subtitle {
-    color: var(--accent);
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-  }
-  
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .contact-item ion-icon {
-    color: var(--secondary);
-    font-size: 1.5rem;
-    margin-top: 0.25rem;
-    flex-shrink: 0;
-  }
-  
-  .contact-item a {
-    color: var(--accent);
-    text-decoration: none;
-  }
-  
-  .contact-item a:hover {
-    color: white;
-  }
-  
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .footer-links li {
-    margin-bottom: 0.75rem;
-  }
-  
-  .footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-links a:hover {
-    color: var(--accent);
-  }
-  
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .social-link:hover {
-    color: var(--accent);
-  }
-  
-  .social-link ion-icon {
-    font-size: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
 
   
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .footer-bottom p {
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
+    flex-direction: column;
+    text-align: center;
   }
   
   .footer-menu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
+    justify-content: center;
   }
-  
-  .footer-menu a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-menu a:hover {
-    color: var(--accent);
-  }
-  
-
-  
-  .wave {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: url("https://i.ibb.co/wQZVxxk/wave.png");
-    background-size: 1000px 100px;
-  }
-  
-  .wave#wave1 {
-    z-index: 1000;
-    opacity: 1;
-    bottom: 0;
-    animation: animateWaves 4s linear infinite;
-  }
-  
-  .wave#wave2 {
-    z-index: 999;
-    opacity: 0.5;
-    bottom: 10px;
-    animation: animate 4s linear infinite !important;
-  }
-  
-  .wave#wave3 {
-    z-index: 1000;
-    opacity: 0.2;
-    bottom: 15px;
-    animation: animateWaves 3s linear infinite;
-  }
-  
-  .wave#wave4 {
-    z-index: 999;
-    opacity: 0.7;
-    bottom: 20px;
-    animation: animate 3s linear infinite;
-  }
-  
-  @keyframes animateWaves {
-    0% {
-      background-position-x: 1000px;
-    }
-    100% {
-      background-position-x: 0px;
-    }
-  }
-  
-  @keyframes animate {
-    0% {
-      background-position-x: -1000px;
-    }
-    100% {
-      background-position-x: 0px;
-    }
-  }
-  
+}

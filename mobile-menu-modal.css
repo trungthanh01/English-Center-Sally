@@ -102,3 +102,14 @@
             background: var(--primary);
             color: var(--secondary);
         }
+
+        /* Mobile Menu Media Queries */
+@media (max-width: 48rem) {
+    .mobile-menu-modal {
+        padding: 0;
+    }
+    
+    .mobile-menu-header {
+        padding: 1rem 5%;
+    }
+}

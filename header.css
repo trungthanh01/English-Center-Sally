@@ -55,7 +55,6 @@
             align-items: center;
             gap: 0.5rem;
             transition: background 0.3s;
-            animation: pulse 2s infinite;
             font-size: 0.9rem;
         }
 
@@ -103,4 +102,32 @@ body {
 /* Đảm bảo nav căn giữa theo chiều cao header */
 .nav {
 	height: 100%;
+}
+
+/* Header Media Queries */
+@media (max-width: 48rem) {
+    :root { 
+        --header-h: 56px; 
+    }
+    
+    body {
+        padding-top: var(--header-h);
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+
+    .zalo-btn {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        margin-right: 0;
+    }
+    
+    .nav {
+        padding: 0 3%;
+    }
 }

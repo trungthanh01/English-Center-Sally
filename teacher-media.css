@@ -1,7 +1,0 @@
-/* Teacher Section Media Queries */
-@media (max-width: 48rem) {
-    .teacher-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-}

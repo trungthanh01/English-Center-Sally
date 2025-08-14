@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+1. chỉnh sửa css, tuân theo nguyên tắc DRY (don't repeat yourself) và clean code, xóa các đoạn code không hiệu quả và thừa thải.
+
+2. tuân thủ web responsive, tối ưu cho mobile, tablet, desktop.
+
+3. tuân thủ các quy tắc của html, css, javascript.
+
+4. tuân thủ các quy tắc của google, facebook, instagram, ...
+
+5. tuân thủ các quy tắc của zalo, tiktok, youtube, ...
