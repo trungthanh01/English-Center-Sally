@@ -699,18 +699,7 @@ function isMobile() {
     return window.innerWidth <= 768;
 }
 
-// Reduce animations on mobile for better performance
-if (isMobile()) {
-    // Reduce animation durations
-    gsap.globalTimeline.timeScale(2);
-    
-    // Disable parallax on mobile
-    ScrollTrigger.refresh();
-    
-    // Optimize mobile performance
-    document.body.style.transform = 'translateZ(0)';
-    document.body.style.webkitTransform = 'translateZ(0)';
-}
+
 
 // Performance optimization - Reduce motion for users who prefer it
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -736,24 +725,24 @@ if ('IntersectionObserver' in window) {
 }
 
 // Smooth scrolling optimization for mobile
-// let isScrolling = false;
-// window.addEventListener('scroll', () => {
-//     if (!isScrolling) {
-//         window.requestAnimationFrame(() => {
-//             // Header background change optimization
-//             const header = document.querySelector('.header');
-//             if (window.scrollY > 100) {
-//                 header.style.background = 'rgba(74, 71, 163, 0.95)';
-//                 header.style.backdropFilter = 'blur(10px)';
-//             } else {
-//                 header.style.background = 'var(--primary)';
-//                 header.style.backdropFilter = 'none';
-//             }
-//             isScrolling = false;
-//         });
-//         isScrolling = true;
-//     }
-// });
+let isScrolling = false;
+window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            // Header background change optimization
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(74, 71, 163, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--primary)';
+                header.style.backdropFilter = 'none';
+            }
+            isScrolling = false;
+        });
+        isScrolling = true;
+    }
+});
 
 // Touch-friendly hover effects for mobile
 if ('ontouchstart' in window) {
