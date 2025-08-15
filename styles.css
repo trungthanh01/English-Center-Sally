@@ -28,11 +28,11 @@ img {
 }
 
         :root {
-            --primary: #4A47A3;      /* Xanh tím đậm - Chuyên nghiệp, tin cậy */
-            --secondary: #EC407A;    /* Hồng Magenta - Nổi bật, năng động */
-            --accent: #F48FB1;       /* Hồng nhạt - Nhẹ nhàng, nhấn nhá */
-            --light: #F5F5F7;        /* Xám rất nhạt - Nền sạch sẽ, dễ chịu */
-            --white: #ffffff;
+            --primary: #000957;      /* Xanh tím đậm - Chuyên nghiệp, tin cậy */
+            --secondary: #FF6363;    /* Hồng Magenta - Nổi bật, năng động */
+            --accent: #F7CFD8;       /* Hồng nhạt - Nhẹ nhàng, nhấn nhá */
+            --light: #FEF3E2;        /* Xám rất nhạt - Nền sạch sẽ, dễ chịu */
+            --white: #FAF7F3;
             --text: #343a40;         /* Đen nhạt - Dịu mắt hơn màu đen tuyền */
             --gray: #6c757d;
         }

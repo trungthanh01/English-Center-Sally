@@ -9,9 +9,10 @@
     .pathway-tabs {
         display: flex;
         justify-content: center;
+        align-items: center; /* Căn thẳng hàng theo trục dọc */
         gap: 1rem;
         margin-bottom: 3rem;
-        flex-wrap: wrap; /* Đảm bảo wrap trên màn hình nhỏ */
+        flex-wrap: wrap;
     }
     
     .tab-btn {
@@ -24,13 +25,17 @@
         cursor: pointer;
         transition: all 0.3s ease;
         font-size: 1rem;
-        min-width: 140px;
+        min-width: 160px;
+        max-width: 200px;
         text-align: center;
-        opacity: 1 !important; /* Force visibility */
-        display: inline-block !important; /* Force display */
-        visibility: visible !important; /* Force visibility */
+        opacity: 1 !important;
+        display: inline-flex !important; /* Thay đổi thành flex */
+        align-items: center; /* Căn giữa nội dung */
+        justify-content: center; /* Căn giữa nội dung */
+        visibility: visible !important;
         position: relative;
         z-index: 1;
+        height: 50px; /* Fixed height để đảm bảo cùng chiều cao */
     }
 
 

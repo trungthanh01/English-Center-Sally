@@ -687,32 +687,41 @@ function startCountdown() {
     }, 1000);
 }
 
-// Testimonial Slider
+// Testimonial Horizontal Slider
 function initializeTestimonialSlider() {
+    const wrapper = document.querySelector('.testimonial-wrapper');
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     let currentSlide = 0;
 
-    function showSlide(index) {
-        // Remove active class from all slides and dots
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Add active class to current slide and dot
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function scrollToSlide(index) {
+        if (wrapper) {
+            const slideWidth = wrapper.clientWidth;
+            wrapper.scrollTo({
+                left: slideWidth * index,
+                behavior: 'smooth'
+            });
+            currentSlide = index;
+            updateDots();
+        }
     }
 
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
+        const nextIndex = (currentSlide + 1) % slides.length;
+        scrollToSlide(nextIndex);
     }
 
     function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        scrollToSlide(prevIndex);
     }
 
     // Event listeners
@@ -722,13 +731,54 @@ function initializeTestimonialSlider() {
     // Dots navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            currentSlide = index;
-            showSlide(currentSlide);
+            scrollToSlide(index);
         });
     });
 
-    // Auto-play (optional)
-    setInterval(nextSlide, 8000);
+    // Update dots based on scroll position
+    if (wrapper) {
+        wrapper.addEventListener('scroll', () => {
+            const slideWidth = wrapper.clientWidth;
+            const scrollLeft = wrapper.scrollLeft;
+            const newIndex = Math.round(scrollLeft / slideWidth);
+            if (newIndex !== currentSlide) {
+                currentSlide = newIndex;
+                updateDots();
+            }
+        });
+    }
+
+    // Touch/drag support for mobile
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    if (wrapper) {
+        wrapper.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - wrapper.offsetLeft;
+            scrollLeft = wrapper.scrollLeft;
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        wrapper.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        wrapper.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - wrapper.offsetLeft;
+            const walk = (x - startX) * 2;
+            wrapper.scrollLeft = scrollLeft - walk;
+        });
+    }
+
+    // Initialize
+    updateDots();
 }
 
 // Start countdown when page loads
