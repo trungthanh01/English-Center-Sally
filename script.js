@@ -241,17 +241,19 @@ document.addEventListener('click', function(e) {
         contents.forEach(content => observer.observe(content));
         });
 
-// Enhanced animations for all sections
+// Enhanced animations for all sections với scroll optimization
 ScrollTrigger.create({
     trigger: ".courses",
-    start: "top 80%",
+    start: "top 80%", 
     onEnter: () => {
         gsap.to('.course-card', {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.3,
-            ease: "power2.out"
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out",
+            overwrite: "auto",
+            force3D: true
         });
     }
 });
@@ -381,22 +383,70 @@ function initializeCharts() {
         }
     };
 
-    // Initialize charts
-    if (document.getElementById('childrenChart')) {
-        childrenChart = new Chart(document.getElementById('childrenChart'), {
-            type: 'line',
-            data: childrenData,
-            options: chartOptions
-        });
-    }
+    // Initialize charts with error handling
+    try {
+        if (typeof Chart !== 'undefined') {
+            if (document.getElementById('childrenChart')) {
+                childrenChart = new Chart(document.getElementById('childrenChart'), {
+                    type: 'line',
+                    data: childrenData,
+                    options: chartOptions
+                });
+            }
 
-    if (document.getElementById('officeChart')) {
-        officeChart = new Chart(document.getElementById('officeChart'), {
-            type: 'line',
-            data: officeData,
-            options: chartOptions
-        });
+            if (document.getElementById('officeChart')) {
+                officeChart = new Chart(document.getElementById('officeChart'), {
+                    type: 'line',
+                    data: officeData,
+                    options: chartOptions
+                });
+            }
+        } else {
+            // Fallback khi Chart.js không load
+            console.warn('Chart.js not loaded, using fallback display');
+            showChartFallback();
+        }
+    } catch (error) {
+        console.error('Error initializing charts:', error);
+        showChartFallback();
     }
+}
+
+// Fallback display khi chart không hoạt động
+function showChartFallback() {
+    const chartWrappers = document.querySelectorAll('.chart-wrapper');
+    chartWrappers.forEach(wrapper => {
+        const canvas = wrapper.querySelector('canvas');
+        if (canvas) {
+            canvas.style.display = 'none';
+            const fallbackDiv = document.createElement('div');
+            fallbackDiv.className = 'chart-fallback';
+            fallbackDiv.innerHTML = `
+                <div style="text-align: center; padding: 2rem; color: var(--gray);">
+                    <p><strong>Tiến độ học tập qua 90 buổi</strong></p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center;">
+                            <div style="background: #4A47A3; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">90%</div>
+                            <small>Nghe</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #EC407A; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">85%</div>
+                            <small>Nói</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #F48FB1; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">88%</div>
+                            <small>Đọc</small>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="background: #673AB7; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">80%</div>
+                            <small>Viết</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            wrapper.appendChild(fallbackDiv);
+        }
+    });
 }
 
 // Tab functionality for pathway section
@@ -419,11 +469,18 @@ function initializePathwayTabs() {
     });
 }
 
-// Learning pathway animation
+// Learning pathway animation - Với safety check
 ScrollTrigger.create({
     trigger: ".learning-pathway",
     start: "top 80%",
     onEnter: () => {
+        // Đảm bảo tab buttons luôn visible trước khi animate
+        gsap.set('.pathway-tabs .tab-btn', {
+            opacity: 1,
+            display: 'inline-block',
+            visibility: 'visible'
+        });
+        
         gsap.from('.pathway-tabs .tab-btn', {
             opacity: 0,
             y: 30,

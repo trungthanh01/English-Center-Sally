@@ -17,14 +17,38 @@
             border-radius: 0.9375rem;
             padding: clamp(1.5rem, 4vw, 2rem);
             box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
             border-top: 0.25rem solid var(--secondary);
             opacity: 0;
-            transform: translateY(3.125rem);
+            transform: translateY(50px);
+            will-change: transform, opacity;
         }
 
         .course-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 1rem 2.5rem rgba(0,0,0,0.15);
+        }
+
+        /* Mobile optimization - Tắt hover effects và tối ưu scroll */
+        @media (hover: none) and (pointer: coarse) {
+            .course-card {
+                transition: none; /* Tắt transition để tránh scroll lag */
+            }
+            
+            .course-card:hover {
+                transform: none;
+                box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Tối ưu scroll performance cho courses section */
+        .courses {
+            scroll-behavior: auto; /* Tắt smooth scroll trong section này */
+            -webkit-overflow-scrolling: touch; /* iOS scroll optimization */
+        }
+
+        .courses-grid {
+            contain: layout style; /* CSS containment để tối ưu performance */
         }
 
         .course-header {
