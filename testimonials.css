@@ -163,7 +163,7 @@
 
     /* Touch indication for swipe */
     .testimonial-wrapper::after {
-        content: "← Trượt để xem thêm →";
+        content: "← Swipe →";
         position: absolute;
         bottom: 1rem;
         left: 50%;

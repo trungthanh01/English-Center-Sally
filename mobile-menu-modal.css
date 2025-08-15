@@ -7,7 +7,7 @@
     right: 0 !important;
     width: 100% !important;
     height: calc(100vh - var(--header-h)) !important; /* Chiều cao trừ header */
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: linear-gradient(135deg, var(--primary) 40%, var(--secondary) 100%);
     z-index: 10000 !important;
     transform: translateY(-100%); /* Ẩn phía trên */
     opacity: 0;

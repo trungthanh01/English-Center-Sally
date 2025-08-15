@@ -96,7 +96,7 @@ ScrollTrigger.create({
         gsap.to('.problem-card', {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.2,
             stagger: 0.2,
             ease: "power2.out"
         });
@@ -137,7 +137,7 @@ ScrollTrigger.create({
             .to('.journey-step', {
                 opacity: 1,
                 x: 0,
-                duration: 0.6,
+                duration: 0.2,
                 stagger: 0.3,
                 ease: "power2.out"
             }, "-=0.2");
@@ -249,7 +249,7 @@ ScrollTrigger.create({
         gsap.to('.course-card', {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.2,
             stagger: 0.2,
             ease: "power2.out",
             overwrite: "auto",
@@ -484,7 +484,7 @@ ScrollTrigger.create({
         gsap.from('.pathway-tabs .tab-btn', {
             opacity: 0,
             y: 30,
-            duration: 0.6,
+            duration: 0.2,
             stagger: 0.2,
             ease: "power2.out"
         });
@@ -533,20 +533,20 @@ ScrollTrigger.create({
             .to('.teacher-name', {
                 opacity: 1,
                 y: 0,
-                duration: 0.6,
+                duration: 0.2,
                 ease: "power2.out"
             }, "-=0.5")
             .to('.teacher-bio p', {
                 opacity: 1,
                 y: 0,
-                duration: 0.6,
+                duration: 0.2,
                 stagger: 0.2,
                 ease: "power2.out"
             }, "-=0.3")
             .to('.teacher-achievements, .teacher-certificates, .teacher-experience, .teacher-skills', {
                 opacity: 1,
                 y: 0,
-                duration: 0.6,
+                duration: 0.2,
                 stagger: 0.2,
                 ease: "power2.out"
             }, "-=0.2");
@@ -568,7 +568,7 @@ ScrollTrigger.create({
         gsap.from('.testimonial-nav .nav-btn', {
             opacity: 0,
             scale: 0,
-            duration: 0.6,
+            duration: 0.2,
             stagger: 0.2,
             delay: 0.3,
             ease: "back.out(1.7)"
@@ -577,7 +577,7 @@ ScrollTrigger.create({
         gsap.from('.testimonial-dots .dot', {
             opacity: 0,
             y: 20,
-            duration: 0.5,
+            duration: 0.2,
             stagger: 0.1,
             delay: 0.5,
             ease: "power2.out"
@@ -617,32 +617,32 @@ ScrollTrigger.create({
             .from('.cta-title', {
                 opacity: 0,
                 y: 30,
-                duration: 0.6,
+                duration: 0.2,
                 ease: "power2.out"
             }, "-=0.3")
             .from('.cta-subtitle', {
                 opacity: 0,
                 y: 30,
-                duration: 0.6,
+                duration: 0.2,
                 ease: "power2.out"
             }, "-=0.2")
             .from('.cta-benefits .benefit-item', {
                 opacity: 0,
                 x: -30,
-                duration: 0.5,
+                duration: 0.2,
                 stagger: 0.1,
                 ease: "power2.out"
             }, "-=0.2")
             .from('.cta-action', {
                 opacity: 0,
                 scale: 0.9,
-                duration: 0.6,
+                duration: 0.2,
                 ease: "back.out(1.7)"
             }, "-=0.2")
             .from('.trust-badges .trust-item', {
                 opacity: 0,
                 y: 20,
-                duration: 0.5,
+                duration: 0.2,
                 stagger: 0.1,
                 ease: "power2.out"
             }, "-=0.2");
