@@ -223,18 +223,6 @@ document.addEventListener('click', function(e) {
             });
         });
 
-// Header scroll effect
-window.addEventListener('scroll', () => {
-	// Header background change optimization
-	const header = document.querySelector('.header');
-	if (window.scrollY > 100) {
-		header.style.background = 'rgba(74, 71, 163, 0.95)';
-		header.style.backdropFilter = 'blur(10px)';
-	} else {
-		header.style.background = 'var(--primary)';
-		header.style.backdropFilter = 'none';
-	}
-});
 
         //Activities Section Animation
         document.addEventListener('DOMContentLoaded', function () {
@@ -744,54 +732,3 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Touch-friendly hover effects for mobile
-if ('ontouchstart' in window) {
-    document.querySelectorAll('.course-card, .contact-box, .problem-card').forEach(element => {
-        element.addEventListener('touchstart', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        element.addEventListener('touchend', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-}
-
-// Interactive hover effects with GSAP
-document.querySelectorAll('.course-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-            y: -10,
-            boxShadow: "0 20px 50px rgba(0,0,0,0.15)",
-            duration: 0.3,
-            ease: "power2.out"
-        });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-            y: 0,
-            boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-            duration: 0.3,
-            ease: "power2.out"
-        });
-    });
-});
-
-// // Smooth scroll enhancement
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         const target = document.querySelector(this.getAttribute('href'));
-//         if (target) {
-//             gsap.to(window, {
-//                 duration: 1.5,
-//                 scrollTo: {
-//                     y: target,
-//                     offsetY: 100
-//                 },
-//                 ease: "power2.inOut"
-//             });
-//         }
-//     });
-// });

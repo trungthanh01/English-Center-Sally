@@ -144,19 +144,6 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .story-badge {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background: var(--secondary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 20px rgba(236, 64, 122, 0.3);
-        }
-
         .story-text {
             opacity: 0;
             transform: translateX(50px);
@@ -183,7 +170,7 @@
             content: '"';
             position: absolute;
             left: 0;
-            top: -10px;
+            top: -25px;
             font-size: 4rem;
             color: var(--accent);
             opacity: 0.5;
