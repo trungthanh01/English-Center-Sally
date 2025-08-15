@@ -1,27 +1,27 @@
 /* mobile-menu-modal */
-/* Mobile modal menu */
+/* Mobile modal menu - Slide down from header */
 .mobile-menu-modal {
-    display: none;
     position: fixed !important;
-    top: 0 !important;
+    top: var(--header-h) !important; /* Bắt đầu từ dưới header */
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
-    height: 100vh !important;
-    background: var(--accent);
+    height: calc(100vh - var(--header-h)) !important; /* Chiều cao trừ header */
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     z-index: 10000 !important;
-    transform: translateY(-100%);
+    transform: translateY(-100%); /* Ẩn phía trên */
     opacity: 0;
-    pointer-events: none;
-    transition: transform 0.35s ease-out, opacity 0.55s ease;
-    will-change: transform;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .mobile-menu-modal.active {
-    transform: translateY(0);
+    transform: translateY(0); /* Trượt xuống */
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
 }        
 .mobile-logo{
             color: var(--white);
@@ -31,89 +31,133 @@
         }
 
         .mobile-menu-header {
-            display: flex !important;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--light);
-            background: var(--primary);
-            color: white;
-            padding: 1rem 5%;
-            position: relative;
-            z-index: 10000;
+            display: none; /* Ẩn header vì menu trượt từ header chính */
         }
 
         .mobile-menu-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        .mobile-menu-close i:hover {
-            font-size: 1.5rem;
-            color: var(--light);
-            transition: color 0.3s, 
-                transform 0.3s;
-            transform: scale(1.2);
+            display: none; /* Dùng chính nút hamburger để đóng */
         }
 
         .mobile-menu-items {
-            padding: 2rem 0;
-            margin-top: 100px;
-
+            padding: 3rem 0 2rem;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .mobile-menu-items a {
             display: block;
-            padding: 1rem 2rem;
-            color: var(--text);
+            padding: 1.2rem 2rem;
+            color: var(--white);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            border-bottom: 1px solid var(--light);
-            transition: background 0.3s;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 80%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .mobile-menu-items a:hover {
-            color: var(--primary);
-            margin: 0 50px;
-            text-align: center;
-            transition: all 1s;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: var(--secondary);
         }
 
-        .mobile-menu-items a:last-child {
-            border-bottom: none;
+        .mobile-menu-items a:active {
+            transform: translateY(0);
         }
 
         .mobile-zalo-btn {
-            margin: 2rem;
-            background: var(--secondary);
+            margin: 2rem auto;
+            background: linear-gradient(135deg, var(--secondary), #ff6b9d);
             color: white;
-            padding: 1rem;
-            border-radius: 10px;
+            padding: 1.2rem 2rem;
+            border-radius: 25px;
             text-align: center;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            transition: background 0.3s;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(236, 64, 122, 0.3);
+            width: 80%;
+            max-width: 280px;
         }
 
         .mobile-zalo-btn:hover {
-            background: var(--primary);
-            color: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(236, 64, 122, 0.4);
+            background: linear-gradient(135deg, #ff6b9d, var(--secondary));
+        }
+
+        .mobile-zalo-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Animation cho menu items */
+        .mobile-menu-items a {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .mobile-menu-items a:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu-items a:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-menu-items a:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-menu-items a:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-menu-items a:nth-child(5) { animation-delay: 0.5s; }
+        .mobile-menu-items a:nth-child(6) { animation-delay: 0.6s; }
+
+        .mobile-zalo-btn {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.6s ease forwards;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Reset animation khi menu đóng */
+        .mobile-menu-modal:not(.active) .mobile-menu-items a,
+        .mobile-menu-modal:not(.active) .mobile-zalo-btn {
+            animation: none;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         /* Mobile Menu Media Queries */
-@media (max-width: 48rem) {
-    .mobile-menu-modal {
-        padding: 0;
-    }
-    
-    .mobile-menu-header {
-        padding: 1rem 5%;
-    }
-}
+        @media (max-width: 48rem) {
+            .mobile-menu-modal {
+                padding: 0;
+            }
+            
+            .mobile-menu-items {
+                padding: 2rem 0;
+            }
+            
+            .mobile-menu-items a {
+                width: 90%;
+                font-size: 1.2rem;
+                padding: 1rem 1.5rem;
+            }
+            
+            .mobile-zalo-btn {
+                width: 90%;
+                margin: 1.5rem auto;
+            }
+        }

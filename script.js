@@ -156,54 +156,58 @@ gsap.to('.hero-image img', {
     }
 });
 
-// Mobile menu functionality
+// Mobile menu functionality với hamburger animation
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenuModal = document.getElementById('mobileMenuModal');
-const mobileMenuClose = document.getElementById('mobileMenuClose');
 const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-        // Open mobile menu
-        // Open mobile menu
-    mobileMenuBtn.addEventListener('click', function() {
-        mobileMenuModal.style.display = 'block';
-
-        // Bỏ setTimeout 10ms, dùng 2 lần rAF để chắc chắn browser đã apply display
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                mobileMenuModal.classList.add('active');
-            });
-        });
-    });
+// Toggle mobile menu
+function toggleMobileMenu() {
+    const isActive = mobileMenuModal.classList.contains('active');
+    
+    if (!isActive) {
+        // Mở menu
+        mobileMenuModal.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    } else {
+        // Đóng menu  
+        closeMobileMenu();
+    }
+}
 
 // Close mobile menu function
 function closeMobileMenu() {
     if (!mobileMenuModal.classList.contains('active')) return;
 
     mobileMenuModal.classList.remove('active');
-
-    // Chờ transition kết thúc mới display:none để animation đóng mượt
-    const handle = (e) => {
-        if (e.propertyName !== 'transform') return;
-        mobileMenuModal.style.display = 'none';
-        mobileMenuModal.removeEventListener('transitionend', handle);
-    };
-    mobileMenuModal.addEventListener('transitionend', handle, { once: true });
+    mobileMenuBtn.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scroll
 }
 
-        // Close mobile menu events
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
+// Event listeners
+mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
-        // Close menu when clicking menu links
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
+// Close menu when clicking menu links
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+});
 
-        // Close menu on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeMobileMenu();
-            }
-        });
+// Close menu on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
+// Close menu when clicking outside (optional)
+document.addEventListener('click', function(e) {
+    if (mobileMenuModal.classList.contains('active') && 
+        !mobileMenuModal.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+        closeMobileMenu();
+    }
+});
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
