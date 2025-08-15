@@ -40,7 +40,6 @@
             padding: 1rem 5%;
             position: relative;
             z-index: 10000;
-            margin-bottom: 0 !important;
         }
 
         .mobile-menu-close {

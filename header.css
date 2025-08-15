@@ -10,7 +10,6 @@
             left: 0 !important;
             right: 0 !important;
             z-index: 9999 !important;
-            padding: 0.75rem 0;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             transform: translateZ(0);
