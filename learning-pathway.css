@@ -1,236 +1,352 @@
-/* learning-pathway */
-    /* Learning Pathway Section */
-    /* ======================================================= */
-    .learning-pathway {
-        background: var(--light);
-        padding: clamp(3rem, 8vw, 5rem) 5%;
-    }
-    
-    .pathway-tabs {
-        display: flex;
-        justify-content: center;
-        align-items: center; /* Căn thẳng hàng theo trục dọc */
-        gap: 1rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
+/* Learning Pathway Section - New Design */
+/* ======================================================= */
+.learning-pathway {
+    background: #f8f9fa;
+    padding: clamp(3rem, 8vw, 5rem) 5%;
+    position: relative;
+}
 
-    }
-    
-    .tab-btn {
-        background: var(--white);
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        padding: 0.75rem 2rem;
-        border-radius: 2rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        font-size: 1rem;
-    }
+.learning-pathway .section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #1e2a4a;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.pathway-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+/* Learning Options */
+.learning-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.option-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn i {
+    font-size: 1.1rem;
+}
+
+.option-office {
+    color: #1976d2;
+    border-color: #1976d2;
+}
+
+.option-office:hover,
+.option-office.active {
+    background: #1976d2;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+}
+
+.option-children {
+    color: #f57c00;
+    border-color: #f57c00;
+}
+
+.option-children:hover,
+.option-children.active {
+    background: #f57c00;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(245, 124, 0, 0.3);
+}
+
+/* Pathway Content - Removed unused styles */
+
+/* Course Features styling from section-courses.css */
+.course-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* .course-features li {
+    padding: 0.5rem 0;
+    color: #666;
+    position: relative;
+    padding-left: 1.5rem;
+} */
+
+/* .course-features li::before {
+    content: "✓";
+    color: #1976d2;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+} */
 
 
-    
-    
-    .tab-btn:hover {
-        background: var(--primary);
-        color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(74, 71, 163, 0.3);
-    }
+/* Course Details Section */
+.course-details-section {
+    max-width: 800px;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 1rem;
+    display: none; /* Hide by default */
+}
 
-    .tab-btn.active {
-        background: var(--primary);
-        color: var(--white);
-        box-shadow: 0 5px 15px rgba(74, 71, 163, 0.4);
-    }
-    
-    .pathway-content {
-        display: none;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.5s ease;
-    }
-    
-    .pathway-content.active {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .pathway-intro {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    
-    .pathway-intro h3 {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-        color: var(--primary);
-        margin-bottom: 1rem;
-    }
-    
-    .pathway-intro p {
-        font-size: 1.1rem;
-        color: var(--gray);
-    }
-    
-    .chart-wrapper {
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.1);
-        margin-bottom: 3rem;
-        max-width: 50rem;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        min-height: 400px;
-    }
+.course-details-section.active {
+    display: flex; /* Show when active */
+}
 
-    .chart-wrapper canvas {
-        width: 100% !important;
-        height: 400px !important;
-        max-height: 400px;
-    }
-    
-    .pathway-phases {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-    }
-    
-    .phase {
-        background: white;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.1);
-        display: flex;
-        align-items: flex-start;
-        gap: 1.5rem;
-    }
-    
-    .phase-number {
-        background: linear-gradient(135deg, var(--secondary), var(--accent));
-        color: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-    }
-    
-    .phase-content h4 {
-        color: var(--primary);
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-    }
-    
-    .phase-content ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .phase-content li {
-        color: var(--gray);
-        margin-bottom: 0.5rem;
-        position: relative;
-        padding-left: 1.5rem;
-        text-align: left;
-    }
-    
-    .phase-content li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--secondary);
-        font-weight: bold;
-    }
-    
+.course-detail {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
 
-    /* Learning Pathway Media Queries */
-@media (max-width: 48rem) {
+.course-detail:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.course-header:hover {
+    background-color: #f8f9fa;
+}
+
+.course-icon {
+    width: 50px;
+    height: 50px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.course-icon i {
+    font-size: 1.2rem;
+    color: #1976d2;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e2a4a;
+    margin-bottom: 0.5rem;
+}
+
+.course-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.course-badge.optional {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.course-badge i {
+    font-size: 0.8rem;
+}
+
+.expand-btn {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.expand-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.expand-btn i {
+    font-size: 0.9rem;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.expand-btn.active i {
+    transform: rotate(45deg);
+}
+
+.course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #f8f9fa;
+}
+
+.course-content.active {
+    max-height: 200px;
+    padding: 1.5rem;
+}
+
+/* Mobile: Remove height restriction for better content visibility */
+@media (max-width: 768px) {
+    .course-content.active {
+        max-height: none;
+        padding: 1rem;
+    }
+}
+
+.course-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+    
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
     .learning-pathway {
         padding: clamp(2rem, 6vw, 3rem) 3%;
     }
 
-    .pathway-tabs {
+    .pathway-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .learning-options {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         margin-bottom: 2rem;
     }
+
+    .option-btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+        min-width: 200px;
+        justify-content: center;
+    }
+
+
+    /* Mobile Course Details */
+    .course-details-section {
+        margin-top: 3rem;
+        padding: 0 1rem;
+    }
     
-    .tab-btn {
-        width: 100%;
-        max-width: 20rem;
-        padding: 1rem 1.5rem;
+    /* Mobile: Better spacing and visibility */
+    .course-detail {
+        margin-bottom: 1.5rem;
+    }
+    
+    .course-content {
+        background: #f8f9fa;
+        border-radius: 0 0 12px 12px;
+    }
+
+
+    .course-header {
+        padding: 1rem;
+    }
+
+    .course-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.75rem;
+    }
+
+    .course-icon i {
         font-size: 1rem;
-        min-width: auto;
-        background: var(--white) !important;
-        color: var(--primary) !important;
-        border: 2px solid var(--primary) !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .tab-btn:hover,
-    .tab-btn.active {
-        background: var(--primary) !important;
-        color: var(--white) !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(74, 71, 163, 0.3) !important;
-    }
-
-    .pathway-intro h3 {
-        font-size: clamp(1.3rem, 5vw, 1.6rem);
-        margin-bottom: 0.8rem;
-    }
-
-    .pathway-intro p {
+    .course-info h3 {
         font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .course-badge {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .expand-btn {
+        width: 35px;
+        height: 35px;
+        margin-left: 0.5rem;
+    }
+
+    .expand-btn i {
+        font-size: 0.8rem;
+    }
+
+    .course-content.active {
+        padding: 1rem;
+        max-height: none; /* Remove height restriction on mobile */
+    }
+
+    .course-content p {
+        font-size: 0.9rem;
         line-height: 1.5;
     }
     
-    .chart-wrapper {
-        padding: 1rem;
-        margin-bottom: 2rem;
-        min-height: 300px;
-    }
-
-    .chart-wrapper canvas {
-        height: 300px !important;
-        max-height: 300px;
+    /* Mobile: Better course features display */
+    /* .course-features li {
+        padding: 0.75rem 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
     
-    .pathway-phases {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    
-    .phase {
-        text-align: left;
-        padding: 1.5rem;
-        gap: 1rem;
-    }
-
-    .phase-number {
-        width: 40px;
-        height: 40px;
+    .course-features li::before {
         font-size: 1rem;
-    }
+        margin-right: 0.75rem;
+    } */
+}
 
-    .phase-content h4 {
-        font-size: 1.1rem;
-        margin-bottom: 0.8rem;
-    }
 
-    .phase-content li {
-        font-size: 0.9rem;
-        line-height: 1.4;
-        margin-bottom: 0.4rem;
+/* Ultra-wide screens */
+@media (min-width: 1400px) {
+    .course-details-section {
+        max-width: 900px;
     }
 }

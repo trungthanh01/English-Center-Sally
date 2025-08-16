@@ -258,262 +258,124 @@ ScrollTrigger.create({
     }
 });
 
-// Learning Pathway Charts
-let childrenChart, officeChart;
-
-function initializeCharts() {
-    // Children Chart Data
-    const childrenData = {
-        labels: ['Buổi 10', 'Buổi 20', 'Buổi 30', 'Buổi 40', 'Buổi 50', 'Buổi 60', 'Buổi 70', 'Buổi 80', 'Buổi 90'],
-        datasets: [
-            {
-                label: 'Nghe',
-                data: [20, 35, 50, 60, 70, 75, 80, 85, 90],
-                borderColor: '#4A47A3',
-                backgroundColor: 'rgba(74, 71, 163, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Nói',
-                data: [15, 30, 45, 55, 65, 70, 75, 80, 85],
-                borderColor: '#EC407A',
-                backgroundColor: 'rgba(236, 64, 122, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Đọc',
-                data: [25, 40, 55, 65, 75, 80, 85, 88, 92],
-                borderColor: '#F48FB1',
-                backgroundColor: 'rgba(244, 143, 177, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Viết',
-                data: [10, 25, 40, 50, 60, 65, 70, 75, 80],
-                borderColor: '#6c757d',
-                backgroundColor: 'rgba(108, 117, 125, 0.1)',
-                tension: 0.4
-            }
-        ]
-    };
-
-    // Office Chart Data
-    const officeData = {
-        labels: ['Buổi 10', 'Buổi 20', 'Buổi 30', 'Buổi 40', 'Buổi 50', 'Buổi 60', 'Buổi 70', 'Buổi 80', 'Buổi 90'],
-        datasets: [
-            {
-                label: 'Giao tiếp',
-                data: [30, 45, 60, 70, 80, 85, 88, 90, 95],
-                borderColor: '#4A47A3',
-                backgroundColor: 'rgba(74, 71, 163, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Email',
-                data: [20, 35, 50, 65, 75, 85, 90, 92, 95],
-                borderColor: '#EC407A',
-                backgroundColor: 'rgba(236, 64, 122, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Thuyết trình',
-                data: [10, 25, 40, 55, 70, 80, 85, 88, 90],
-                borderColor: '#F48FB1',
-                backgroundColor: 'rgba(244, 143, 177, 0.1)',
-                tension: 0.4
-            },
-            {
-                label: 'Báo cáo',
-                data: [15, 30, 45, 60, 75, 82, 87, 90, 93],
-                borderColor: '#6c757d',
-                backgroundColor: 'rgba(108, 117, 125, 0.1)',
-                tension: 0.4
-            }
-        ]
-    };
-
-    const chartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'top',
-                labels: {
-                    usePointStyle: true,
-                    font: {
-                        family: 'TikTok Sans, sans-serif',
-                        size: 12
-                    }
-                }
-            },
-            title: {
-                display: true,
-                text: 'Tiến độ học tập qua 90 buổi (%)',
-                font: {
-                    family: 'TikTok Sans, sans-serif',
-                    size: 16,
-                    weight: 'bold'
-                }
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100,
-                min: 0,
-                grid: {
-                    color: 'rgba(0, 0, 0, 0.1)'
-                },
-                ticks: {
-                    stepSize: 25,
-                    callback: function(value) {
-                        return value + '%';
-                    }
-                }
-            },
-            x: {
-                grid: {
-                    color: 'rgba(0, 0, 0, 0.1)'
-                }
-            }
-        },
-        animation: {
-            duration: 2000,
-            easing: 'easeInOutQuart'
-        }
-    };
-
-    // Initialize charts with error handling
-    try {
-        if (typeof Chart !== 'undefined') {
-            if (document.getElementById('childrenChart')) {
-                childrenChart = new Chart(document.getElementById('childrenChart'), {
-                    type: 'line',
-                    data: childrenData,
-                    options: chartOptions
-                });
-            }
-
-            if (document.getElementById('officeChart')) {
-                officeChart = new Chart(document.getElementById('officeChart'), {
-                    type: 'line',
-                    data: officeData,
-                    options: chartOptions
-                });
-            }
-        } else {
-            // Fallback khi Chart.js không load
-            console.warn('Chart.js not loaded, using fallback display');
-            showChartFallback();
-        }
-    } catch (error) {
-        console.error('Error initializing charts:', error);
-        showChartFallback();
-    }
-}
-
-// Fallback display khi chart không hoạt động
-function showChartFallback() {
-    const chartWrappers = document.querySelectorAll('.chart-wrapper');
-    chartWrappers.forEach(wrapper => {
-        const canvas = wrapper.querySelector('canvas');
-        if (canvas) {
-            canvas.style.display = 'none';
-            const fallbackDiv = document.createElement('div');
-            fallbackDiv.className = 'chart-fallback';
-            fallbackDiv.innerHTML = `
-                <div style="text-align: center; padding: 2rem; color: var(--gray);">
-                    <p><strong>Tiến độ học tập qua 90 buổi</strong></p>
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem;">
-                        <div style="text-align: center;">
-                            <div style="background: #4A47A3; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">90%</div>
-                            <small>Nghe</small>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: #EC407A; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">85%</div>
-                            <small>Nói</small>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: #F48FB1; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">88%</div>
-                            <small>Đọc</small>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="background: #673AB7; color: white; padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">80%</div>
-                            <small>Viết</small>
-                        </div>
-                    </div>
-                </div>
-            `;
-            wrapper.appendChild(fallbackDiv);
-        }
-    });
-}
-
-// Tab functionality for pathway section
+// Learning Pathway - Tab Switching Functionality
 function initializePathwayTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const pathwayContents = document.querySelectorAll('.pathway-content');
+    console.log('Initializing pathway tabs...');
+    
+    // Wait a bit more to ensure DOM is fully ready
+    setTimeout(() => {
+        const tabBtns = document.querySelectorAll('.option-btn');
+        const courseDetail = document.querySelectorAll('.course-details-section');
+        // Set first tab as active by default
+        const firstTab = tabBtns[0];
+        const firstTarget = firstTab.getAttribute('data-target');
+        const firstContent = document.getElementById(firstTarget);
+        
+        if (firstTab && firstContent) {
+            firstTab.classList.add('active');
+            firstContent.classList.add('active');
+            console.log('Set first tab as active');
+        } else {
+            console.error('First tab or content not found');
+        }
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.dataset.target;
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.getAttribute('data-target');
+                console.log('Tab clicked, target:', target);
+                
+                // Remove active class from all tabs and contents
+                tabBtns.forEach(tab => tab.classList.remove('active'));
+                courseDetail.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                btn.classList.add('active');
+                const targetContent = document.getElementById(target);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                    console.log('Content activated:', target);
+                    
+                    // Animate the content change
+                    if (typeof gsap !== 'undefined') {
+                        gsap.fromTo(targetContent, {
+                            opacity: 0,
+                            y: 20
+                        }, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    }
+                } else {
+                    console.log('Target content not found:', target);
+                }
+            });
+        });
+    }, 100);
+}
+
+// Learning Pathway - Course Expansion Functionality
+function initializeCourseExpansion() {
+    const expandBtns = document.querySelectorAll('.expand-btn');
+    
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             
-            // Remove active class from all tabs and contents
-            tabBtns.forEach(tab => tab.classList.remove('active'));
-            pathwayContents.forEach(content => content.classList.remove('active'));
+            const targetId = btn.getAttribute('data-target');
+            const content = document.getElementById(targetId);
+            const icon = btn.querySelector('i');
             
-            // Add active class to clicked tab and corresponding content
-            btn.classList.add('active');
-            document.getElementById(target).classList.add('active');
+            if (!content) return;
+            
+            // Toggle active classes
+            const isActive = content.classList.contains('active');
+            
+            if (isActive) {
+                // Close
+                content.classList.remove('active');
+                btn.classList.remove('active');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other expanded content first
+                document.querySelectorAll('.course-content.active').forEach(activeContent => {
+                    activeContent.classList.remove('active');
+                });
+                document.querySelectorAll('.expand-btn.active').forEach(activeBtn => {
+                    activeBtn.classList.remove('active');
+                    activeBtn.querySelector('i').style.transform = 'rotate(0deg)';
+                });
+                
+                // Open this one
+                content.classList.add('active');
+                btn.classList.add('active');
+                icon.style.transform = 'rotate(45deg)';
+                
+                // Smooth scroll to the expanded content
+                setTimeout(() => {
+                    content.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 300);
+            }
+        });
+    });
+    
+    // Also allow clicking on course header to expand
+    const courseHeaders = document.querySelectorAll('.course-header');
+    courseHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const expandBtn = header.querySelector('.expand-btn');
+            if (expandBtn) {
+                expandBtn.click();
+            }
         });
     });
 }
 
-// Learning pathway animation - Với safety check
-ScrollTrigger.create({
-    trigger: ".learning-pathway",
-    start: "top 80%",
-    onEnter: () => {
-        // Đảm bảo tab buttons luôn visible trước khi animate
-        gsap.set('.pathway-tabs .tab-btn', {
-            opacity: 1,
-            display: 'inline-block',
-            visibility: 'visible'
-        });
-        
-        gsap.from('.pathway-tabs .tab-btn', {
-            opacity: 0,
-            y: 30,
-            duration: 0.2,
-            stagger: 0.2,
-            ease: "power2.out"
-        });
-        
-        gsap.from('.pathway-phases .phase', {
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-            stagger: 0.3,
-            ease: "power2.out",
-            delay: 0.5
-        });
-    }
-});
-
-// Activities section animations
-ScrollTrigger.create({
-    trigger: ".activities-section",
-    start: "top 80%",
-    onEnter: () => {
-        gsap.to('.timeline-content', {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.4,
-            ease: "power2.out"
-        });
-    }
-});
 
 // Teacher section animation
 ScrollTrigger.create({
@@ -784,9 +646,22 @@ function initializeTestimonialSlider() {
 // Start countdown when page loads
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
-    initializeCharts();
-    initializePathwayTabs();
+    initializeCourseExpansion();
     initializeTestimonialSlider();
+});
+
+// Initialize pathway tabs after a short delay to ensure all elements are loaded
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        initializePathwayTabs();
+    }, 1000);
+});
+
+// Also try to initialize on DOMContentLoaded as backup
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        initializePathwayTabs();
+    }, 500);
 });
 
 // Mobile Optimization

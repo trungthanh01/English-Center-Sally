@@ -318,112 +318,233 @@
     </div>
     </section>
     <!-- Learning Pathway Section -->
-    <section class="learning-pathway" aria-labelledby="pathwayTitle">
+    <section id="learning-pathway" class="learning-pathway" aria-labelledby="pathwayTitle">
         <div class="container">
-            <h2 class="section-title" id="pathwayTitle">Lộ Trình Học Tập 90 Buổi</h2>
+            <h2 class="section-title" id="pathwayTitle">Lộ Trình Học Hiệu Quả</h2>
+            <p class="pathway-subtitle">Cùng Sally xây dựng lộ trình học cá nhân hóa, phù hợp với mục tiêu và thời gian của bạn. Linh hoạt từ 2-4 buổi mỗi tuần, giúp bạn tiến bộ vững chắc từng ngày.</p>
             
-            <!-- Course Tabs -->
-            <div class="pathway-tabs">
-                <div class="tab-btn-container">
-                    <button class="tab-btn active" data-target="children">Trẻ Em</button>
-                </div>
-                <div class="tab-btn-container">
-                    <button class="tab-btn" data-target="office">Dân Văn Phòng</button>
-                </div>
+            <!-- Learning Target Options -->
+            <div class="learning-options">
+                <button class="option-btn option-office active" data-target="office">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="option-label">Dân văn phòng</span>
+                </button>
+                <button class="option-btn option-children" data-target="children">
+                    <i class="fas fa-child"></i>
+                    <span class="option-label">Trẻ em</span>
+                </button>
             </div>
             
-            <!-- Children Pathway -->
-            <div class="pathway-content active" id="children">
-                <div class="pathway-intro">
-                    <h3>Lộ trình học cho trẻ em (6-15 tuổi)</h3>
-                    <p>Phát triển toàn diện 4 kỹ năng Nghe - Nói - Đọc - Viết qua 90 buổi học</p>
-                </div>
-                <div class="chart-wrapper">
-                    <canvas id="childrenChart" width="400" height="200"></canvas>
-                </div>
-                <div class="pathway-phases">
-                    <div class="phase">
-                        <div class="phase-number">1</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 1: Làm quen (Buổi 1-30)</h4>
-                            <ul>
-                                <li>Học bảng chữ cái và phát âm cơ bản</li>
-                                <li>Từ vựng quen thuộc (gia đình, màu sắc, số đếm)</li>
-                                <li>Nghe và nhắc lại từ đơn giản</li>
-                                <li>Viết chữ cái và từ cơ bản</li>
+            <!-- Course Details for Office Workers -->
+                <div class="course-details-section" id="office">
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Giao tiếp trong môi trường làm việc</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-briefcase"></i>
+                                    Thiết yếu
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="office-communication">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="office-communication">
+                            <ul class="course-features">
+                                <li>Chào hỏi và giới thiệu bản thân chuyên nghiệp</li>
+                                <li>Thảo luận về dự án và công việc</li>
+                                <li>Xử lý tình huống khó khăn với đồng nghiệp</li>
+                                <li>Giao tiếp với cấp trên và cấp dưới</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="phase">
-                        <div class="phase-number">2</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 2: Phát triển (Buổi 31-60)</h4>
-                            <ul>
-                                <li>Câu giao tiếp hàng ngày</li>
-                                <li>Đọc hiểu đoạn văn ngắn</li>
-                                <li>Kể chuyện đơn giản</li>
-                                <li>Viết câu hoàn chỉnh</li>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Viết email chuyên nghiệp</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-star"></i>
+                                    Quan trọng
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="office-email">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="office-email">
+                            <ul class="course-features">
+                                <li>Cấu trúc email chuẩn quốc tế</li>
+                                <li>Từ vựng và cụm từ chuyên nghiệp</li>
+                                <li>Email yêu cầu, phản hồi và báo cáo</li>
+                                <li>Xử lý email khiếu nại và xin lỗi</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="phase">
-                        <div class="phase-number">3</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 3: Thành thạo (Buổi 61-90)</h4>
-                            <ul>
-                                <li>Giao tiếp tự tin trong các tình huống</li>
-                                <li>Đọc truyện ngắn</li>
-                                <li>Thuyết trình chủ đề yêu thích</li>
-                                <li>Viết đoạn văn mô tả</li>
-                            </ul>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Thuyết trình và họp nhóm</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-chart-line"></i>
+                                    Nâng cao
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="office-presentation">
+                                <i class="fas fa-plus"></i>
+                            </button>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Office Workers Pathway -->
-            <div class="pathway-content" id="office">
-                <div class="pathway-intro">
-                    <h3>Lộ trình học cho dân văn phòng</h3>
-                    <p>Tập trung vào kỹ năng giao tiếp công việc và viết email chuyên nghiệp</p>
-                </div>
-                <div class="chart-wrapper">
-                    <canvas id="officeChart" width="400" height="200"></canvas>
-                </div>
-                <div class="pathway-phases">
-                    <div class="phase">
-                        <div class="phase-number">1</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 1: Cơ bản (Buổi 1-30)</h4>
-                            <ul>
-                                <li>Từ vựng văn phòng cơ bản</li>
-                                <li>Giao tiếp đồng nghiệp</li>
-                                <li>Email thông báo đơn giản</li>
-                                <li>Nghe hiểu cuộc họp cơ bản</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="phase">
-                        <div class="phase-number">2</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 2: Nâng cao (Buổi 31-60)</h4>
-                            <ul>
-                                <li>Thuyết trình công việc</li>
-                                <li>Email khách hàng chuyên nghiệp</li>
+                        <div class="course-content" id="office-presentation">
+                            <ul class="course-features">
+                                <li>Chuẩn bị và trình bày ý tưởng rõ ràng</li>
+                                <li>Sử dụng slide và công cụ hỗ trợ</li>
                                 <li>Tham gia cuộc họp hiệu quả</li>
-                                <li>Đọc hiểu báo cáo</li>
+                                <li>Đàm phán và thuyết phục khách hàng</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="phase">
-                        <div class="phase-number">3</div>
-                        <div class="phase-content">
-                            <h4>Giai đoạn 3: Chuyên nghiệp (Buổi 61-90)</h4>
-                            <ul>
-                                <li>Đàm phán và thương lượng</li>
-                                <li>Viết đề xuất dự án</li>
-                                <li>Điều hành cuộc họp</li>
-                                <li>Báo cáo kết quả công việc</li>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Từ vựng chuyên ngành</h3>
+                                <span class="course-badge optional">
+                                    <i class="fas fa-book"></i>
+                                    Chuyên sâu
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="office-vocabulary">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="office-vocabulary">
+                            <ul class="course-features">
+                                <li>Thuật ngữ IT, Marketing, Finance</li>
+                                <li>Từ vựng quản lý và lãnh đạo</li>
+                                <li>Cụm từ trong báo cáo và phân tích</li>
+                                <li>Ngôn ngữ giao tiếp quốc tế</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                <!-- Course Details for Children -->
+                <div class="course-details-section" id="children">
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Phương pháp học qua trò chơi</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-heart"></i>
+                                    Vui nhộn
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="children-games">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="children-games">
+                            <ul class="course-features">
+                                <li>Học từ vựng qua game tương tác</li>
+                                <li>Hoạt động nhóm và roleplay</li>
+                                <li>Bài hát và thơ tiếng Anh</li>
+                                <li>Sử dụng đồ chơi và hình ảnh sinh động</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Phát âm chuẩn từ nhỏ</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-seedling"></i>
+                                    Nền tảng
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="children-pronunciation">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="children-pronunciation">
+                            <ul class="course-features">
+                                <li>Phonics - học âm thanh của chữ cái</li>
+                                <li>Luyện phát âm qua bài hát</li>
+                                <li>Nghe và nhắc lại từ bản ngữ</li>
+                                <li>Sửa lỗi phát âm một cách nhẹ nhàng</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Xây dựng vốn từ vựng cơ bản</h3>
+                                <span class="course-badge">
+                                    <i class="fas fa-building"></i>
+                                    Xây dựng
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="children-vocabulary">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="children-vocabulary">
+                            <ul class="course-features">
+                                <li>Từ vựng về gia đình, màu sắc, số đếm</li>
+                                <li>Động vật, đồ vật xung quanh</li>
+                                <li>Hoạt động hàng ngày của trẻ</li>
+                                <li>Mở rộng từ vựng qua câu chuyện</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="course-detail">
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="course-info">
+                                <h3>Tự tin giao tiếp bằng tiếng Anh</h3>
+                                <span class="course-badge optional">
+                                    <i class="fas fa-star"></i>
+                                    Mục tiêu
+                                </span>
+                            </div>
+                            <button class="expand-btn" data-target="children-communication">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="course-content" id="children-communication">
+                            <ul class="course-features">
+                                <li>Giới thiệu bản thân và gia đình</li>
+                                <li>Nói về sở thích và hoạt động yêu thích</li>
+                                <li>Kể chuyện đơn giản bằng tiếng Anh</li>
+                                <li>Giao tiếp với bạn bè quốc tế</li>
                             </ul>
                         </div>
                     </div>
