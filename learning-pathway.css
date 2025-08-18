@@ -216,7 +216,6 @@
 .course-content {
     max-height: 0;
     overflow: hidden;
-    /* transition: max-height 0.3s ease, padding 0.3s ease; */
     background: #f8f9fa;
 }
 
@@ -326,17 +325,6 @@
         line-height: 1.5;
     }
     
-    /* Mobile: Better course features display */
-    /* .course-features li {
-        padding: 0.75rem 0;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-    
-    .course-features li::before {
-        font-size: 1rem;
-        margin-right: 0.75rem;
-    } */
 }
 
 

@@ -165,7 +165,7 @@
     .testimonial-wrapper::after {
         content: "← Swipe →";
         position: absolute;
-        bottom: 1rem;
+        bottom: 0.5rem;
         left: 50%;
         transform: translateX(-50%);
         background: rgba(0,0,0,0.1);
@@ -176,5 +176,6 @@
         z-index: 1;
         pointer-events: none;
         opacity: 0.7;
+        margin-bottom:4em;
     }
 }
