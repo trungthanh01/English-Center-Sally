@@ -99,8 +99,7 @@
     font-size: 1.1rem;
     line-height: 1.7;
     color: var(--text);
-    font-style: italic;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     position: relative;
     font-weight: 500;
 }
@@ -108,30 +107,21 @@
 .testimonial-text::before {
     content: '"';
     font-size: 4rem;
-    color: var(--primary);
+    color: var(--accent-light);
     position: absolute;
     top: -1rem;
     left: -1rem;
-    font-family: Georgia, serif;
-    opacity: 0.15;
-    font-weight: bold;
+    font-family: serif;
+    line-height: 1;
+    opacity: 0.3;
 }
 
-.testimonial-author h4 {
+.testimonial-author {
     color: var(--primary);
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
-.testimonial-author span {
-    color: var(--gray);
-    font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1.4;
-}
-
-/* Navigation Buttons */
+/* Navigation Buttons - CRITICAL FOR VISIBILITY */
 .testimonial-nav {
     position: absolute;
     top: 50%;
@@ -142,13 +132,17 @@
     padding: 0 1.5rem;
     pointer-events: none;
     z-index: 100;
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
 }
 
 .nav-btn {
     background: var(--white);
     border: 3px solid var(--primary);
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -161,6 +155,10 @@
     z-index: 101;
     position: relative;
     font-weight: bold;
+    /* Force visibility */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
 }
 
 .nav-btn:hover {
@@ -175,8 +173,55 @@
 }
 
 .nav-btn i {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
+}
+
+/* Ensure buttons are always visible */
+.nav-btn.prev-btn {
+    left: 0;
+    margin-left: 0;
+}
+
+.nav-btn.next-btn {
+    right: 0;
+    margin-right: 0;
+}
+
+/* Force navigation buttons to be visible on all devices */
+.testimonial-nav,
+.nav-btn {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure proper positioning for navigation buttons */
+.testimonial-slider {
+    position: relative;
+    max-width: 50rem;
+    margin: 0 auto;
+    overflow: visible;
+    padding-bottom: 2rem;
+}
+
+/* Make sure testimonial wrapper doesn't hide navigation */
+.testimonial-wrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 40px var(--shadow-light);
+    gap: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    z-index: 1;
 }
 
 /* User Instructions */
@@ -257,19 +302,24 @@
         left: -0.5rem;
     }
     
-    /* Mobile Navigation Buttons */
+    /* Mobile Navigation Buttons - CRITICAL FOR VISIBILITY */
     .nav-btn {
-        width: 2.25rem;
-        height: 2.25rem;
+        width: 2.75rem;
+        height: 2.75rem;
         position: relative;
         z-index: 102;
         background: var(--white);
-        border: 2px solid var(--primary);
+        border: 3px solid var(--primary);
         box-shadow: 0 6px 20px var(--shadow-medium);
+        /* Force visibility on mobile */
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
     }
     
     .nav-btn i {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        font-weight: bold;
     }
     
     .testimonial-nav {
@@ -279,6 +329,10 @@
         transform: translateY(-50%);
         width: 100%;
         z-index: 100;
+        /* Force visibility on mobile */
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
     }
 
     /* Hide desktop instructions, show mobile */
@@ -299,16 +353,14 @@
         transform: translateX(-50%);
         background: var(--white);
         color: var(--gray);
-        padding: 0.75rem 1.5rem;
-        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
         font-size: 0.85rem;
-        z-index: 1;
-        pointer-events: none;
-        opacity: 0.9;
-        border: 1px solid var(--light-gray);
-        box-shadow: 0 2px 8px var(--shadow-light);
-        white-space: nowrap;
         font-weight: 500;
+        box-shadow: 0 4px 12px var(--shadow-light);
+        border: 1px solid var(--light-gray);
+        white-space: nowrap;
+        z-index: 10;
     }
 }
 
