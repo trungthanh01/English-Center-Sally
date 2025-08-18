@@ -29,9 +29,9 @@ img {
 
         :root {
             /* Primary Colors - Màu chính (CareerFoundry style) */
-            --primary: #03346E;      /* Xanh dương đậm - Chuyên nghiệp, tin cậy */
-            --primary-light: #3b82f6; /* Xanh dương nhạt - Nhấn mạnh */
-            --primary-dark: #1e3a8a;  /* Xanh dương tối - Độ sâu */
+            --primary: #000000;      /* Xanh dương đậm - Chuyên nghiệp, tin cậy */
+            --primary-light: #000000; /* Xanh dương nhạt - Nhấn mạnh */
+            --primary-dark: #000000;  /* Xanh dương tối - Độ sâu */
             
             /* Secondary Colors - Màu phụ */
             --secondary: #dc2626;     /* Đỏ cam - Nổi bật, năng động */

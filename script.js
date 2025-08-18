@@ -372,7 +372,6 @@ function initializeTestimonialSlider() {
     
     const wrapper = document.querySelector('.testimonial-wrapper');
     const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     
@@ -387,16 +386,9 @@ function initializeTestimonialSlider() {
     console.log('Found elements:', {
         wrapper: !!wrapper,
         slides: slides.length,
-        dots: dots.length,
         prevBtn: !!prevBtn,
         nextBtn: !!nextBtn
     });
-
-    function updateDots() {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
 
     function scrollToSlide(index) {
         if (wrapper && slides[index]) {
@@ -410,7 +402,6 @@ function initializeTestimonialSlider() {
                 behavior: 'smooth'
             });
             currentSlide = index;
-            updateDots();
         }
     }
 
@@ -445,17 +436,7 @@ function initializeTestimonialSlider() {
         console.log('Previous button event listener added');
     }
 
-    // Dots navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Dot clicked:', index);
-            scrollToSlide(index);
-        });
-    });
-
-    // Update dots dựa trên scroll position
+    // Update current slide dựa trên scroll position
     if (wrapper) {
         wrapper.addEventListener('scroll', () => {
             const slideWidth = wrapper.clientWidth;
@@ -465,7 +446,6 @@ function initializeTestimonialSlider() {
             if (newIndex !== currentSlide && newIndex >= 0 && newIndex < slides.length) {
                 console.log('Scroll detected, new index:', newIndex);
                 currentSlide = newIndex;
-                updateDots();
             }
         });
     }
@@ -516,7 +496,7 @@ function initializeTestimonialSlider() {
     }
 
     // Initialize
-    updateDots();
+    // updateDots(); // Removed as per edit hint
     
     // Auto-play (optional)
     let autoPlayInterval;
