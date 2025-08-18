@@ -2,10 +2,10 @@
         /* Hero Section - Responsive Design */
         .hero {
             position: relative;
-            padding: clamp(3rem, 8vh, 8rem) 4% clamp(2rem, 6vh, 4rem);
+            /* padding: clamp(3rem, 8vh, 8rem) 4% clamp(2rem, 6vh, 4rem); */
             overflow: hidden;
             background: var(--gradient-hero);
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
