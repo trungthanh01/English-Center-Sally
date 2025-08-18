@@ -1,7 +1,7 @@
 /* section courses */
         /* Courses */
         .courses {
-            background: var(--white);
+            background: var(--bg-primary);
             margin-bottom: 0;
             padding-bottom: 30px; /* Thêm padding dưới để tránh nội dung sát viền */
         }

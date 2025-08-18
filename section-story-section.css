@@ -1,7 +1,7 @@
 /* section story-section */
         /* Story Section - Webflow Style */
         .story-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--bg-primary);
             padding: 120px 5%;
         }
 

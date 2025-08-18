@@ -49,13 +49,15 @@
         }
         
         .testimonial-content {
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--white) 100%);
+            background: var(--white);
             padding: 3rem;
             display: flex;
             gap: 2rem;
             align-items: flex-start;
-            min-height: auto; /* Loại bỏ fixed height gây scrollbar */
+            min-height: auto;
             border: 1px solid var(--light-gray);
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px var(--shadow-light);
         }
         
         .testimonial-avatar {
@@ -68,7 +70,7 @@
             height: 5rem;
             border-radius: 50%;
             object-fit: cover;
-            border: 0.25rem solid var(--accent);
+            border: 0.25rem solid var(--primary);
             margin-bottom: 1rem;
         }
         
@@ -85,7 +87,7 @@
         .testimonial-text {
             font-size: 1.125rem;
             line-height: 1.7;
-            color: var(--dark-gray);
+            color: var(--text);
             font-style: italic;
             margin-bottom: 2rem;
             position: relative;
@@ -94,12 +96,12 @@
         .testimonial-text::before {
             content: '"';
             font-size: 4rem;
-            color: var(--accent);
+            color: var(--primary);
             position: absolute;
             top: -1rem;
             left: -1rem;
             font-family: Georgia, serif;
-            opacity: 0.4;
+            opacity: 0.2;
         }
         
         .testimonial-author h4 {
@@ -137,19 +139,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0.5rem 1rem var(--shadow-medium);
+            box-shadow: 0 4px 16px var(--shadow-medium);
             cursor: pointer;
             transition: all 0.3s ease;
             pointer-events: auto;
             color: var(--primary);
             z-index: 11;
+            border: 1px solid var(--light-gray);
         }
 
         .nav-btn:hover {
             background: var(--primary);
             color: var(--white);
-            transform: scale(1.1);
-            box-shadow: 0 0.75rem 1.5rem var(--shadow-dark);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px var(--shadow-dark);
         }
 
         .nav-btn i {
@@ -178,7 +181,7 @@
         .dot.active,
         .dot:hover {
             background: var(--primary);
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         
 
@@ -254,14 +257,16 @@
         bottom: 4rem;
         left: 50%;
         transform: translateX(-50%);
-        background: var(--shadow-medium);
+        background: var(--white);
         color: var(--gray);
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         font-size: 0.8rem;
         z-index: 1;
         pointer-events: none;
-        opacity: 0.8;
+        opacity: 0.9;
+        border: 1px solid var(--light-gray);
+        box-shadow: 0 2px 8px var(--shadow-light);
     }
     
     /* Đảm bảo dots hiển thị đúng trên mobile */

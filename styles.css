@@ -28,10 +28,10 @@ img {
 }
 
         :root {
-            /* Primary Colors - Màu chính */
-            --primary: #1e3a8a;      /* Xanh dương đậm - Chuyên nghiệp, tin cậy */
+            /* Primary Colors - Màu chính (CareerFoundry style) */
+            --primary: #03346E;      /* Xanh dương đậm - Chuyên nghiệp, tin cậy */
             --primary-light: #3b82f6; /* Xanh dương nhạt - Nhấn mạnh */
-            --primary-dark: #1e40af;  /* Xanh dương tối - Độ sâu */
+            --primary-dark: #1e3a8a;  /* Xanh dương tối - Độ sâu */
             
             /* Secondary Colors - Màu phụ */
             --secondary: #dc2626;     /* Đỏ cam - Nổi bật, năng động */
@@ -43,7 +43,7 @@ img {
             --accent-light: #fbbf24;   /* Vàng cam nhạt - Tươi sáng */
             --accent-dark: #d97706;    /* Vàng cam tối - Độ sâu */
             
-            /* Neutral Colors - Màu trung tính */
+            /* Neutral Colors - Màu trung tính (CareerFoundry style) */
             --white: #ffffff;         /* Trắng tinh khiết */
             --light: #f8fafc;         /* Xám rất nhạt - Nền sạch */
             --light-gray: #e2e8f0;    /* Xám nhạt - Viền, phân cách */
@@ -51,21 +51,21 @@ img {
             --dark-gray: #475569;     /* Xám đậm - Text chính */
             --text: #1e293b;          /* Xanh đen - Text chính */
             
-            /* Background Colors - Màu nền */
-            --bg-primary: #ffffff;     /* Nền chính - Trắng */
-            --bg-secondary: #f8fafc;   /* Nền phụ - Xám rất nhạt */
+            /* Background Colors - Màu nền (Đồng bộ #FFF6E9) */
+            --bg-primary: #FFF6E9;     /* Nền chính - Kem nhạt ấm áp */
+            --bg-secondary: #FFF6E9;   /* Nền phụ - Kem nhạt ấm áp */
             --bg-accent: #fef3c7;      /* Nền nhấn - Vàng rất nhạt */
             
             /* Shadow Colors - Màu bóng */
             --shadow-light: rgba(0, 0, 0, 0.05);
             --shadow-medium: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
             
-            /* Gradient Colors - Màu gradient */
+            /* Gradient Colors - Màu gradient (CareerFoundry style) */
             --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            --gradient-hero: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            --gradient-hero: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         body {
@@ -81,10 +81,15 @@ img {
 .section {
     padding: clamp(3rem, 8vw, 5rem) 5%;
     background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .section:nth-child(even) {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
+}
+
+.section:last-child {
+    border-bottom: none;
 }
 
 .container {
@@ -97,11 +102,12 @@ img {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     color: var(--primary);
     margin-bottom: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
 }
 
 /* Button Styles */
         .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 1rem;
             border: none;
             border-radius: 50px;
             font-size: 1rem;
@@ -118,15 +124,14 @@ img {
         }
 
         .btn-primary {
-            background: var(--gradient-secondary);
+            background: var(--gradient-primary);
             color: var(--white);
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(220, 38, 38, 0.4);
-            background: var(--gradient-secondary);
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.4);
         }
 
 /* Responsive Media Queries */
@@ -148,7 +153,7 @@ img {
     }
     
     .btn {
-        padding: 0.875rem 1.5rem;
+        padding: 0.875rem 1rem;
             font-size: 0.9rem;
         }
 

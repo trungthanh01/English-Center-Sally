@@ -209,37 +209,36 @@ document.addEventListener('click', function(e) {
     }
 });
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
+        }
+    });
+});
 
-
-        //Activities Section Animation
-        document.addEventListener('DOMContentLoaded', function () {
-        const contents = document.querySelectorAll('.timeline-content');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
+// Activities Section Animation
+document.addEventListener('DOMContentLoaded', function () {
+    const contents = document.querySelectorAll('.timeline-content');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
-            });
-        }, {
-            threshold: 0.2
         });
+    }, {
+        threshold: 0.2
+    });
 
-        contents.forEach(content => observer.observe(content));
-        });
+    contents.forEach(content => observer.observe(content));
+});
 
 // Enhanced animations for all sections với scroll optimization
 ScrollTrigger.create({
@@ -257,125 +256,6 @@ ScrollTrigger.create({
         });
     }
 });
-
-// Learning Pathway - Tab Switching Functionality
-function initializePathwayTabs() {
-    console.log('Initializing pathway tabs...');
-    
-    // Wait a bit more to ensure DOM is fully ready
-    setTimeout(() => {
-        const tabBtns = document.querySelectorAll('.option-btn');
-        const courseDetail = document.querySelectorAll('.course-details-section');
-        // Set first tab as active by default
-        const firstTab = tabBtns[0];
-        const firstTarget = firstTab.getAttribute('data-target');
-        const firstContent = document.getElementById(firstTarget);
-        
-        if (firstTab && firstContent) {
-            firstTab.classList.add('active');
-            firstContent.classList.add('active');
-            console.log('Set first tab as active');
-        } else {
-            console.error('First tab or content not found');
-        }
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.getAttribute('data-target');
-                console.log('Tab clicked, target:', target);
-                
-                // Remove active class from all tabs and contents
-                tabBtns.forEach(tab => tab.classList.remove('active'));
-                courseDetail.forEach(content => content.classList.remove('active'));
-                
-                // Add active class to clicked tab and corresponding content
-                btn.classList.add('active');
-                const targetContent = document.getElementById(target);
-                if (targetContent) {
-                    targetContent.classList.add('active');
-                    console.log('Content activated:', target);
-                    
-                    // Animate the content change
-                    if (typeof gsap !== 'undefined') {
-                        gsap.fromTo(targetContent, {
-                            opacity: 0,
-                            y: 20
-                        }, {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.5,
-                            ease: "power2.out"
-                        });
-                    }
-                } else {
-                    console.log('Target content not found:', target);
-                }
-            });
-        });
-    }, 100);
-}
-
-// Learning Pathway - Course Expansion Functionality
-function initializeCourseExpansion() {
-    const expandBtns = document.querySelectorAll('.expand-btn');
-    
-    expandBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const targetId = btn.getAttribute('data-target');
-            const content = document.getElementById(targetId);
-            const icon = btn.querySelector('i');
-            
-            if (!content) return;
-            
-            // Toggle active classes
-            const isActive = content.classList.contains('active');
-            
-            if (isActive) {
-                // Close
-                content.classList.remove('active');
-                btn.classList.remove('active');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                // Close all other expanded content first
-                document.querySelectorAll('.course-content.active').forEach(activeContent => {
-                    activeContent.classList.remove('active');
-                });
-                document.querySelectorAll('.expand-btn.active').forEach(activeBtn => {
-                    activeBtn.classList.remove('active');
-                    activeBtn.querySelector('i').style.transform = 'rotate(0deg)';
-                });
-                
-                // Open this one
-                content.classList.add('active');
-                btn.classList.add('active');
-                icon.style.transform = 'rotate(45deg)';
-                
-                // Smooth scroll to the expanded content
-                setTimeout(() => {
-                    content.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest'
-                    });
-                }, 300);
-            }
-        });
-    });
-    
-    // Also allow clicking on course header to expand
-    const courseHeaders = document.querySelectorAll('.course-header');
-    courseHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            const expandBtn = header.querySelector('.expand-btn');
-            if (expandBtn) {
-                expandBtn.click();
-            }
-        });
-    });
-}
-
 
 // Teacher section animation
 ScrollTrigger.create({
@@ -485,8 +365,6 @@ ScrollTrigger.create({
             }, "-=0.2");
     }
 });
-
-
 
 // Testimonial Horizontal Slider
 function initializeTestimonialSlider() {
@@ -667,32 +545,106 @@ function initializeTestimonialSlider() {
     console.log('Testimonial slider initialized successfully');
 }
 
-// Initialize khi page loads
-document.addEventListener('DOMContentLoaded', () => {
-    initializeCourseExpansion();
-    initializeTestimonialSlider();
-});
-
-// Initialize pathway tabs after a short delay to ensure all elements are loaded
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        initializePathwayTabs();
-    }, 1000);
-});
-
-// Also try to initialize on DOMContentLoaded as backup
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        initializePathwayTabs();
-    }, 500);
-});
-
-// Mobile Optimization
-function isMobile() {
-    return window.innerWidth <= 768;
+// Learning Pathway - Clean & Simple Implementation
+function initializeLearningPathway() {
+    console.log('Initializing Learning Pathway...');
+    
+    // Get all necessary elements
+    const optionBtns = document.querySelectorAll('.option-btn');
+    const courseSections = document.querySelectorAll('.course-details-section');
+    const expandBtns = document.querySelectorAll('.expand-btn');
+    
+    console.log('Found elements:', {
+        optionBtns: optionBtns.length,
+        courseSections: courseSections.length,
+        expandBtns: expandBtns.length
+    });
+    
+    // Function to switch between office workers and children
+    function switchTarget(targetId) {
+        console.log('Switching to target:', targetId);
+        
+        // Update active button
+        optionBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-target') === targetId);
+        });
+        
+        // Show/hide course sections
+        courseSections.forEach(section => {
+            section.classList.toggle('active', section.id === targetId);
+        });
+    }
+    
+    // Function to toggle course content
+    function toggleCourseContent(contentId, btn) {
+        const content = document.getElementById(contentId);
+        if (!content) {
+            console.error('Content not found:', contentId);
+            return;
+        }
+        
+        const isActive = content.classList.contains('active');
+        
+        if (isActive) {
+            // Close content
+            content.classList.remove('active');
+            btn.classList.remove('expanded');
+        } else {
+            // Open content
+            content.classList.add('active');
+            btn.classList.add('expanded');
+        }
+        
+        console.log('Toggled content:', contentId, 'Active:', !isActive);
+    }
+    
+    // Add event listeners for option buttons
+    optionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            switchTarget(target);
+        });
+    });
+    
+    // Add event listeners for expand buttons
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const targetId = btn.getAttribute('data-target');
+            toggleCourseContent(targetId, btn);
+        });
+    });
+    
+    // Initialize with office section active
+    const officeSection = document.getElementById('office');
+    if (officeSection) {
+        officeSection.classList.add('active');
+        console.log('Office section activated by default');
+    }
+    
+    // Set first option button as active
+    if (optionBtns.length > 0) {
+        optionBtns[0].classList.add('active');
+        console.log('First option button activated');
+    }
+    
+    console.log('Learning Pathway initialized successfully');
 }
 
-
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing components...');
+    
+    // Initialize Learning Pathway
+    initializeLearningPathway();
+    
+    // Initialize Testimonial Slider
+    initializeTestimonialSlider();
+    
+    console.log('All components initialized');
+});
 
 // Performance optimization - Reduce motion for users who prefer it
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
