@@ -36,7 +36,7 @@
 }
 
 .contact-item ion-icon {
-  color: var(--secondary);
+  color: white;
   font-size: 1.5rem;
   margin-top: 0.25rem;
   flex-shrink: 0;
@@ -60,9 +60,12 @@
 .footer-links li {
   margin-bottom: 0.75rem;
 }
+.footer-links span{
+  color: white;
+}
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: antiquewhite;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -82,9 +85,12 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   text-decoration: none;
   transition: color 0.3s;
+}
+.social-link span{
+  color: var(--light);
 }
 
 .social-link:hover {
@@ -105,6 +111,9 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.footer-bottom a{
+  color: white;
 }
 
 .footer-bottom p {
