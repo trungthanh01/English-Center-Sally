@@ -2,7 +2,7 @@
         /* Testimonials */
         /* ======================================================= */
         .testimonials {
-            background: var(--white);
+            background: var(--bg-primary);
             padding: clamp(3rem, 8vw, 5rem) 5%;
         }
         
@@ -26,6 +26,9 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none; /* Firefox */
             -ms-overflow-style: none; /* Internet Explorer */
+            /* Thêm các thuộc tính quan trọng */
+            width: 100%;
+            position: relative;
         }
 
         /* Ẩn scrollbar cho WebKit browsers */
@@ -39,15 +42,20 @@
             opacity: 1;
             transform: translateX(0);
             transition: none; /* Loại bỏ transition để scroll mượt */
+            /* Thêm các thuộc tính quan trọng */
+            min-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .testimonial-content {
-            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--white) 100%);
             padding: 3rem;
             display: flex;
             gap: 2rem;
             align-items: flex-start;
             min-height: auto; /* Loại bỏ fixed height gây scrollbar */
+            border: 1px solid var(--light-gray);
         }
         
         .testimonial-avatar {
@@ -60,12 +68,12 @@
             height: 5rem;
             border-radius: 50%;
             object-fit: cover;
-            border: 0.25rem solid var(--secondary);
+            border: 0.25rem solid var(--accent);
             margin-bottom: 1rem;
         }
         
         .testimonial-rating {
-            color: #fbbf24;
+            color: var(--accent-light);
             font-size: 1.25rem;
             margin-bottom: 1rem;
         }
@@ -77,7 +85,7 @@
         .testimonial-text {
             font-size: 1.125rem;
             line-height: 1.7;
-            color: var(--gray);
+            color: var(--dark-gray);
             font-style: italic;
             margin-bottom: 2rem;
             position: relative;
@@ -91,7 +99,7 @@
             top: -1rem;
             left: -1rem;
             font-family: Georgia, serif;
-            opacity: 0.3;
+            opacity: 0.4;
         }
         
         .testimonial-author h4 {
@@ -105,6 +113,72 @@
             color: var(--gray);
             font-size: 0.9rem;
             font-weight: normal;
+        }
+
+        /* Navigation Buttons - Cập nhật positioning */
+        .testimonial-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: var(--white);
+            border: none;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem var(--shadow-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            color: var(--primary);
+            z-index: 11;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.1);
+            box-shadow: 0 0.75rem 1.5rem var(--shadow-dark);
+        }
+
+        .nav-btn i {
+            font-size: 1rem;
+        }
+
+        /* Dots Indicator - Cập nhật styling */
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            border: none;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background: var(--primary);
+            transform: scale(1.2);
         }
         
 
@@ -121,12 +195,15 @@
     .testimonial-wrapper {
         border-radius: 1rem;
         margin: 0 -1rem; /* Extend to screen edges on mobile */
+        /* Thêm các thuộc tính quan trọng cho mobile */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
     }
 
     .testimonial-content {
         flex-direction: column;
         text-align: center;
-        padding: 2rem 1.5rem;
+        padding: 4rem 1.5rem;
         min-height: auto;
         gap: 1.5rem;
     }
@@ -155,27 +232,84 @@
     .nav-btn {
         width: 2.5rem;
         height: 2.5rem;
+        /* Đảm bảo buttons hiển thị đúng trên mobile */
+        position: relative;
+        z-index: 20;
     }
     
     .testimonial-nav {
         padding: 0 0.5rem;
+        /* Đảm bảo navigation hiển thị đúng trên mobile */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        z-index: 15;
     }
 
     /* Touch indication for swipe */
     .testimonial-wrapper::after {
         content: "← Swipe →";
         position: absolute;
-        bottom: 0.5rem;
+        bottom: 4rem;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(0,0,0,0.1);
+        background: var(--shadow-medium);
         color: var(--gray);
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         font-size: 0.8rem;
         z-index: 1;
         pointer-events: none;
-        opacity: 0.7;
-        margin-bottom:4em;
+        opacity: 0.8;
+    }
+    
+    /* Đảm bảo dots hiển thị đúng trên mobile */
+    .testimonial-dots {
+        margin-top: 1.5rem;
+        z-index: 10;
+    }
+    
+    .dot {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+}
+
+/* Thêm CSS cho tablet */
+@media (min-width: 48.1rem) and (max-width: 64rem) {
+    .testimonial-slider {
+        max-width: 80%;
+    }
+    
+    .testimonial-content {
+        padding: 2.5rem;
+        gap: 1.5rem;
+    }
+    
+    .nav-btn {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+}
+
+/* Thêm CSS cho desktop */
+@media (min-width: 64.1rem) {
+    .testimonial-slider {
+        max-width: 60rem;
+    }
+    
+    .testimonial-content {
+        padding: 3.5rem;
+        gap: 2.5rem;
+    }
+    
+    .nav-btn {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    .nav-btn:hover {
+        transform: scale(1.15);
     }
 }

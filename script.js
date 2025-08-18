@@ -470,31 +470,6 @@ ScrollTrigger.create({
         const ctaTl = gsap.timeline();
         
         ctaTl
-            .from('.cta-urgency', {
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                ease: "power2.out"
-            })
-            .from('.cta-title', {
-                opacity: 0,
-                y: 30,
-                duration: 0.2,
-                ease: "power2.out"
-            }, "-=0.3")
-            .from('.cta-subtitle', {
-                opacity: 0,
-                y: 30,
-                duration: 0.2,
-                ease: "power2.out"
-            }, "-=0.2")
-            .from('.cta-benefits .benefit-item', {
-                opacity: 0,
-                x: -30,
-                duration: 0.2,
-                stagger: 0.1,
-                ease: "power2.out"
-            }, "-=0.2")
             .from('.cta-action', {
                 opacity: 0,
                 scale: 0.9,
@@ -511,52 +486,33 @@ ScrollTrigger.create({
     }
 });
 
-// Countdown Timer
-function startCountdown() {
-    // Set countdown to 7 days from now
-    const now = new Date().getTime();
-    const countdownDate = now + (7 * 24 * 60 * 60 * 1000);
-    
-    const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-        
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        document.getElementById('days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        
-        // Add animation on seconds change
-        if (seconds % 5 === 0) {
-            gsap.to('.countdown-number', {
-                scale: 1.1,
-                duration: 0.1,
-                yoyo: true,
-                repeat: 1,
-                ease: "power2.inOut"
-            });
-        }
-        
-        if (distance < 0) {
-            clearInterval(timer);
-            document.getElementById('countdown').innerHTML = '<p style="color: var(--secondary); font-weight: 700;">Ưu đãi đã kết thúc!</p>';
-        }
-    }, 1000);
-}
+
 
 // Testimonial Horizontal Slider
 function initializeTestimonialSlider() {
+    console.log('Initializing testimonial slider...');
+    
     const wrapper = document.querySelector('.testimonial-wrapper');
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    
+    // Kiểm tra xem các elements có tồn tại không
+    if (!wrapper || slides.length === 0) {
+        console.error('Testimonial slider elements not found');
+        return;
+    }
+    
     let currentSlide = 0;
+    
+    console.log('Found elements:', {
+        wrapper: !!wrapper,
+        slides: slides.length,
+        dots: dots.length,
+        prevBtn: !!prevBtn,
+        nextBtn: !!nextBtn
+    });
 
     function updateDots() {
         dots.forEach((dot, index) => {
@@ -565,10 +521,14 @@ function initializeTestimonialSlider() {
     }
 
     function scrollToSlide(index) {
-        if (wrapper) {
+        if (wrapper && slides[index]) {
             const slideWidth = wrapper.clientWidth;
+            const targetScrollLeft = slideWidth * index;
+            
+            console.log('Scrolling to slide', index, 'at position', targetScrollLeft);
+            
             wrapper.scrollTo({
-                left: slideWidth * index,
+                left: targetScrollLeft,
                 behavior: 'smooth'
             });
             currentSlide = index;
@@ -578,39 +538,61 @@ function initializeTestimonialSlider() {
 
     function nextSlide() {
         const nextIndex = (currentSlide + 1) % slides.length;
+        console.log('Next slide:', nextIndex);
         scrollToSlide(nextIndex);
     }
 
     function prevSlide() {
         const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        console.log('Previous slide:', prevIndex);
         scrollToSlide(prevIndex);
     }
 
-    // Event listeners
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    // Event listeners cho navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide();
+        });
+        console.log('Next button event listener added');
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+        });
+        console.log('Previous button event listener added');
+    }
 
     // Dots navigation
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Dot clicked:', index);
             scrollToSlide(index);
         });
     });
 
-    // Update dots based on scroll position
+    // Update dots dựa trên scroll position
     if (wrapper) {
         wrapper.addEventListener('scroll', () => {
             const slideWidth = wrapper.clientWidth;
             const scrollLeft = wrapper.scrollLeft;
             const newIndex = Math.round(scrollLeft / slideWidth);
-            if (newIndex !== currentSlide) {
+            
+            if (newIndex !== currentSlide && newIndex >= 0 && newIndex < slides.length) {
+                console.log('Scroll detected, new index:', newIndex);
                 currentSlide = newIndex;
                 updateDots();
             }
         });
     }
 
-    // Touch/drag support for mobile
+    // Touch/drag support cho mobile
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -637,15 +619,56 @@ function initializeTestimonialSlider() {
             const walk = (x - startX) * 2;
             wrapper.scrollLeft = scrollLeft - walk;
         });
+        
+        // Touch events cho mobile
+        wrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX - wrapper.offsetLeft;
+            scrollLeft = wrapper.scrollLeft;
+        });
+        
+        wrapper.addEventListener('touchend', () => {
+            // Auto-snap to nearest slide
+            const slideWidth = wrapper.clientWidth;
+            const scrollLeft = wrapper.scrollLeft;
+            const newIndex = Math.round(scrollLeft / slideWidth);
+            if (newIndex >= 0 && newIndex < slides.length) {
+                scrollToSlide(newIndex);
+            }
+        });
     }
 
     // Initialize
     updateDots();
+    
+    // Auto-play (optional)
+    let autoPlayInterval;
+    
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+            nextSlide();
+        }, 5000); // Chuyển slide mỗi 5 giây
+    }
+    
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+    
+    // Start auto-play
+    startAutoPlay();
+    
+    // Pause auto-play khi hover
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAutoPlay);
+        wrapper.addEventListener('mouseleave', startAutoPlay);
+    }
+    
+    console.log('Testimonial slider initialized successfully');
 }
 
-// Start countdown when page loads
+// Initialize khi page loads
 document.addEventListener('DOMContentLoaded', () => {
-    startCountdown();
     initializeCourseExpansion();
     initializeTestimonialSlider();
 });

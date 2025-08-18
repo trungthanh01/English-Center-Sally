@@ -28,13 +28,44 @@ img {
 }
 
         :root {
-            --primary: #000957;      /* Xanh tím đậm - Chuyên nghiệp, tin cậy */
-            --secondary: #c83535;    /* Hồng Magenta - Nổi bật, năng động */
-            --accent: #F7CFD8;       /* Hồng nhạt - Nhẹ nhàng, nhấn nhá */
-            --light: #FEF3E2;        /* Xám rất nhạt - Nền sạch sẽ, dễ chịu */
-            --white: #FAF7F3;
-            --text: #343a40;         /* Đen nhạt - Dịu mắt hơn màu đen tuyền */
-            --gray: #6c757d;
+            /* Primary Colors - Màu chính */
+            --primary: #1e3a8a;      /* Xanh dương đậm - Chuyên nghiệp, tin cậy */
+            --primary-light: #3b82f6; /* Xanh dương nhạt - Nhấn mạnh */
+            --primary-dark: #1e40af;  /* Xanh dương tối - Độ sâu */
+            
+            /* Secondary Colors - Màu phụ */
+            --secondary: #dc2626;     /* Đỏ cam - Nổi bật, năng động */
+            --secondary-light: #ef4444; /* Đỏ cam nhạt - Nhẹ nhàng */
+            --secondary-dark: #b91c1c;  /* Đỏ cam tối - Độ sâu */
+            
+            /* Accent Colors - Màu nhấn */
+            --accent: #f59e0b;        /* Vàng cam - Ấm áp, thân thiện */
+            --accent-light: #fbbf24;   /* Vàng cam nhạt - Tươi sáng */
+            --accent-dark: #d97706;    /* Vàng cam tối - Độ sâu */
+            
+            /* Neutral Colors - Màu trung tính */
+            --white: #ffffff;         /* Trắng tinh khiết */
+            --light: #f8fafc;         /* Xám rất nhạt - Nền sạch */
+            --light-gray: #e2e8f0;    /* Xám nhạt - Viền, phân cách */
+            --gray: #64748b;          /* Xám trung bình - Text phụ */
+            --dark-gray: #475569;     /* Xám đậm - Text chính */
+            --text: #1e293b;          /* Xanh đen - Text chính */
+            
+            /* Background Colors - Màu nền */
+            --bg-primary: #ffffff;     /* Nền chính - Trắng */
+            --bg-secondary: #f8fafc;   /* Nền phụ - Xám rất nhạt */
+            --bg-accent: #fef3c7;      /* Nền nhấn - Vàng rất nhạt */
+            
+            /* Shadow Colors - Màu bóng */
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            
+            /* Gradient Colors - Màu gradient */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            --gradient-hero: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
         }
 
         body {
@@ -43,20 +74,22 @@ img {
             color: var(--text);
     font-weight: 400;
     font-display: swap;
+    background-color: var(--bg-primary);
 }
-
-
-
-
-
 
 /* Sections */
 .section {
     padding: clamp(3rem, 8vw, 5rem) 5%;
+    background-color: var(--bg-primary);
+}
+
+.section:nth-child(even) {
+    background-color: var(--bg-secondary);
 }
 
 .container {
             margin: 0 auto;
+            max-width: 1200px;
 }
 
 .section-title {
@@ -81,17 +114,19 @@ img {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-light);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--secondary), #ff6b9d);
-            color: white;
-            box-shadow: 0 10px 30px rgba(236, 64, 122, 0.3);
+            background: var(--gradient-secondary);
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(236, 64, 122, 0.4);
+            box-shadow: 0 12px 35px rgba(220, 38, 38, 0.4);
+            background: var(--gradient-secondary);
         }
 
 /* Responsive Media Queries */
@@ -128,67 +163,7 @@ img {
 
 
 
-/* Navigation Buttons */
-.testimonial-nav {
-        position: absolute;
-top: 50%;
-transform: translateY(-50%);
-        width: 100%;
-display: flex;
-            justify-content: space-between;
-padding: 0 1rem;
-pointer-events: none;
-}
-
-.nav-btn {
-background: white;
-border: none;
-width: 3rem;
-height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
-cursor: pointer;
-transition: all 0.3s ease;
-pointer-events: auto;
-            color: var(--primary);
-}
-
-.nav-btn:hover {
-background: var(--primary);
-color: white;
-transform: scale(1.1);
-}
-
-.nav-btn i {
-    font-size: 1rem;
-}
-
-/* Dots Indicator */
-.testimonial-dots {
-    display: flex;
-    justify-content: center;
-gap: 0.75rem;
-margin-top: 2rem;
-}
-
-.dot {
-width: 0.75rem;
-height: 0.75rem;
-border-radius: 50%;
-border: none;
-background: rgba(74, 71, 163, 0.3);
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.dot.active,
-.dot:hover {
-  background: var(--primary);
-transform: scale(1.2);
-}
+/* Navigation Buttons và Dots đã được di chuyển vào testimonials.css */
 
 
 
