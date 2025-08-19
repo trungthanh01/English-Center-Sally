@@ -106,13 +106,21 @@
     line-height: 1.6;
 }
 
-/* Course Details */
+/* Course Details Sections */
 .course-details-section {
     display: none;
 }
 
 .course-details-section.active {
     display: block;
+}
+
+#office {
+    display: block;
+}
+
+#children {
+    display: none;
 }
 
 .course-detail {
@@ -124,36 +132,40 @@
     overflow: hidden;
 }
 
+/* Course Header */
 .course-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.course-header:hover {
-    background: var(--bg-secondary);
+    background: var(--bg-accent);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    position: relative;
 }
 
 .course-icon {
-    font-size: 2rem;
-    color: var(--secondary);
-    background: rgba(236, 64, 122, 0.1);
-    padding: 0.75rem;
-    border-radius: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
     flex-shrink: 0;
 }
 
 .course-info {
     flex: 1;
+    min-width: 0;
 }
 
 .course-info h3 {
     font-size: 1.25rem;
-    color: var(--primary);
-    margin: 0 0 0.5rem 0;
+    color: var(--text);
+    margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
@@ -162,40 +174,53 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.25rem 0.75rem;
-    background: var(--accent-light);
-    color: var(--white);
+    background: var(--white);
+    color: var(--primary);
     border-radius: 1rem;
     font-size: 0.8rem;
     font-weight: 600;
+    border: 1px solid var(--light-gray);
 }
 
-.course-badge.optional {
-    background: var(--primary-light);
+.course-badge i {
+    color: var(--accent);
 }
 
+/* Expand Button - CRITICAL FOR LEARNING PATHWAY */
 .expand-btn {
-    background: var(--primary);
-    color: var(--white);
-    border: none;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--primary);
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .expand-btn:hover {
-    background: var(--primary-dark);
-    transform: scale(1.1);
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.05);
 }
 
+.expand-btn.expanded {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Rotate Animation for Learning Pathway */
 .expand-btn i {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(0deg);
+    display: inline-block;
 }
 
 .expand-btn.expanded i {
