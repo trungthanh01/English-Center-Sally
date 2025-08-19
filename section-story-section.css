@@ -78,29 +78,6 @@
             line-height: 1.6;
         }
 
-        /* Story Transition */
-        .story-transition {
-            text-align: center;
-            margin: 3rem 0;
-            opacity: 0;
-        }
-
-        .transition-arrow {
-            width: 60px;
-            height: 60px;
-            background: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            animation: bounce-arrow 2s infinite;
-        }
-
-        .transition-arrow ion-icon {
-            font-size: 2rem;
-            color: white;
-        }
 
         @keyframes bounce-arrow {
             0%, 20%, 50%, 80%, 100% {
@@ -114,126 +91,9 @@
             }
         }
 
-        .transition-text {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 600;
-            font-style: italic;
-            margin: 0.5rem 0;
-        }
 
-        /* Sally Story */
-        .sally-story {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 4rem;
-        }
-
-        .story-image {
-            position: relative;
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .story-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .story-text {
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .story-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .story-quote {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--secondary);
-            margin-bottom: 2.5rem;
-            font-weight: 600;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .story-quote::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -25px;
-            font-size: 4rem;
-            color: var(--accent);
-            opacity: 0.5;
-        }
-
-        /* Journey Steps */
-        .story-journey {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .journey-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            opacity: 0;
-            transform: translateX(30px);
-        }
-
-        .step-number {
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        .step-content p {
-            color: var(--gray);
-            line-height: 1.6;
-            text-align: left;
-        }
         /* Story Section Media Queries */
 @media (max-width: 48rem) {
-    .sally-story {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-    
-    .story-image {
-        order: 2;
-    }
-    
-    .story-text {
-        order: 1;
-    }
-
     .problems-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;

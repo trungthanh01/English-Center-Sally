@@ -1,170 +1,338 @@
-/* section teacher */
-        /* Teacher Section */
+/* Teacher Section - Modern Card Design */
 /* ======================================================= */
 .teacher {
     background: var(--bg-primary);
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 30px;
-    padding-bottom: 50px;
+    padding: clamp(3rem, 8vw, 5rem) 5%;
 }
 
-.teacher-content {
-    display: block;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    align-items: start;
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
-.teacher-image {
-    border: 2px solid var(--secondary);
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
+
+/* Teachers Grid */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    max-width: 80rem;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Teacher Card */
+.teacher-card {
+    background: var(--white);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px var(--shadow-light);
+    border: 1px solid var(--light-gray);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.teacher-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px var(--shadow-medium);
+}
+
+/* Teacher Header */
+.teacher-header {
+    padding: 2rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: scale(0.8) rotate(10deg);
-}
-
-.teacher-image img {
-    width: 200%;
-    height: 200%;
-    object-fit: cover;
-    border-radius: 50%;
+    gap: 1.5rem;
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-accent) 0%, var(--white) 100%);
 }
 
 .teacher-avatar {
-    width: 200px;
-    height: 200px;
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
-    background: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: var(--primary);
-    margin: 0 auto;
-}
-.teacher-details {
-    text-align: center;
-   
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    box-shadow: 0 6px 20px var(--shadow-medium);
 }
 
-@media (min-width: 992px) {
-    .teacher-details-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-    .teacher-achievements,
-    .teacher-certificates,
-    .teacher-experience,
-    .teacher-skills {
-        width: 100%;
-    }
+.teacher-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-info {
+    flex: 1;
+    min-width: 0;
 }
 
 .teacher-name {
-    font-size: 2.2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
     margin-bottom: 0.5rem;
-    opacity: 0;
-    transform: translateY(30px);
+    line-height: 1.3;
 }
 
-.teacher-social {
-    margin-bottom: 1.5rem;
+.teacher-title {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.teacher-social .social-links {
+.teacher-badges {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.badge-secondary {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.badge-accent {
+    background: var(--accent);
+    color: var(--white);
+}
+
+/* Expand Button */
+.expand-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
-.teacher-social .social-links a {
-    color: var(--gray);
-    font-size: 1.5rem;
-    transition: color 0.3s, transform 0.3s;
+.expand-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
 }
 
-.teacher-social .social-links a:hover {
-    color: var(--secondary);
-    transform: scale(1.2);
+.expand-btn.expanded {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.expand-btn.expanded i {
+    transform: rotate(45deg);
+}
+
+/* Teacher Details Section */
+.teacher-details-section {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.teacher-details-section.expanded {
+    max-height: 50rem;
+    padding: 2rem;
+    opacity: 1;
+    border-top: 1px solid var(--light-gray);
 }
 
 .teacher-bio {
-    font-size: 1.1rem;
-    color: var(--gray);
     margin-bottom: 2rem;
 }
 
 .teacher-bio p {
-    opacity: 0;
-    transform: translateY(20px);
+    color: var(--gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.teacher-achievements,
-.teacher-certificates,
-.teacher-experience,
-.teacher-skills {
-    margin-bottom: 1.5rem;
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border-left: 5px solid var(--secondary);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    opacity: 0;
-    transform: translateY(30px);
+/* Teacher Credentials */
+.teacher-credentials {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.teacher-achievements h4,
-.teacher-certificates h4,
-.teacher-experience h4,
-.teacher-skills h4 {
+.credential-item h4 {
     color: var(--primary);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.teacher-achievements ul,
-.teacher-certificates ul,
-.teacher-experience ul,
-.teacher-skills ul {
+.credential-item h4 i {
+    font-size: 1.1rem;
+}
+
+.credential-item ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
 }
 
-.teacher-achievements ul li,
-.teacher-certificates ul li,
-.teacher-experience ul li,
-.teacher-skills ul li {
-    position: relative;
-    padding-left: 1.5rem;
+.credential-item li {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
     margin-bottom: 0.5rem;
-    text-align: left;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-.teacher-achievements ul li::before,
-.teacher-certificates ul li::before,
-.teacher-experience ul li::before,
-.teacher-skills ul li::before {
-    content: "✓";
+.credential-item li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
     position: absolute;
     left: 0;
-    color: var(--secondary);
-    font-weight: bold;
 }
 
-/* Teacher Section Media Queries */
+/* Teacher Social */
+.teacher-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-accent);
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--light-gray);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+.social-link i {
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
 @media (max-width: 48rem) {
-    .teacher-content {
+    .teachers-grid {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .teacher-header {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .teacher-avatar {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    
+    .teacher-name {
+        font-size: 1.1rem;
+    }
+    
+    .teacher-title {
+        font-size: 0.8rem;
+    }
+    
+    .expand-btn {
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .teacher-details-section.expanded {
+        padding: 1.5rem;
+    }
+    
+    .teacher-credentials {
+        gap: 1.25rem;
+    }
+    
+    .credential-item h4 {
+        font-size: 0.95rem;
+    }
+    
+    .credential-item li {
+        font-size: 0.85rem;
+    }
+    
+    .social-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 49rem) and (max-width: 75rem) {
+    .teachers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+    }
+}
+
+@media (min-width: 76rem) {
+    .teachers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 100rem) {
+    .teachers-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
     }
 }

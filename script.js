@@ -103,46 +103,9 @@ ScrollTrigger.create({
     }
 });
 
-ScrollTrigger.create({
-    trigger: ".story-transition",
-    start: "top 80%",
-    onEnter: () => {
-        gsap.to('.story-transition', {
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out"
-        });
-    }
-});
 
-ScrollTrigger.create({
-    trigger: ".sally-story",
-    start: "top 80%",
-    onEnter: () => {
-        const storyTl = gsap.timeline();
-        
-        storyTl
-            .to('.story-image', {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out"
-            })
-            .to('.story-text', {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out"
-            }, "-=0.4")
-            .to('.journey-step', {
-                opacity: 1,
-                x: 0,
-                duration: 0.2,
-                stagger: 0.3,
-                ease: "power2.out"
-            }, "-=0.2");
-    }
-});
+
+
 
 // Parallax effect for hero image - TẮT TẠM THỜI ĐỂ DEBUG
 gsap.to('.hero-image img', {
@@ -551,66 +514,81 @@ function initializeLearningPathway() {
         
         // Show/hide course sections
         courseSections.forEach(section => {
-            section.classList.toggle('active', section.id === targetId);
+            section.classList.toggle('active', section.getAttribute('data-target') === targetId);
         });
     }
     
-    // Function to toggle course content
-    function toggleCourseContent(contentId, btn) {
-        const content = document.getElementById(contentId);
-        if (!content) {
-            console.error('Content not found:', contentId);
-            return;
-        }
+    // Function to toggle course content expansion
+    function toggleCourseContent(btn) {
+        const detailsSection = btn.closest('.course-detail').querySelector('.course-details-section');
+        const isExpanded = detailsSection.classList.contains('expanded');
         
-        const isActive = content.classList.contains('active');
-        
-        if (isActive) {
-            // Close content
-            content.classList.remove('active');
-            btn.classList.remove('expanded');
+        if (isExpanded) {
+            detailsSection.classList.remove('expanded');
+            btn.innerHTML = '<i class="fas fa-plus"></i>';
         } else {
-            // Open content
-            content.classList.add('active');
-            btn.classList.add('expanded');
+            detailsSection.classList.add('expanded');
+            btn.innerHTML = '<i class="fas fa-minus"></i>';
         }
-        
-        console.log('Toggled content:', contentId, 'Active:', !isActive);
     }
     
-    // Add event listeners for option buttons
+    // Event listeners for option buttons
     optionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-target');
-            switchTarget(target);
-        });
-    });
-    
-    // Add event listeners for expand buttons
-    expandBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
             const targetId = btn.getAttribute('data-target');
-            toggleCourseContent(targetId, btn);
+            switchTarget(targetId);
         });
     });
     
-    // Initialize with office section active
-    const officeSection = document.getElementById('office');
-    if (officeSection) {
-        officeSection.classList.add('active');
-        console.log('Office section activated by default');
-    }
-    
-    // Set first option button as active
-    if (optionBtns.length > 0) {
-        optionBtns[0].classList.add('active');
-        console.log('First option button activated');
-    }
+    // Event listeners for expand buttons
+    expandBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            toggleCourseContent(btn);
+        });
+    });
     
     console.log('Learning Pathway initialized successfully');
+}
+
+// Teacher Cards - Expand/Collapse Functionality
+function initializeTeacherCards() {
+    console.log('Initializing Teacher Cards...');
+    
+    const teacherCards = document.querySelectorAll('.teacher-card');
+    const teacherExpandBtns = document.querySelectorAll('.teacher-card .expand-btn');
+    
+    console.log('Found teacher elements:', {
+        teacherCards: teacherCards.length,
+        teacherExpandBtns: teacherExpandBtns.length
+    });
+    
+    // Function to toggle teacher details expansion
+    function toggleTeacherDetails(btn) {
+        const teacherCard = btn.closest('.teacher-card');
+        const detailsSection = teacherCard.querySelector('.teacher-details-section');
+        const isExpanded = detailsSection.classList.contains('expanded');
+        
+        if (isExpanded) {
+            // Collapse
+            detailsSection.classList.remove('expanded');
+            btn.classList.remove('expanded');
+            btn.innerHTML = '<i class="fas fa-plus"></i>';
+        } else {
+            // Expand
+            detailsSection.classList.add('expanded');
+            btn.classList.add('expanded');
+            btn.innerHTML = '<i class="fas fa-minus"></i>';
+        }
+    }
+    
+    // Event listeners for teacher expand buttons
+    teacherExpandBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            toggleTeacherDetails(btn);
+        });
+    });
+    
+    console.log('Teacher Cards initialized successfully');
 }
 
 // Initialize everything when DOM is loaded
@@ -622,6 +600,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize Testimonial Slider
     initializeTestimonialSlider();
+    
+    // Initialize Teacher Cards
+    initializeTeacherCards();
     
     console.log('All components initialized');
 });

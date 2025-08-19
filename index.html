@@ -218,52 +218,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Transition Arrow -->
-                <div class="story-transition">
-                    <div class="transition-arrow">
-                        <ion-icon name="arrow-down-outline"></ion-icon>
-                    </div>
-                    <p class="transition-text">Câu chuyện của Sally bắt đầu từ đây...</p>
-                </div>
-
-                <!-- Solution Phase -->
-                <div class="story-phase solution-phase">
-                    <div class="phase-content">
-                        <div class="sally-story">
-                                            <div class="story-image">
-                    <img src="/teacher_img.jpg" alt="Cô Sally - Giảng viên tiếng Anh" loading="lazy" width="400" height="300">
-                </div>
-                            <div class="story-text">
-                                <h2>Câu chuyện của Sally</h2>
-                                <p class="story-quote">"Tôi hiểu cảm giác đó... Cách đây 15 năm, tôi cũng từng sợ nói tiếng Anh"</p>
-                                <div class="story-journey">
-                                    <div class="journey-step">
-                                        <div class="step-number">01</div>
-                                        <div class="step-content">
-                                            <h4>Từ sự sợ hãi</h4>
-                                            <p>Tôi đã trải qua những ngày tháng thiếu tự tin, sợ sai khi nói tiếng Anh</p>
-                                        </div>
-                                    </div>
-                                    <div class="journey-step">
-                                        <div class="step-number">02</div>
-                                        <div class="step-content">
-                                            <h4>Tìm ra phương pháp</h4>
-                                            <p>Qua nghiên cứu và thực hành, tôi phát triển phương pháp học tập trung vào giao tiếp thực tế</p>
-                                        </div>
-                                    </div>
-                                    <div class="journey-step">
-                                        <div class="step-number">03</div>
-                                        <div class="step-content">
-                                            <h4>Chia sẻ thành công</h4>
-                                            <p>Giờ đây, tôi muốn giúp bạn vượt qua những khó khăn mà tôi đã từng trải qua</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -776,71 +730,274 @@
     <!-- Teacher Section -->
     <section id="teacher" class="section teacher" aria-labelledby="teacherTitle">
         <div class="container">
-            <h2 class="section-title" id="teacherTitle">Giảng Viên</h2>
-            <div class="teacher-content" itemscope itemtype="https://schema.org/Person">
-                <div class="teacher-image">
-                    <div class="teacher-avatar">
-                        <img src="/teacher_img.jpg" alt="Giảng viên Lê Thu Anh" itemprop="image" loading="lazy" width="200" height="200">
-                    </div>
-                </div>
-                
-                <div class="teacher-details">
-                    
-                    <h3 class="teacher-name" itemprop="name">Cô Lê Thu Anh (Sally)</h3>
-                    <div class="teacher-social">
-                        <div class="social-links">
-                            <a href="https://www.tiktok.com/@sallyle12345?_t=ZS-8yEBGz94t3R&_r=1" 
-                                target="_blank" aria-label="TikTok Sally">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                            <a href="https://www.facebook.com/miss.thuanh?mibextid=wwXIfr&rdid=3udCZUhXgHll2ZkK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AxhupotPc%2F%3Fmibextid%3DwwXIfr" 
-                                target="_blank" aria-label="Facebook Sally">
-                                <i class="fab fa-facebook"></i> 
-                            </a>
+            <h2 class="section-title" id="teacherTitle">Đội Ngũ Giảng Viên Chất Lượng</h2>
+            <p class="section-subtitle">Được tuyển chọn kỹ lưỡng với chuyên môn cao và kinh nghiệm giảng dạy phong phú</p>
+            
+            <div class="teachers-grid">
+                <!-- Teacher Card 1 - Sally -->
+                <div class="teacher-card" data-teacher="sally">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">
+                            <img src="teacher_img.jpg" alt="Cô Lê Thu Anh (Sally)" loading="lazy">
                         </div>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">Cô Lê Thu Anh (Sally)</h3>
+                            <div class="teacher-title">Giám đốc & Giảng viên chính</div>
+                            <div class="teacher-badges">
+                                <span class="badge badge-primary">TESOL</span>
+                                <span class="badge badge-secondary">IELTS 8.0</span>
+                                <span class="badge badge-accent">5+ năm KN</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn" aria-label="Xem thông tin chi tiết">
+                            <i class="fas fa-plus"></i>
+                        </button>
                     </div>
-                    <div class="teacher-bio">
-                        <p itemprop="description">
-                            Với nhiều năm kinh nghiệm giảng dạy tiếng Anh, cô Sally cam kết mang đến phương pháp học hiệu quả và thú vị nhất cho học viên.
-                        </p>
-                        <p>
-                            Chuyên môn mạnh về giao tiếp thực tế và ứng dụng tiếng Anh trong công việc hàng ngày.
-                        </p>
-                    </div>
-                    <div class="teacher-details-grid">
-                        <div class="teacher-achievements">
-                            <h4>Thành tích nổi bật:</h4>
-                            <ul>
-                                <li>1000+ học viên đã học tại English Sally</li>
-                                <li>Phương pháp giảng dạy cá nhân hóa</li>
-                                <li>Tập trung vào kỹ năng thực hành</li>
-                            </ul>
+                    
+                    <div class="teacher-details-section">
+                        <div class="teacher-bio">
+                            <p>Chuyên gia giảng dạy tiếng Anh giao tiếp với phương pháp cá nhân hóa, tập trung vào kỹ năng thực hành và ứng dụng thực tế.</p>
                         </div>
                         
-                        <div class="teacher-certificates">
-                            <h4>Bằng cấp &amp; Chứng chỉ</h4>
-                            <ul>
-                                <li>Cử nhân Ngôn ngữ Anh - Đại học Sư phạm TP.HCM</li>
-                                <li>Chứng chỉ TESOL quốc tế</li>
-                                <li>Chứng chỉ IELTS 8.0</li>
-                            </ul>
+                        <div class="teacher-credentials">
+                            <div class="credential-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Bằng cấp</h4>
+                                <ul>
+                                    <li>Cử nhân Ngôn ngữ Anh - Đại học Sư phạm TP.HCM</li>
+                                    <li>Chứng chỉ TESOL quốc tế</li>
+                                    <li>Chứng chỉ IELTS 8.0</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-briefcase"></i> Kinh nghiệm</h4>
+                                <ul>
+                                    <li>5+ năm giảng dạy tại các trung tâm lớn</li>
+                                    <li>Đào tạo tiếng Anh doanh nghiệp</li>
+                                    <li>Chuyên gia tiếng Anh trẻ em & người đi làm</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-star"></i> Thành tích</h4>
+                                <ul>
+                                    <li>1000+ học viên thành công</li>
+                                    <li>Phương pháp giảng dạy sáng tạo</li>
+                                    <li>Tỷ lệ hài lòng 98%</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="teacher-experience">
-                            <h4>Kinh nghiệm làm việc</h4>
-                            <ul>
-                                <li>5+ năm giảng dạy tiếng Anh tại các trung tâm lớn</li>
-                                <li>Giảng viên tiếng Anh giao tiếp cho doanh nghiệp</li>
-                                <li>Đào tạo tiếng Anh trẻ em và người đi làm</li>
-                                <li>Hỗ trợ học viên ngoài giờ học, tư vấn lộ trình cá nhân hóa</li>
-                            </ul>
+                        
+                        <div class="teacher-social">
+                            <a href="https://www.tiktok.com/@sallyle12345" target="_blank" class="social-link">
+                                <i class="fab fa-tiktok"></i>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="https://www.facebook.com/miss.thuanh" target="_blank" class="social-link">
+                                <i class="fab fa-facebook"></i>
+                                <span>Facebook</span>
+                            </a>
                         </div>
-                        <div class="teacher-skills">
-                            <h4>Kỹ năng chuyên môn</h4>
-                            <ul>
-                                <li>Phát triển kỹ năng giao tiếp thực tế</li>
-                                <li>Xây dựng sự tự tin khi sử dụng tiếng Anh</li>
-                                <li>Ứng dụng phương pháp học hiện đại, sáng tạo</li>
-                            </ul>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 2 - Emma -->
+                <div class="teacher-card" data-teacher="emma">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">
+                            <img src="img/hero-img-1.jpg" alt="Cô Emma Johnson" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">Cô Emma Johnson</h3>
+                            <div class="teacher-title">Giảng viên tiếng Anh trẻ em</div>
+                            <div class="teacher-badges">
+                                <span class="badge badge-primary">CELTA</span>
+                                <span class="badge badge-secondary">Cambridge</span>
+                                <span class="badge badge-accent">3+ năm KN</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn" aria-label="Xem thông tin chi tiết">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="teacher-details-section">
+                        <div class="teacher-bio">
+                            <p>Chuyên gia giảng dạy tiếng Anh trẻ em với phương pháp vui nhộn, sáng tạo, giúp trẻ học tiếng Anh một cách tự nhiên và hiệu quả.</p>
+                        </div>
+                        
+                        <div class="teacher-credentials">
+                            <div class="credential-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Bằng cấp</h4>
+                                <ul>
+                                    <li>Cử nhân Giáo dục Mầm non - ĐH Melbourne</li>
+                                    <li>Chứng chỉ CELTA Cambridge</li>
+                                    <li>Chứng chỉ tiếng Anh trẻ em</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-briefcase"></i> Kinh nghiệm</h4>
+                                <ul>
+                                    <li>3+ năm giảng dạy tiếng Anh trẻ em</li>
+                                    <li>Chuyên gia phương pháp Montessori</li>
+                                    <li>Đào tạo giáo viên mầm non</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-star"></i> Thành tích</h4>
+                                <ul>
+                                    <li>500+ học viên nhí thành công</li>
+                                    <li>Phương pháp học qua trò chơi</li>
+                                    <li>Trẻ tự tin giao tiếp sau 6 tháng</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="teacher-social">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 3 - Michael -->
+                <div class="teacher-card" data-teacher="michael">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">
+                            <img src="img/hero-img-1.jpg" alt="Thầy Michael Chen" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">Thầy Michael Chen</h3>
+                            <div class="teacher-title">Giảng viên tiếng Anh doanh nghiệp</div>
+                            <div class="teacher-badges">
+                                <span class="badge badge-primary">MBA</span>
+                                <span class="badge badge-secondary">TOEIC 990</span>
+                                <span class="badge badge-accent">7+ năm KN</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn" aria-label="Xem thông tin chi tiết">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="teacher-details-section">
+                        <div class="teacher-bio">
+                            <p>Chuyên gia đào tạo tiếng Anh doanh nghiệp với kinh nghiệm thực tế trong môi trường công ty đa quốc gia, giúp học viên tự tin giao tiếp trong công việc.</p>
+                        </div>
+                        
+                        <div class="teacher-credentials">
+                            <div class="credential-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Bằng cấp</h4>
+                                <ul>
+                                    <li>MBA - ĐH Harvard Business School</li>
+                                    <li>Cử nhân Kinh tế - ĐH Stanford</li>
+                                    <li>Chứng chỉ TOEIC 990/990</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-briefcase"></i> Kinh nghiệm</h4>
+                                <ul>
+                                    <li>7+ năm làm việc tại Google, Microsoft</li>
+                                    <li>Đào tạo tiếng Anh cho 50+ công ty</li>
+                                    <li>Chuyên gia giao tiếp đa văn hóa</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-star"></i> Thành tích</h4>
+                                <ul>
+                                    <li>2000+ nhân viên được đào tạo</li>
+                                    <li>95% học viên tăng lương sau khóa học</li>
+                                    <li>Chứng chỉ tiếng Anh doanh nghiệp</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="teacher-social">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 4 - Sarah -->
+                <div class="teacher-card" data-teacher="sarah">
+                    <div class="teacher-header">
+                        <div class="teacher-avatar">
+                            <img src="img/hero-img-1.jpg" alt="Cô Sarah Williams" loading="lazy">
+                        </div>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">Cô Sarah Williams</h3>
+                            <div class="teacher-title">Giảng viên luyện thi IELTS/TOEFL</div>
+                            <div class="teacher-badges">
+                                <span class="badge badge-primary">IELTS 9.0</span>
+                                <span class="badge badge-secondary">TOEFL 120</span>
+                                <span class="badge badge-accent">4+ năm KN</span>
+                            </div>
+                        </div>
+                        <button class="expand-btn" aria-label="Xem thông tin chi tiết">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="teacher-details-section">
+                        <div class="teacher-bio">
+                            <p>Chuyên gia luyện thi IELTS/TOEFL với phương pháp hiệu quả, giúp học viên đạt điểm cao trong thời gian ngắn nhất.</p>
+                        </div>
+                        
+                        <div class="teacher-credentials">
+                            <div class="credential-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Bằng cấp</h4>
+                                <ul>
+                                    <li>Thạc sĩ Ngôn ngữ học - ĐH Oxford</li>
+                                    <li>Chứng chỉ giảng dạy tiếng Anh</li>
+                                    <li>IELTS 9.0, TOEFL 120/120</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-briefcase"></i> Kinh nghiệm</h4>
+                                <ul>
+                                    <li>4+ năm luyện thi IELTS/TOEFL</li>
+                                    <li>Giảng viên tại British Council</li>
+                                    <li>Chuyên gia chấm thi IELTS</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="credential-item">
+                                <h4><i class="fas fa-star"></i> Thành tích</h4>
+                                <ul>
+                                    <li>1000+ học viên đạt IELTS 7.0+</li>
+                                    <li>Phương pháp học hiệu quả</li>
+                                    <li>Tỷ lệ đạt mục tiêu 95%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="teacher-social">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-telegram"></i>
+                                <span>Telegram</span>
+                            </a>
                         </div>
                     </div>
                 </div>
