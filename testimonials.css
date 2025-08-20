@@ -41,7 +41,7 @@
     flex: 0 0 100%;
     scroll-snap-align: start;
     min-width: 100%;
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
 }
 
@@ -123,105 +123,70 @@
 
 /* Navigation Buttons - CRITICAL FOR VISIBILITY */
 .testimonial-nav {
-    position: absolute;
+    position: relative;
     top: 50%;
+    left: 0;
+    right: 0;
     transform: translateY(-50%);
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 1.5rem;
+    align-items: center;
     pointer-events: none;
-    z-index: 100;
-    /* Force visibility */
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
+    z-index: 999;
 }
 
-.nav-btn {
-    background: var(--white);
-    border: 3px solid var(--primary);
+.nav-btn i{
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    border: 2px solid var(--primary);
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 25px var(--shadow-medium);
     cursor: pointer;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-    color: var(--primary);
-    z-index: 101;
-    position: relative;
+    font-size: 1.2rem;
     font-weight: bold;
-    /* Force visibility */
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: flex !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    pointer-events: auto;
+    z-index: 100;
 }
 
-.nav-btn:hover {
+.nav-btn i:hover {
     background: var(--primary);
     color: var(--white);
-    transform: scale(1.1);
-    box-shadow: 0 12px 35px var(--shadow-dark);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--shadow-dark);
 }
 
 .nav-btn:active {
     transform: scale(0.95);
 }
 
-.nav-btn i {
-    font-size: 1.2rem;
-    font-weight: bold;
+.nav-btn  {
+    border: none;
+    background: none;
 }
 
-/* Ensure buttons are always visible */
-.nav-btn.prev-btn {
-    left: 0;
-    margin-left: 0;
+.nav-btn:hover i {
+    transform: scale(1.1);
 }
 
-.nav-btn.next-btn {
-    right: 0;
-    margin-right: 0;
+/* Position buttons outside the card */
+.prev-btn {
+    margin-left: 1.5rem;
 }
 
-/* Force navigation buttons to be visible on all devices */
-.testimonial-nav,
-.nav-btn {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+.next-btn {
+    margin-right: 1.5rem;
 }
 
-/* Ensure proper positioning for navigation buttons */
-.testimonial-slider {
-    position: relative;
-    max-width: 50rem;
-    margin: 0 auto;
-    overflow: visible;
-    padding-bottom: 2rem;
-}
-
-/* Make sure testimonial wrapper doesn't hide navigation */
-.testimonial-wrapper {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    border-radius: 1.25rem;
-    box-shadow: 0 12px 40px var(--shadow-light);
-    gap: 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    width: 100%;
-    position: relative;
-    margin-bottom: 1rem;
-    z-index: 1;
+/* Hide navigation buttons on mobile */
+@media (max-width: 48rem) {
+    .testimonial-nav {
+        display: none;
+    }
 }
 
 /* User Instructions */
@@ -303,38 +268,10 @@
     }
     
     /* Mobile Navigation Buttons - CRITICAL FOR VISIBILITY */
-    .nav-btn {
-        width: 2.75rem;
-        height: 2.75rem;
-        position: relative;
-        z-index: 102;
-        background: var(--white);
-        border: 3px solid var(--primary);
-        box-shadow: 0 6px 20px var(--shadow-medium);
-        /* Force visibility on mobile */
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: flex !important;
-    }
-    
-    .nav-btn i {
-        font-size: 1rem;
-        font-weight: bold;
-    }
-    
     .testimonial-nav {
-        padding: 0 1rem;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        z-index: 100;
-        /* Force visibility on mobile */
-        opacity: 1 !important;
-        visibility: visible !important;
-        display: flex !important;
+        display: none;
     }
-
+    
     /* Hide desktop instructions, show mobile */
     .desktop-instructions {
         display: none;
@@ -375,14 +312,6 @@
         gap: 1.5rem;
     }
     
-    .nav-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-    
-    .nav-btn i {
-        font-size: 1rem;
-    }
 }
 
 /* Desktop Design */
@@ -396,16 +325,6 @@
         gap: 2rem;
     }
     
-    .nav-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
+ 
     
-    .nav-btn:hover {
-        transform: scale(1.1);
-    }
-    
-    .nav-btn i {
-        font-size: 1rem;
-    }
 }
